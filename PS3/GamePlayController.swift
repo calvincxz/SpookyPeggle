@@ -24,6 +24,8 @@ class GamePlayController: UIViewController, ContactDelegate {
     @IBOutlet private weak var ballCountLabel: UILabel!
     @IBOutlet private weak var pegBoard: PegBoardView!
 
+    @IBOutlet private weak var bucketView: BucketView!
+
     // Force unwrapping is used since engine must be initialised by viewDidAppear()
     private var engine: PeggleGameEngine!
     private var gameObjectToImageViewDictionary = [GameObject: PegImageView]()
@@ -94,6 +96,7 @@ class GamePlayController: UIViewController, ContactDelegate {
         engine.resetEngine()
         cannonView.resetCannonDirection()
         cannonView.reloadBall()
+        pegBoard.addBucketToBoard(bucket: bucketView)
         setupGameLevel(gameLevel: gameLevel)
     }
 
@@ -149,6 +152,10 @@ class GamePlayController: UIViewController, ContactDelegate {
 
     func handleBallMovement(ballObject: GameObject) {
         pegBoard.getBall()?.moveTo(point: ballObject.centre)
+    }
+
+    func handleBucketMovement(bucket: GameBucket) {
+        pegBoard.getBucket()?.moveTo(point: bucket.centre)
     }
 
     func handlePegHitByBall(pegObject: GameObject) {

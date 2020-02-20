@@ -13,10 +13,22 @@ import UIKit
  gameplay screen which contains the peg images that user sees.
 */
 class PegBoardView: UIView {
-    var ball: BallView?
+    private var ball: BallView?
+    private var bucket: BucketView?
+
+    private var pegs = [PegImageView]()
 
     func getBall() -> BallView? {
         return ball
+    }
+
+    func getBucket() -> BucketView? {
+        return bucket
+    }
+
+    func addBucketToBoard(bucket: BucketView) {
+        self.addSubview(bucket)
+        self.bucket = bucket
     }
 
     func addBallToBoard(ball: BallView) {
@@ -30,6 +42,7 @@ class PegBoardView: UIView {
     }
 
     func addPegToBoard(peg: PegImageView) {
+        pegs.append(peg)
         self.addSubview(peg)
     }
 
@@ -38,8 +51,8 @@ class PegBoardView: UIView {
     }
 
     func clearBoard() {
-        ball = nil
-        for peg in self.subviews {
+        removeBallFromBoard()
+        for peg in pegs {
             peg.removeFromSuperview()
         }
     }

@@ -35,11 +35,19 @@ public class PhysicsBody {
     }
 
     /// Creates a rectangular physics body.
-    init(centre: CGPoint, size: CGSize) {
+    init(size: CGSize, centre: CGPoint) {
         self.shape = Shape.Rectangle
         self.centre = centre
         self.size = size
         self.radius = CGFloat.zero
+    }
+
+    /// Creates a rectangular physics body.
+    init(triangleWithCentre: CGPoint) {
+        self.shape = Shape.Triangle
+        self.centre = triangleWithCentre
+        self.radius = CGFloat.zero
+        self.size = CGSize.zero
     }
 
     /// Creates a copy of the `PhysicsBody`
@@ -69,6 +77,18 @@ public class PhysicsBody {
         let squaredDistanceY = (centre.y - circularObject.centre.y) * (centre.y - circularObject.centre.y)
         let distanceBetweenObjects = sqrt(squaredDistanceX + squaredDistanceY)
         let minimumDistance = radius + circularObject.radius
+        return distanceBetweenObjects <= minimumDistance
+    }
+
+    public func collidedWith(rectangularObject: PhysicsBody) -> Bool {
+        guard isShape(.Circle) && rectangularObject.isShape(.Rectangle) else {
+            return false
+        }
+
+        let squaredDistanceX = (centre.x - rectangularObject.centre.x) * (centre.x - rectangularObject.centre.x)
+        let squaredDistanceY = (centre.y - rectangularObject.centre.y) * (centre.y - rectangularObject.centre.y)
+        let distanceBetweenObjects = sqrt(squaredDistanceX + squaredDistanceY)
+        let minimumDistance = radius + rectangularObject.radius
         return distanceBetweenObjects <= minimumDistance
     }
 

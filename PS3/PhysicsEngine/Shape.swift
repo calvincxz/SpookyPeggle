@@ -10,4 +10,5 @@ public enum Shape {
 
     case Circle
     case Rectangle
+    case Triangle
 }

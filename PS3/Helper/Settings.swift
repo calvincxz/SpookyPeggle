@@ -22,6 +22,10 @@ enum Settings {
     static let initialBallCount = 5
     static let cannonRotationPerGesture = CGFloat(0.02)
     static let maximumCannonRotationAngle = CGFloat(1.2)
+    static let bucketWidth = CGFloat(260)
+    static let bucketHeight = CGFloat(100)
+
+
     static let messageForSaveLevel = "Enter level name: "
     static let messageForLoadLevel = "Choose level to load: "
     static let messageForSaveLevel_invalidFileName = "Level name was invalid. Enter a new name: "

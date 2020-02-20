@@ -19,6 +19,8 @@ class PeggleGameEngine {
     private var gameObjects = Set<GamePeg>()
     private var ballObject: GameBall?
     weak var contactDelegate: ContactDelegate?
+    private var bucket: GameBucket
+    var area: CGSize
 
     private var score = 0 {
         didSet {
@@ -42,7 +44,9 @@ class PeggleGameEngine {
 
     /// Creates a `PeggleGameEngine` with a `PhysicsEngine` of a given area.
     init(area: CGSize) {
+        self.area = area
         self.physicsEngine = PhysicsEngine(area: area)
+        self.bucket = GameBucket(area: area)
         let displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
         displayLink.preferredFramesPerSecond = 60
         displayLink.add(to: .current, forMode: .common)
@@ -53,11 +57,14 @@ class PeggleGameEngine {
         guard let ball = ballObject else {
             return
         }
+        print(bucket.centre)
 
         handleBottomExit(ball: ball)
-        handleWallCollision(ball: ball)
+        handleWallCollision(ball: ball, bucket: bucket)
         handleBallCollisionWithPeg(ball: ball)
         handleBallMovement(ball: ball)
+        handleBucketMovement(bucket: bucket)
+        handleBucketCollision(ball: ball)
     }
 
     /// Resets the `PeggleGameEngine` for a new game.
@@ -67,6 +74,7 @@ class PeggleGameEngine {
         physicsEngine.resetPhysicsEngine()
         gameObjects.removeAll()
         ballObject = nil
+        bucket.resetVelocity()
     }
 
     /// Returns true if there are no orange pegs in the `PeggleGameEngine`.
@@ -77,6 +85,10 @@ class PeggleGameEngine {
     /// Gets the current ball in game from the `PeggleGameEngine`.
     func getBall() -> GameObject? {
         return ballObject
+    }
+
+    func addBucket() {
+        self.bucket = GameBucket(area: area)
     }
 
     /// Loads a ball to the `PeggleGameEngine`for starting the game.
@@ -92,6 +104,7 @@ class PeggleGameEngine {
     func removeBall() {
         self.ballObject = nil
         contactDelegate?.handleBallExit()
+        bucket.resetVelocity()
     }
 
     /// Adds a  `GameObject` to the `PeggleGameEngine`.
@@ -108,6 +121,11 @@ class PeggleGameEngine {
     private func handleBallMovement(ball: GameBall) {
         ball.move()
         contactDelegate?.handleBallMovement(ballObject: ball)
+    }
+
+    private func handleBucketMovement(bucket: GameBucket) {
+        bucket.move()
+        contactDelegate?.handleBucketMovement(bucket: bucket)
     }
 
     /// Checks if ball will collide with a peg in the `PhysicsEngine`and
@@ -141,9 +159,21 @@ class PeggleGameEngine {
 
     /// Checks if ball has collided with the wall in the `PhysicsEngine`.
     /// Updates velocity of the ball in the game.
-    private func handleWallCollision(ball: GameObject) {
+    private func handleWallCollision(ball: GameObject, bucket: GameBucket) {
         if physicsEngine.checkSideCollision(object: ball) {
             ball.reflectVelocityInDirectionX()
+        }
+
+        if physicsEngine.checkSideCollision(rectangularObject: bucket) {
+            bucket.reflectVelocityInDirectionX()
+        }
+    }
+
+    private func handleBucketCollision(ball: GameObject) {
+        if bucket.collideWith(ball: ball) {
+            ball.reflectVelocityInDirectionY()
+            ballCount += 10
+            print("collided")
         }
     }
 }

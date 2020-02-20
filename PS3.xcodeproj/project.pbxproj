@@ -11,6 +11,8 @@
 		3E1D2EA923F28D27009779F9 /* GamePeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EA823F28D27009779F9 /* GamePeg.swift */; };
 		3E1D2EAB23F291AC009779F9 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EAA23F291AC009779F9 /* BallView.swift */; };
 		3E221C6223FE793D00E309B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E221C6123FE793D00E309B4 /* HomeViewController.swift */; };
+		3E221C6523FE7C6600E309B4 /* GameBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E221C6423FE7C6600E309B4 /* GameBucket.swift */; };
+		3E221C6723FE8A8800E309B4 /* BucketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E221C6623FE8A8800E309B4 /* BucketView.swift */; };
 		3E2DAD1723E7C92E00A211D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD1623E7C92E00A211D3 /* AppDelegate.swift */; };
 		3E2DAD1923E7C92E00A211D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD1823E7C92E00A211D3 /* SceneDelegate.swift */; };
 		3E2DAD1B23E7C92E00A211D3 /* GamePlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD1A23E7C92E00A211D3 /* GamePlayController.swift */; };
@@ -57,6 +59,8 @@
 		3E1D2EA823F28D27009779F9 /* GamePeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePeg.swift; sourceTree = "<group>"; };
 		3E1D2EAA23F291AC009779F9 /* BallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
 		3E221C6123FE793D00E309B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3E221C6423FE7C6600E309B4 /* GameBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBucket.swift; sourceTree = "<group>"; };
+		3E221C6623FE8A8800E309B4 /* BucketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketView.swift; sourceTree = "<group>"; };
 		3E2DAD1323E7C92E00A211D3 /* PS3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PS3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2DAD1623E7C92E00A211D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2DAD1823E7C92E00A211D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				3E9BF44423EE60860027C454 /* CannonView.swift */,
 				3E2DAD5923E7D9A100A211D3 /* PegImageView.swift */,
 				3E1D2EAA23F291AC009779F9 /* BallView.swift */,
+				3E221C6623FE8A8800E309B4 /* BucketView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				3E2DAD6323E7F2A500A211D3 /* GameObject.swift */,
 				3E1D2EA623F28D12009779F9 /* GameBall.swift */,
+				3E221C6423FE7C6600E309B4 /* GameBucket.swift */,
 				3E1D2EA823F28D27009779F9 /* GamePeg.swift */,
 				3E2DAD4B23E7D8FC00A211D3 /* PeggleGameEngine.swift */,
 			);
@@ -357,6 +363,7 @@
 				3E2DAD5423E7D99300A211D3 /* CGPoint + Hashable.swift in Sources */,
 				3E2DAD5223E7D99300A211D3 /* GameLevel.swift in Sources */,
 				3E2DAD6423E7F2A500A211D3 /* GameObject.swift in Sources */,
+				3E221C6723FE8A8800E309B4 /* BucketView.swift in Sources */,
 				3E2DAD6023E7DA1E00A211D3 /* GameDisplayHelper.swift in Sources */,
 				3E221C6223FE793D00E309B4 /* HomeViewController.swift in Sources */,
 				3E2DAD4A23E7CA0E00A211D3 /* PhysicsBody.swift in Sources */,
@@ -371,6 +378,7 @@
 				3EBC267623E83E07001630AB /* SampleLevel.swift in Sources */,
 				3EF70F8223EEB002003152B2 /* Alert.swift in Sources */,
 				3E1D2EA923F28D27009779F9 /* GamePeg.swift in Sources */,
+				3E221C6523FE7C6600E309B4 /* GameBucket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

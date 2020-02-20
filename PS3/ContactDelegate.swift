@@ -28,4 +28,6 @@ protocol ContactDelegate: AnyObject {
     /// Handles the event of a ball count update
     func updateBallCount(ballCount: Int)
 
+    func handleBucketMovement(bucket: GameBucket)
+
 }

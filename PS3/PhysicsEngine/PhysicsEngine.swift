@@ -53,8 +53,14 @@ public class PhysicsEngine {
         return checkLeftSideCollision(object: object) || checkRightSideCollision(object: object)
     }
 
+    public func checkSideCollision(rectangularObject: PhysicsBody) -> Bool {
+        return rectangularObject.centre.x <= rectangularObject.size.width / 2 ||
+            rectangularObject.centre.x >= area.width - rectangularObject.size.width / 2
+    }
+
     /// Checks if a `PhysicsBody`collided with the left side of the given area.
     public func checkLeftSideCollision(object: PhysicsBody) -> Bool {
+
         return object.centre.x <= object.radius
     }
 

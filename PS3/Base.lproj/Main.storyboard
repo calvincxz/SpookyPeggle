@@ -25,7 +25,20 @@
                             </imageView>
                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fY5-3h-eGp" customClass="PegBoardView" customModule="PS3" customModuleProvider="target">
                                 <rect key="frame" x="20" y="50" width="984" height="1146"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucket" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Fh-jkr" customClass="BucketView" customModule="PS3" customModuleProvider="target">
+                                        <rect key="frame" x="352" y="1046" width="280" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="vM0-HZ-4MH"/>
+                                            <constraint firstAttribute="width" constant="280" id="z9J-hj-7ak"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="fyf-Fh-jkr" firstAttribute="centerX" secondItem="fY5-3h-eGp" secondAttribute="centerX" id="72X-MH-RHm"/>
+                                    <constraint firstItem="fyf-Fh-jkr" firstAttribute="bottom" secondItem="fY5-3h-eGp" secondAttribute="bottom" id="AVT-WX-nUC"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvU-0k-hkK" customClass="CannonView" customModule="PS3" customModuleProvider="target">
                                 <rect key="frame" x="472" y="0.0" width="80" height="80"/>
@@ -160,6 +173,7 @@
                         <outlet property="background" destination="agE-oF-MM8" id="PtL-xs-5Nz"/>
                         <outlet property="ballCountLabel" destination="Y32-xQ-Jtk" id="82j-hX-PHs"/>
                         <outlet property="ballView" destination="oi9-wx-eWO" id="Pjg-GO-0Hc"/>
+                        <outlet property="bucketView" destination="fyf-Fh-jkr" id="PtE-M2-IMn"/>
                         <outlet property="cannon" destination="4ua-Qa-PLR" id="fCL-mb-zCc"/>
                         <outlet property="cannonView" destination="rvU-0k-hkK" id="z7K-xU-4In"/>
                         <outlet property="display" destination="iwP-cP-agl" id="BrR-P6-Uxp"/>
@@ -179,7 +193,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="130.21582733812951" y="114.92805755395683"/>
+            <point key="canvasLocation" x="130.078125" y="114.64128843338213"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="MEt-VS-gHI">
@@ -199,6 +213,14 @@
                                     <action selector="goToPlay:" destination="zvn-yv-alN" eventType="touchUpInside" id="q7j-8x-GKy"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bucket" translatesAutoresizingMaskIntoConstraints="NO" id="rmL-v2-DmB">
+                                <rect key="frame" x="260" y="873" width="263" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="peg-green-triangle" translatesAutoresizingMaskIntoConstraints="NO" id="4XG-XB-VgU">
+                                <rect key="frame" x="642" y="843" width="147" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Qe3-Fl-Jog"/>
@@ -215,6 +237,8 @@
     <resources>
         <image name="background" width="4000" height="3000"/>
         <image name="ball" width="256" height="256"/>
+        <image name="bucket" width="405" height="467"/>
         <image name="cannon" width="459" height="464"/>
+        <image name="peg-green-triangle" width="128" height="112.5"/>
     </resources>
 </document>
