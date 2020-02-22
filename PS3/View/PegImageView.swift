@@ -25,11 +25,26 @@ class PegImageView: UIImageView {
     }
 
     /// Constructs  a `PegImageView` from a `Peg`
-    convenience init(peg: Peg) {
-        let centre = peg.getCentrePoint()
-        let diameter = peg.getDiameter()
-        self.init(diameter: diameter, centre: centre, pegType: peg.getPegType())
+    convenience init?(peg: Peg) {
+        if let peg = peg as? CirclePeg {
+            self.init(circlePeg: peg)
+        } else if let peg = peg as? TrianglePeg {
+            self.init(trianglePeg: peg)
+        } else {
+            return nil
+        }
+    }
 
+    convenience init(circlePeg: CirclePeg) {
+        let centre = circlePeg.getCentrePoint()
+        let diameter = circlePeg.getDiameter()
+        self.init(diameter: diameter, centre: centre, pegType: circlePeg.getPegType())
+    }
+
+    convenience init(trianglePeg: TrianglePeg) {
+        let centre = trianglePeg.centre
+        let diameter = trianglePeg.diameter
+        self.init(diameter: diameter, centre: centre, pegType: trianglePeg.pegType)
     }
 
     @available(*, unavailable)

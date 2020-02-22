@@ -21,6 +21,8 @@ enum GameDisplayHelper {
             return #imageLiteral(resourceName: "peg-orange")
         case .erase:
             return #imageLiteral(resourceName: "delete.png")
+        case .green:
+            return #imageLiteral(resourceName: "peg-green-triangle")
         }
     }
 
@@ -31,6 +33,8 @@ enum GameDisplayHelper {
             return #imageLiteral(resourceName: "peg-blue-glow")
         case .orange:
             return #imageLiteral(resourceName: "peg-orange-glow")
+        case .green:
+            return #imageLiteral(resourceName: "peg-green-glow-triangle")
         default:
             return nil
         }
@@ -71,5 +75,18 @@ enum GameDisplayHelper {
 
     static func showLoseAlert(in controller: UIViewController) {
         Alert.presentAlert(controller: controller, title: "Game Over!", message: "You lose. Try again next time!")
+    }
+
+    // Code adapted from https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
+
+    static func area(p1: CGPoint, p2: CGPoint, p3: CGPoint) -> CGFloat {
+
+        let x1 = p1.x
+        let y1 = p1.y
+        let x2 = p2.x
+        let y2 = p2.y
+        let x3 = p3.x
+        let y3 = p3.y
+        return abs((x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2))/2.0)
     }
 }

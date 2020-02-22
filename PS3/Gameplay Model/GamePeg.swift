@@ -17,12 +17,23 @@ class GamePeg: GameObject {
     private let pegType: PegType
 
     /// Constructs a `GamePeg` from a `Peg` object.
-    init(peg: Peg) {
-        let radius = peg.getDiameter() / 2
-        let centre = peg.getCentrePoint()
-        self.pegType = peg.getPegType()
-        super.init(radius: radius, centre: centre)
-        self.isDynamic = false
+    init?(peg: Peg) {
+        if let peg = peg as? CirclePeg {
+            let radius = peg.diameter / 2
+            let centre = peg.centre
+            self.pegType = peg.pegType
+            super.init(radius: radius, centre: centre)
+            self.isDynamic = false
+        } else if let peg = peg as? TrianglePeg {
+            let radius = peg.diameter / 2
+            let centre = peg.centre
+            self.pegType = peg.pegType
+            super.init(radius: radius, centre: centre)
+            self.isDynamic = false
+        } else {
+            return nil
+        }
+
     }
 
     /// Returns the `PegType` of the `GamePeg`

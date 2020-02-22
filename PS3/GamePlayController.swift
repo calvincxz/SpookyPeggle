@@ -120,11 +120,13 @@ class GamePlayController: UIViewController, ContactDelegate {
 
     /// Adds a game peg to both the `PeggleGameEngine` and `PegBoardView`
     private func addToModelView(peg: Peg) {
-        let pegImageView = PegImageView(peg: peg)
-        pegBoard.addPegToBoard(peg: pegImageView)
-        let pegObject = GamePeg(peg: peg)
-        engine.addToGameEngine(gameObject: pegObject)
-        gameObjectToImageViewDictionary[pegObject] = pegImageView
+        if let pegImageView = PegImageView(peg: peg), let pegObject = GamePeg(peg: peg) {
+
+            pegBoard.addPegToBoard(peg: pegImageView)
+            engine.addToGameEngine(gameObject: pegObject)
+            gameObjectToImageViewDictionary[pegObject] = pegImageView
+        }
+
     }
 
     /**

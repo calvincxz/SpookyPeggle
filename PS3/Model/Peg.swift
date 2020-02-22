@@ -11,54 +11,34 @@ import CoreGraphics
 /**
 `Peg` is an abstract data structure that represents a peg object
 */
-struct Peg: Codable, Hashable {
-    private let pegType: PegType
-    private let centre: CGPoint
-    private let diameter: CGFloat
-    var isHit = false
+class Peg: Codable, Hashable {
+    static func == (lhs: Peg, rhs: Peg) -> Bool {
+        return lhs.centre == rhs.centre &&
+            lhs.pegType == rhs.pegType
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(centre)
+        hasher.combine(pegType)
+    }
+
+
+    let pegType: PegType
+    let centre: CGPoint
 
     /// Creates a peg with the given peg type and centre.
     init(withType pegType: PegType, centre: CGPoint) {
-        self.init(withType: pegType, centre: centre, diameter: Settings.defaultPegDiameter)
-
-    }
-
-    /// Creates a peg with the given peg type, centre and a diameter.
-    init(withType pegType: PegType, centre: CGPoint, diameter: CGFloat) {
         self.pegType = pegType
         self.centre = centre
-        self.diameter = diameter
-    }
-
-    /// Returns the centre of a peg as a point.
-    func getCentrePoint() -> CGPoint {
-        return centre
-    }
-
-    /// Returns the diameter of a peg.
-    func getDiameter() -> CGFloat {
-        return diameter
-    }
-
-    /// Returns the peg type of a peg.
-    func getPegType() -> PegType {
-        return pegType
     }
 
     /// Checks if the peg intersects with another peg.
     func intersects(otherPeg: Peg) -> Bool {
-        let otherCentre = otherPeg.getCentrePoint()
-        return centre.distanceTo(other: otherCentre) < diameter
+        return centre == otherPeg.centre
     }
 
     /// Checks if the peg contains a point.
     func contains(point: CGPoint) -> Bool {
-        let radius = diameter / 2
-        return centre.distanceTo(other: point) < radius
+        return centre == point
     }
-
-    mutating func hitByBall() {
-        self.isHit = true
-    }
-
 }

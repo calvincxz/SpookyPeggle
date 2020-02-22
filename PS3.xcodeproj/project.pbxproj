@@ -41,6 +41,8 @@
 		3EAF89F323F5542F0005F559 /* GameObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF89F223F5542F0005F559 /* GameObjectTest.swift */; };
 		3EAF89F523F5543C0005F559 /* PeggleGameEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */; };
 		3EBC267623E83E07001630AB /* SampleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC267523E83E07001630AB /* SampleLevel.swift */; };
+		3ECAACF9240010EB000796D3 /* TrianglePeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECAACF8240010EB000796D3 /* TrianglePeg.swift */; };
+		3ECAACFB24001276000796D3 /* CirclePeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECAACFA24001276000796D3 /* CirclePeg.swift */; };
 		3EF70F8223EEB002003152B2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF70F8123EEB002003152B2 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		3EAF89F223F5542F0005F559 /* GameObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjectTest.swift; sourceTree = "<group>"; };
 		3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleGameEngineTest.swift; sourceTree = "<group>"; };
 		3EBC267523E83E07001630AB /* SampleLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLevel.swift; sourceTree = "<group>"; };
+		3ECAACF8240010EB000796D3 /* TrianglePeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrianglePeg.swift; sourceTree = "<group>"; };
+		3ECAACFA24001276000796D3 /* CirclePeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePeg.swift; sourceTree = "<group>"; };
 		3EF70F8123EEB002003152B2 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +184,8 @@
 			children = (
 				3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */,
 				3E2DAD4F23E7D99300A211D3 /* Peg.swift */,
+				3ECAACFA24001276000796D3 /* CirclePeg.swift */,
+				3ECAACF8240010EB000796D3 /* TrianglePeg.swift */,
 				3E2DAD5023E7D99300A211D3 /* CGPoint + Hashable.swift */,
 				3E2DAD5123E7D99300A211D3 /* PegType.swift */,
 			);
@@ -365,12 +371,14 @@
 				3E2DAD6423E7F2A500A211D3 /* GameObject.swift in Sources */,
 				3E221C6723FE8A8800E309B4 /* BucketView.swift in Sources */,
 				3E2DAD6023E7DA1E00A211D3 /* GameDisplayHelper.swift in Sources */,
+				3ECAACFB24001276000796D3 /* CirclePeg.swift in Sources */,
 				3E221C6223FE793D00E309B4 /* HomeViewController.swift in Sources */,
 				3E2DAD4A23E7CA0E00A211D3 /* PhysicsBody.swift in Sources */,
 				3E2DAD1723E7C92E00A211D3 /* AppDelegate.swift in Sources */,
 				3E2DAD1923E7C92E00A211D3 /* SceneDelegate.swift in Sources */,
 				3E9FD2F923F6CB0D007DE77A /* ContactDelegate.swift in Sources */,
 				3E2DAD5523E7D99300A211D3 /* PegType.swift in Sources */,
+				3ECAACF9240010EB000796D3 /* TrianglePeg.swift in Sources */,
 				3E1D2EA723F28D12009779F9 /* GameBall.swift in Sources */,
 				3E1D2EAB23F291AC009779F9 /* BallView.swift in Sources */,
 				3E2DAD5C23E7D9A100A211D3 /* PegImageView.swift in Sources */,
