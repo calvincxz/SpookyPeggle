@@ -89,4 +89,105 @@ enum GameDisplayHelper {
         let y3 = p3.y
         return abs((x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2))/2.0)
     }
+
+    static func pointCircle(point: CGPoint, centre: CGPoint, radius: CGFloat) -> Bool {
+        return centre.distanceTo(other: point) < radius
+    }
+
+    // LINE/POINT
+    static func linePoint(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat, px: CGFloat, py: CGFloat) -> Bool {
+        let point = CGPoint(x: px, y: py)
+        let p1 = CGPoint(x: x1, y: y1)
+        let p2 = CGPoint(x: x2, y: y2)
+      // get distance from the point to the two ends of the line
+        let d1 = point.distanceTo(other: p1)
+        let d2 = point.distanceTo(other: p2)
+
+      // get the length of the line
+        let lineLen = p1.distanceTo(other: p2)
+
+      // since floats are so minutely accurate, add
+      // a little buffer zone that will give collision
+        let buffer = CGFloat(0.1);    // higher # = less accurate
+
+      // if the two distances are equal to the line's
+      // length, the point is on the line!
+      // note we use the buffer here to give a range,
+      // rather than one #
+      if (d1+d2 >= lineLen-buffer && d1+d2 <= lineLen+buffer) {
+        return true
+      }
+      return false
+    }
+
+    // Code adapted from http://www.jeffreythompson.org/collision-detection/line-circle.php
+    static func lineCircle(p1: CGPoint, p2: CGPoint, centre: CGPoint, radius: CGFloat) -> Bool {
+
+        let x1 = p1.x
+        let y1 = p1.y
+        let x2 = p2.x
+        let y2 = p2.y
+        let cx = centre.x
+        let cy = centre.y
+        let r = radius
+        // is either end INSIDE the circle?
+        // if so, return true immediately
+        let inside1 = pointCircle(point: p1, centre: centre, radius: radius)
+        let inside2 = pointCircle(point: p2, centre: centre, radius: radius)
+        if inside1 || inside2 {
+            return true
+        }
+
+        // get length of the line
+        var distX = x1 - x2
+        var distY = y1 - y2
+        let len = sqrt( (distX*distX) + (distY*distY) )
+
+        // get dot product of the line and circle
+        let dot = ( ((cx-x1)*(x2-x1)) + ((cy-y1)*(y2-y1)) ) / (len * len)
+
+        // find the closest point on the line
+        let closestX = x1 + (dot * (x2-x1))
+        let closestY = y1 + (dot * (y2-y1))
+
+        // is this point actually on the line segment?
+        // if so keep going, but if not, return false
+        let onSegment = linePoint(x1: x1,y1: y1,x2: x2,y2: y2, px: closestX,py: closestY)
+        if !onSegment {
+            return false
+        }
+
+        // get distance to closest point
+        distX = closestX - cx
+        distY = closestY - cy
+        let distance = sqrt( (distX*distX) + (distY*distY) )
+
+        if distance <= r {
+            return true
+        }
+        return false
+    }
+
+    static func getVerticesOfTriangle(centre: CGPoint, lengthOfBase: CGFloat) -> [CGPoint] {
+        let halfLength = lengthOfBase / 2
+        let topVertex = CGPoint(x: centre.x, y: centre.y - halfLength)
+        let leftVertex = CGPoint(x: centre.x - halfLength, y: centre.y + halfLength)
+        let rightVertex = CGPoint(x: centre.x + halfLength, y: centre.y + halfLength)
+        return [topVertex, leftVertex, rightVertex]
+    }
+
+    static func getClosestEdge(centre: CGPoint, radius: CGFloat, vertices: [CGPoint]) -> (CGPoint, CGPoint)? {
+        for i in 0..<vertices.count {
+            let pointA = vertices[i]
+            let pointB = vertices[(i + 1) % vertices.count]
+            if lineCircle(p1: pointA, p2: pointB, centre: centre, radius: radius) {
+                return (pointA, pointB)
+            }
+        }
+        return nil
+    }
+
+    static func reverseVelocity(_ velocity: CGVector) -> CGVector {
+        return CGVector(dx: -velocity.dx, dy: -velocity.dy)
+    }
 }

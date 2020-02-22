@@ -22,6 +22,7 @@ public class PhysicsBody {
     var mass = CGFloat.zero
     var velocity = CGVector.zero
     var acceleration = CGVector.zero
+    var vertices = [CGPoint]()
     var isResting: Bool {
         return velocity == CGVector.zero
     }
@@ -43,11 +44,12 @@ public class PhysicsBody {
     }
 
     /// Creates a rectangular physics body.
-    init(triangleWithCentre: CGPoint) {
+    init(triangleWithCentre: CGPoint, length: CGFloat) {
         self.shape = Shape.Triangle
         self.centre = triangleWithCentre
         self.radius = CGFloat.zero
         self.size = CGSize.zero
+        self.vertices = GameDisplayHelper.getVerticesOfTriangle(centre: centre, lengthOfBase: length)
     }
 
     /// Creates a copy of the `PhysicsBody`
@@ -60,10 +62,29 @@ public class PhysicsBody {
         self.velocity = physicsBody.velocity
         self.acceleration = physicsBody.acceleration
         self.shape = physicsBody.shape
+        self.vertices = physicsBody.vertices
     }
 
     func isShape(_ shape: Shape) -> Bool {
         return self.shape == shape
+    }
+
+    /// Checks if the `PhysicsBody` collided with another `PhysicsBody`
+    /// Returns false if either object is not a circle
+    public func collidedWith(triangularObject: PhysicsBody) -> Bool {
+        guard isShape(.Circle) && triangularObject.isShape(.Triangle) else {
+            return false
+        }
+
+        let length = triangularObject.vertices.count
+        for i in 0..<length {
+            let pointA = triangularObject.vertices[i]
+            let pointB = triangularObject.vertices[(i + 1) % length]
+            if GameDisplayHelper.lineCircle(p1: pointA, p2: pointB, centre: centre, radius: radius) {
+                return true
+            }
+        }
+        return false
     }
 
     /// Checks if the `PhysicsBody` collided with another `PhysicsBody`
@@ -103,13 +124,24 @@ public class PhysicsBody {
             return false
         }
 
-        let object = PhysicsBody(physicsBody: circularObject)
+        let object = PhysicsBody(physicsBody: self)
         object.move()
-        let squaredDistanceX = (centre.x - object.centre.x) * (centre.x - object.centre.x)
-        let squaredDistanceY = (centre.y - object.centre.y) * (centre.y - object.centre.y)
+        let squaredDistanceX = (object.centre.x - circularObject.centre.x) * (object.centre.x - circularObject.centre.x)
+        let squaredDistanceY = (object.centre.y - circularObject.centre.y) * (object.centre.y - circularObject.centre.y)
         let distanceBetweenObjects = sqrt(squaredDistanceX + squaredDistanceY)
-        let minimumDistance = radius + object.radius
+        let minimumDistance = radius + circularObject.radius
         return distanceBetweenObjects <= minimumDistance - tolerance
+    }
+
+    public func willCollide(triangularObject: PhysicsBody, tolerance: CGFloat) -> Bool {
+        guard isShape(.Circle) && triangularObject.isShape(.Triangle) else {
+            return false
+        }
+
+        let object = PhysicsBody(physicsBody: self)
+        object.move()
+        return object.collidedWith(triangularObject: triangularObject)
+
     }
 
     /// Temporarily stops the movement of the `PhysicsBody`.
@@ -146,6 +178,34 @@ public class PhysicsBody {
         let reflectedVector = GameDisplayHelper.calculateReflectedVector(a: velocity, b: normalVector)
         let newReflectedVector = CGVector(dx: energyLoss * reflectedVector.dx, dy: energyLoss * reflectedVector.dy)
 
+        velocity = newReflectedVector
+    }
+
+    public func changeVelocityAfter(triangularObject: PhysicsBody, energyLoss: CGFloat) {
+
+        let object = PhysicsBody(physicsBody: self)
+        object.move()
+
+//        for point in triangularObject.vertices {
+//            if GameDisplayHelper.pointCircle(point: point, centre: object.centre, radius: object.radius) {
+//                velocity = GameDisplayHelper.reverseVelocity(velocity)
+//                return
+//            }
+//        }
+
+
+        guard let edge = GameDisplayHelper.getClosestEdge(centre: centre, radius: radius, vertices: triangularObject.vertices) else {
+            return
+        }
+        let midPoint = CGPoint(x: (edge.0.x + edge.1.x) / 2,
+                               y: (edge.1.y + edge.0.y) / 2)
+
+
+//        let normalVector = CGVector(dx: (triangularObject.centre.x - midPoint.x), dy: (triangularObject.centre.y - midPoint.y))
+        let normalVector = CGVector(dx: (edge.0.x - edge.1.x), dy: -(edge.0.y - edge.1.y))
+        let reflectedVector = GameDisplayHelper.calculateReflectedVector(a: velocity, b: normalVector)
+        let newReflectedVector = CGVector(dx: energyLoss * reflectedVector.dx, dy: energyLoss * reflectedVector.dy)
+        print("reflected")
         velocity = newReflectedVector
     }
 }

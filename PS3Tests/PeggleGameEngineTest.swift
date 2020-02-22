@@ -16,8 +16,8 @@ The rest is left for integration testing.
 class PeggleGameEngineTest: XCTestCase {
 
     let testEngine = PeggleGameEngine(area: CGSize(width: 10, height: 10))
-    let bluePeg = Peg(withType: PegType.blue, centre: CGPoint.zero)
-    let orangePeg = Peg(withType: PegType.orange, centre: CGPoint.zero)
+    let bluePeg = CirclePeg(withType: PegType.blue, centre: CGPoint.zero)
+    let orangePeg = CirclePeg(withType: PegType.orange, centre: CGPoint.zero)
 
     func testAddBall() {
         let ball = GameBall(centre: CGPoint.zero)
@@ -54,13 +54,13 @@ class PeggleGameEngineTest: XCTestCase {
     }
 
     func testCheckWinStatus_success() {
-        let blueGamePeg = GamePeg(peg: bluePeg)
+        let blueGamePeg = GamePeg(peg: bluePeg)!
         testEngine.addToGameEngine(gameObject: blueGamePeg)
         XCTAssertTrue(testEngine.checkWinStatus(), "Game is won")
     }
 
     func testCheckWinStatus_failure() {
-        let gamePeg = GamePeg(peg: orangePeg)
+        let gamePeg = GamePeg(peg: orangePeg)!
         testEngine.addToGameEngine(gameObject: gamePeg)
         XCTAssertFalse(testEngine.checkWinStatus(), "Game is lost")
     }

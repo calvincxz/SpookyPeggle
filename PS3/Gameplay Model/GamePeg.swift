@@ -25,10 +25,9 @@ class GamePeg: GameObject {
             super.init(radius: radius, centre: centre)
             self.isDynamic = false
         } else if let peg = peg as? TrianglePeg {
-            let radius = peg.diameter / 2
             let centre = peg.centre
             self.pegType = peg.pegType
-            super.init(radius: radius, centre: centre)
+            super.init(triangleWithCentre: centre, length: peg.diameter)
             self.isDynamic = false
         } else {
             return nil

@@ -21,11 +21,7 @@ class TrianglePeg: Peg {
     /// Creates a peg with the given peg type, centre and a diameter.
     init(withType pegType: PegType, centre: CGPoint, length: CGFloat) {
         self.diameter = length
-        let halfLength = length / 2
-        let topVertex = CGPoint(x: centre.x, y: centre.y - halfLength)
-        let leftVertex = CGPoint(x: centre.x - halfLength, y: centre.y + halfLength)
-        let rightVertex = CGPoint(x: centre.x + halfLength, y: centre.y + halfLength)
-        vertices = [topVertex, leftVertex, rightVertex]
+        vertices = GameDisplayHelper.getVerticesOfTriangle(centre: centre, lengthOfBase: length)
         super.init(withType: pegType, centre: centre)
     }
 

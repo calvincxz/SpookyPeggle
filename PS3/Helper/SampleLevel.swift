@@ -20,7 +20,7 @@ enum SampleLevel {
 
         for j in [3, 5, 7, 9] {
             if j == 3 {
-                for i in [5] {
+                for i in [5,7] {
                     let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
                     let peg = TrianglePeg(withType: PegType.green, centre: centre)
                     level.addToLevel(addedPeg: peg)
@@ -29,7 +29,7 @@ enum SampleLevel {
             } else if j == 5 {
                 for i in [3, 5, 7] {
                     let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
-                    let peg = CirclePeg(withType: PegType.blue, centre: centre)
+                    let peg = CirclePeg(withType: PegType.orange, centre: centre)
                     level.addToLevel(addedPeg: peg)
                 }
 

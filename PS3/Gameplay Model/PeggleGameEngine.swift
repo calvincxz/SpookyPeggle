@@ -57,7 +57,6 @@ class PeggleGameEngine {
         guard let ball = ballObject else {
             return
         }
-        print(bucket.centre)
 
         handleBottomExit(ball: ball)
         handleWallCollision(ball: ball, bucket: bucket)
@@ -131,9 +130,17 @@ class PeggleGameEngine {
     /// Checks if ball will collide with a peg in the `PhysicsEngine`and
     /// updates the velocity of the ball in the game.
     private func handleBallCollisionWithPeg(ball: GameObject) {
-        for peg in gameObjects where peg.willCollide(circularObject: ball, tolerance: Settings.safetyTolerance) {
+        for peg in gameObjects where ball.willCollide(circularObject: peg, tolerance: Settings.safetyTolerance) {
 
             ball.changeVelocityAfter(collisionWith: peg, energyLoss: Settings.energyLoss)
+            peg.hitByBall()
+            contactDelegate?.handlePegHitByBall(pegObject: peg)
+        }
+
+        for peg in gameObjects where
+            ball.willCollide(triangularObject: peg, tolerance: CGFloat.zero) {
+                print("triangle peg")
+            ball.changeVelocityAfter(triangularObject: peg, energyLoss: Settings.energyLoss)
             peg.hitByBall()
             contactDelegate?.handlePegHitByBall(pegObject: peg)
         }

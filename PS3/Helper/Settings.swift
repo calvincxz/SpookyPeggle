@@ -12,12 +12,12 @@ The `Settings` class contains constants for the game.
 */
 enum Settings {
     static let defaultPegDiameter = CGFloat(60)
-    static let defaultTrianglePegLength = CGFloat(60)
+    static let defaultTrianglePegLength = CGFloat(80)
     static let defaultBallDiameter = CGFloat(40)
     static let lowAlphaForUnselectedButton = CGFloat(0.5)
     static let darkAlphaForSelectedButton = CGFloat(1)
-    static let initialVelocityForBall = CGFloat(10)
-    static let accelerationForBall = CGVector(dx: 0, dy: 0.4)
+    static let initialVelocityForBall = CGFloat(5)
+    static let accelerationForBall = CGVector(dx: 0, dy: 0.2)
     static let safetyTolerance = CGFloat(5)
     static let energyLoss = CGFloat(0.8)
     static let initialBallCount = 5
@@ -25,7 +25,6 @@ enum Settings {
     static let maximumCannonRotationAngle = CGFloat(1.2)
     static let bucketWidth = CGFloat(260)
     static let bucketHeight = CGFloat(100)
-
 
     static let messageForSaveLevel = "Enter level name: "
     static let messageForLoadLevel = "Choose level to load: "

@@ -14,8 +14,8 @@ class GamePegTest: XCTestCase {
     let testCentre = CGPoint(x: 1, y: 1)
     let testPegType = PegType.blue
 
-    let testPeg = Peg(withType: PegType.blue, centre: CGPoint(x: 1, y: 1), diameter: CGFloat(2))
-    let expectedObject = GamePeg(peg: Peg(withType: PegType.blue, centre: CGPoint(x: 1, y: 1), diameter: CGFloat(2)))
+    let testPeg = CirclePeg(withType: PegType.blue, centre: CGPoint(x: 1, y: 1), diameter: CGFloat(2))
+    let expectedObject = GamePeg(peg: CirclePeg(withType: PegType.blue, centre: CGPoint(x: 1, y: 1), diameter: CGFloat(2)))
 
     func testConstruct_fromPeg() {
         let testObject = GamePeg(peg: testPeg)
@@ -24,23 +24,23 @@ class GamePegTest: XCTestCase {
     }
 
     func testGetPegType() {
-        let testObject = GamePeg(peg: testPeg)
+        let testObject = GamePeg(peg: testPeg)!
         XCTAssertEqual(testObject.getPegType(), PegType.blue, "Wrong peg type")
     }
 
     func testGetHitCount() {
-        let testObject = GamePeg(peg: testPeg)
+        let testObject = GamePeg(peg: testPeg)!
         XCTAssertEqual(testObject.getHitCount(), 0, "Wrong hit count")
     }
 
     func testHitByBall() {
-        let testObject = GamePeg(peg: testPeg)
+        let testObject = GamePeg(peg: testPeg)!
         testObject.hitByBall()
         XCTAssertEqual(testObject.getHitCount(), 1, "Wrong hit count")
     }
 
     func testHitByBall_twice() {
-        let testObject = GamePeg(peg: testPeg)
+        let testObject = GamePeg(peg: testPeg)!
         testObject.hitByBall()
         testObject.hitByBall()
         XCTAssertEqual(testObject.getHitCount(), 2, "Wrong hit count")
@@ -59,7 +59,7 @@ class GamePegTest: XCTestCase {
 
     func testEquals_differentObject_failure() {
         let testObject = GamePeg(peg: testPeg)
-        let testObjectTwo = GamePeg(peg: Peg(withType: PegType.blue, centre: CGPoint(x: 1, y: 1), diameter: CGFloat(4)))
+        let testObjectTwo = GamePeg(peg: CirclePeg(withType: PegType.blue, centre: CGPoint(x: 1, y: 1), diameter: CGFloat(4)))
         XCTAssertNotEqual(testObject, testObjectTwo, "Different objects should not be equal")
     }
 }

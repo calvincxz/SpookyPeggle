@@ -27,6 +27,14 @@ class PhysicsBodyTest: XCTestCase {
         XCTAssertEqual(sampleBody.centre, newBody.centre)
     }
 
+    func testConstruct_Triangle() {
+        let sampleBody = PhysicsBody(triangleWithCentre: CGPoint(x: 50, y: 50), length: CGFloat(100))
+        let circle = PhysicsBody(radius: CGFloat(25), centre: CGPoint(x: 90,y: 123))
+        let circle1 = PhysicsBody(radius: CGFloat(25), centre: CGPoint(x: 25,y: 120))
+        XCTAssertTrue(circle.collidedWith(triangularObject: sampleBody))
+        XCTAssertTrue(circle1.collidedWith(triangularObject: sampleBody))
+    }
+
     func testIsShape() {
         let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
         XCTAssertTrue(sampleBody.isShape(.Circle), "Object should be circular")
