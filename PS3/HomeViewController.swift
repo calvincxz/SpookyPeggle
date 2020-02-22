@@ -20,6 +20,10 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "homeToPlay", sender: self)
     }
 
+    @IBAction func goToLevelDesign(_ sender: UIButton) {
+        performSegue(withIdentifier: "homeToLevelDesign", sender: self)
+    }
+
     /*
     // MARK: - Navigation
 

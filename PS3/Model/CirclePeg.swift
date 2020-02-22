@@ -45,9 +45,14 @@ class CirclePeg: Peg {
     }
 
     /// Checks if the peg intersects with another peg.
-    func intersects(otherPeg: CirclePeg) -> Bool {
-        let otherCentre = otherPeg.getCentrePoint()
-        return centre.distanceTo(other: otherCentre) < diameter
+    override func intersects(otherPeg: Peg) -> Bool {
+        if let otherPeg = otherPeg as? CirclePeg {
+            let otherCentre = otherPeg.getCentrePoint()
+            return centre.distanceTo(other: otherCentre) < diameter
+        }
+        // TODO triangle
+        return false
+
     }
 
     /// Checks if the peg contains a point.

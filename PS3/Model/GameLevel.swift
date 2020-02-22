@@ -40,7 +40,16 @@ class GameLevel: Codable {
 
     /// Checks if insertion of new peg in the game level is possible.
     func canInsertPeg(peg: Peg) -> Bool {
-        let overlapCount = pegsInLevel.filter { $0.intersects(otherPeg: peg) }.count
+
+        var overlapCount = 0
+
+        for pegInLevel in pegsInLevel {
+            if let circlePeg = pegInLevel as? CirclePeg {
+                if circlePeg.intersects(otherPeg: peg) {
+                    overlapCount += 1
+                }
+            }
+        }
         return overlapCount == 0
     }
 

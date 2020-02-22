@@ -34,7 +34,7 @@ class Peg: Codable, Hashable {
 
     /// Checks if the peg intersects with another peg.
     func intersects(otherPeg: Peg) -> Bool {
-        return centre == otherPeg.centre
+        fatalError("This method should not be called")
     }
 
     /// Checks if the peg contains a point.
