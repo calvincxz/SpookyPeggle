@@ -17,20 +17,19 @@ class GamePeg: GameObject {
     private let pegType: PegType
 
     /// Constructs a `GamePeg` from a `Peg` object.
-    init?(peg: Peg) {
-        if let peg = peg as? CirclePeg {
-            let radius = peg.diameter / 2
+    init(peg: Peg) {
+        switch peg.shape {
+        case .Circle:
+            let radius = peg.physicalShape.radius
             let centre = peg.centre
             self.pegType = peg.pegType
             super.init(radius: radius, centre: centre)
             self.isDynamic = false
-        } else if let peg = peg as? TrianglePeg {
+        case .Triangle:
             let centre = peg.centre
             self.pegType = peg.pegType
-            super.init(triangleWithCentre: centre, length: peg.diameter)
+            super.init(triangleWithCentre: centre, length: peg.physicalShape.length)
             self.isDynamic = false
-        } else {
-            return nil
         }
 
     }

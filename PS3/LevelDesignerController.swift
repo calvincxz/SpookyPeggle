@@ -59,11 +59,9 @@ class LevelDesignerController: UIViewController {
         currentLevelName = levelName
         for peg in newLevel.getPegsInLevel() {
             gameLevel.addToLevel(addedPeg: peg)
-            if let pegImageView = PegImageView(peg: peg) {
-                pegBoardView.addPegToBoard(peg: pegImageView)
-                pegToImageView[peg] = pegImageView
-            }
-
+            let pegImageView = PegImageView(peg: peg)
+            pegBoardView.addPegToBoard(peg: pegImageView)
+            pegToImageView[peg] = pegImageView
 
         }
         textDisplay.text = "Load Level Success"

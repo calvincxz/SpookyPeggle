@@ -6,9 +6,9 @@
 //  Copyright © 2020 Calvin Chen. All rights reserved.
 //
 
-public enum Shape {
+public enum Shape: Int, Codable {
 
-    case Circle
-    case Rectangle
-    case Triangle
+    case Circle = 0
+    case Rectangle = 1
+    case Triangle = 2
 }

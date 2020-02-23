@@ -22,21 +22,21 @@ enum SampleLevel {
             if j == 3 {
                 for i in [5,7] {
                     let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
-                    let peg = TrianglePeg(withType: PegType.green, centre: centre)
+                    let peg = Peg(type: PegType.green, triangleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 }
 
             } else if j == 5 {
                 for i in [3, 5, 7] {
                     let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
-                    let peg = CirclePeg(withType: PegType.orange, centre: centre)
+                    let peg = Peg(type: PegType.orange, circleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 }
 
             } else if j == 7 || j == 9 {
                 for i in [1, 3, 5, 7, 9] {
                     let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
-                    let peg = TrianglePeg(withType: PegType.green, centre: centre)
+                    let peg = Peg(type: PegType.green, triangleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 }
             }
@@ -52,7 +52,7 @@ enum SampleLevel {
         for i in [3, 5, 7, 9] {
             for j in [3, 5, 7, 9] {
                 let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
-                let peg = CirclePeg(withType: PegType.blue, centre: centre)
+                let peg = Peg(type: PegType.green, triangleOfCentre: centre)
                 level.addToLevel(addedPeg: peg)
             }
         }
@@ -61,10 +61,10 @@ enum SampleLevel {
             for j in [4, 6, 8] {
                 let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
                 if j == 4 {
-                    let peg = CirclePeg(withType: PegType.orange, centre: centre)
+                    let peg = Peg(type: PegType.green, triangleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 } else {
-                    let peg = CirclePeg(withType: PegType.blue, centre: centre)
+                    let peg = Peg(type: PegType.green, triangleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 }
             }

@@ -101,17 +101,17 @@ public class PhysicsBody {
         return distanceBetweenObjects <= minimumDistance
     }
 
-    public func collidedWith(rectangularObject: PhysicsBody) -> Bool {
-        guard isShape(.Circle) && rectangularObject.isShape(.Rectangle) else {
-            return false
-        }
-
-        let squaredDistanceX = (centre.x - rectangularObject.centre.x) * (centre.x - rectangularObject.centre.x)
-        let squaredDistanceY = (centre.y - rectangularObject.centre.y) * (centre.y - rectangularObject.centre.y)
-        let distanceBetweenObjects = sqrt(squaredDistanceX + squaredDistanceY)
-        let minimumDistance = radius + rectangularObject.radius
-        return distanceBetweenObjects <= minimumDistance
-    }
+//    public func collidedWith(rectangularObject: PhysicsBody) -> Bool {
+//        guard isShape(.Circle) && rectangularObject.isShape(.Rectangle) else {
+//            return false
+//        }
+//
+//        let squaredDistanceX = (centre.x - rectangularObject.centre.x) * (centre.x - rectangularObject.centre.x)
+//        let squaredDistanceY = (centre.y - rectangularObject.centre.y) * (centre.y - rectangularObject.centre.y)
+//        let distanceBetweenObjects = sqrt(squaredDistanceX + squaredDistanceY)
+//        let minimumDistance = radius + rectangularObject.radius
+//        return distanceBetweenObjects <= minimumDistance
+//    }
 
     /** Checks if the `PhysicsBody` will collide with another `PhysicsBody`in the next instance of time.
         Returns false if either object is not a circle
