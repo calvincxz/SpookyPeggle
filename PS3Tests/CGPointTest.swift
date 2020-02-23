@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PeggleGame
+@testable import PS3
 
 class CGPointTest: XCTestCase {
 

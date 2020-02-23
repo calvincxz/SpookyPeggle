@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zvn-yv-alN">
-    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="GamePlayController" customModule="PS3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="agE-oF-MM8">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1216"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1024"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="231-o2-ayI" appends="YES" id="qaw-4B-5Dp"/>
@@ -24,10 +24,10 @@
                                 </connections>
                             </imageView>
                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fY5-3h-eGp" customClass="PegBoardView" customModule="PS3" customModuleProvider="target">
-                                <rect key="frame" x="20" y="50" width="984" height="1146"/>
+                                <rect key="frame" x="20" y="50" width="794" height="974"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucket" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Fh-jkr" customClass="BucketView" customModule="PS3" customModuleProvider="target">
-                                        <rect key="frame" x="352" y="1046" width="280" height="100"/>
+                                        <rect key="frame" x="257" y="874" width="280" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="vM0-HZ-4MH"/>
                                             <constraint firstAttribute="width" constant="280" id="z9J-hj-7ak"/>
@@ -41,7 +41,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvU-0k-hkK" customClass="CannonView" customModule="PS3" customModuleProvider="target">
-                                <rect key="frame" x="472" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="377" y="0.0" width="80" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-wx-eWO">
                                         <rect key="frame" x="15" y="70" width="50" height="40"/>
@@ -66,16 +66,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-rv-oLh">
-                                <rect key="frame" x="100" y="0.0" width="329" height="50"/>
+                                <rect key="frame" x="100" y="0.0" width="234" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2n-y4-5Yi">
-                                <rect key="frame" x="20" y="1256" width="984" height="110"/>
+                                <rect key="frame" x="20" y="1064" width="794" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-e1-U0n">
-                                        <rect key="frame" x="814" y="0.0" width="160" height="100"/>
+                                        <rect key="frame" x="624" y="0.0" width="160" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="Afq-8h-y6E"/>
                                             <constraint firstAttribute="height" constant="100" id="LNq-ty-27h"/>
@@ -99,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwP-cP-agl">
-                                        <rect key="frame" x="623" y="0.0" width="0.0" height="100"/>
+                                        <rect key="frame" x="433" y="0.0" width="0.0" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="40e-cD-1P6"/>
                                         </constraints>
@@ -108,7 +108,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsb-F1-xZ3">
-                                        <rect key="frame" x="644" y="0.0" width="160" height="100"/>
+                                        <rect key="frame" x="454" y="0.0" width="160" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="6jf-ZU-bLK"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="EGd-bC-hTa"/>
@@ -135,7 +135,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="balls left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y32-xQ-Jtk">
-                                <rect key="frame" x="643" y="0.0" width="310" height="50"/>
+                                <rect key="frame" x="548" y="0.0" width="215" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OHI-Mc-6Pi"/>
                                 </constraints>
@@ -200,31 +200,28 @@
             <objects>
                 <viewController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="zvn-yv-alN" customClass="HomeViewController" customModule="PS3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YRj-3D-nG1">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-9I-BIx">
-                                <rect key="frame" x="437" y="429" width="280" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-9I-BIx">
+                                <rect key="frame" x="437" y="429" width="181" height="110"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Z36-fI-mFU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="PLAY"/>
                                 <connections>
                                     <action selector="goToPlay:" destination="zvn-yv-alN" eventType="touchUpInside" id="q7j-8x-GKy"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bucket" translatesAutoresizingMaskIntoConstraints="NO" id="rmL-v2-DmB">
-                                <rect key="frame" x="260" y="873" width="263" height="117"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="peg-green-triangle" translatesAutoresizingMaskIntoConstraints="NO" id="4XG-XB-VgU">
-                                <rect key="frame" x="642" y="843" width="147" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjW-fc-YAU">
-                                <rect key="frame" x="437" y="1021" width="280" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjW-fc-YAU">
+                                <rect key="frame" x="437" y="612" width="181" height="110"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="JL0-1T-a2c"/>
+                                    <constraint firstAttribute="height" constant="110" id="mEu-ee-iVS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Design"/>
                                 <connections>
@@ -233,6 +230,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZjW-fc-YAU" firstAttribute="trailing" secondItem="9rT-9I-BIx" secondAttribute="trailing" id="4d7-MZ-LAh"/>
+                            <constraint firstItem="ZjW-fc-YAU" firstAttribute="leading" secondItem="Qe3-Fl-Jog" secondAttribute="leading" constant="437" id="DQF-f8-MCZ"/>
+                            <constraint firstItem="9rT-9I-BIx" firstAttribute="top" secondItem="Qe3-Fl-Jog" secondAttribute="top" constant="429" id="SVS-Tf-R5o"/>
+                            <constraint firstItem="Qe3-Fl-Jog" firstAttribute="bottom" secondItem="ZjW-fc-YAU" secondAttribute="bottom" constant="235" id="aqG-2j-J9w"/>
+                            <constraint firstItem="ZjW-fc-YAU" firstAttribute="leading" secondItem="9rT-9I-BIx" secondAttribute="leading" id="dmq-yN-Dz8"/>
+                            <constraint firstItem="Qe3-Fl-Jog" firstAttribute="trailing" secondItem="ZjW-fc-YAU" secondAttribute="trailing" constant="220" id="jWv-m3-p2s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qe3-Fl-Jog"/>
                     </view>
                     <connections>
@@ -242,22 +247,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bul-8m-yBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616" y="-601"/>
+            <point key="canvasLocation" x="615.82733812949641" y="-601.00502512562809"/>
         </scene>
         <!--Level Designer Controller-->
         <scene sceneID="D4t-bk-1z9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="6Rs-yI-Oa9" customClass="LevelDesignerController" customModule="PeggleGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="6Rs-yI-Oa9" customClass="LevelDesignerController" customModule="PS3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4H9-F3-egh">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="n0o-ql-oVn">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1055"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="883"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zH7-Ek-Nsc" customClass="PegBoardView" customModule="PeggleGame" customModuleProvider="target">
-                                <rect key="frame" x="30" y="0.0" width="964" height="1055"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zH7-Ek-Nsc" customClass="PegBoardView" customModule="PS3" customModuleProvider="target">
+                                <rect key="frame" x="30" y="0.0" width="774" height="883"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2Pm-Ag-7a2" appends="YES" id="FXR-kW-cgw"/>
@@ -266,16 +271,16 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rn-ET-iIA">
-                                <rect key="frame" x="0.0" y="1105" width="1024" height="197"/>
+                                <rect key="frame" x="0.0" y="933" width="834" height="197"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRA-EM-jW5" customClass="PalettePegSelector" customModule="PeggleGame" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="0.0" width="128" height="140"/>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRA-EM-jW5" customClass="PalettePegSelector" customModule="PS3" customModuleProvider="target">
+                                        <rect key="frame" x="149" y="0.0" width="153" height="140"/>
                                         <state key="normal" image="peg-orange"/>
                                         <connections>
                                             <action selector="changePegSelector:" destination="6Rs-yI-Oa9" eventType="touchUpInside" id="uOG-KR-rLA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAL-J0-uuH" customClass="PalettePegSelector" customModule="PeggleGame" customModuleProvider="target">
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAL-J0-uuH" customClass="PalettePegSelector" customModule="PS3" customModuleProvider="target">
                                         <rect key="frame" x="1" y="0.0" width="140" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="hth-SC-ExP"/>
@@ -285,8 +290,8 @@
                                             <action selector="changePegSelector:" destination="6Rs-yI-Oa9" eventType="touchUpInside" id="Smr-7g-SYU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp9-VR-UEZ" customClass="PalettePegSelector" customModule="PeggleGame" customModuleProvider="target">
-                                        <rect key="frame" x="874" y="0.0" width="140" height="140"/>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp9-VR-UEZ" customClass="PalettePegSelector" customModule="PS3" customModuleProvider="target">
+                                        <rect key="frame" x="684" y="0.0" width="140" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Xp9-VR-UEZ" secondAttribute="height" multiplier="1:1" id="FVo-aY-gAF"/>
                                         </constraints>
@@ -296,17 +301,29 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Bar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zIs-Fg-lRy">
-                                        <rect key="frame" x="299" y="8" width="300" height="124"/>
+                                        <rect key="frame" x="507" y="8" width="135" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzy-cc-L31" customClass="PalettePegSelector" customModule="PS3" customModuleProvider="target">
+                                        <rect key="frame" x="297" y="0.0" width="153" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="153" id="RXO-5I-4dg"/>
+                                        </constraints>
+                                        <state key="normal" image="peg-green-triangle"/>
+                                        <connections>
+                                            <action selector="changePegSelector:" destination="6Rs-yI-Oa9" eventType="touchUpInside" id="Tzf-4X-byw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="zIs-Fg-lRy" firstAttribute="leading" secondItem="jRA-EM-jW5" secondAttribute="trailing" constant="8" id="4CQ-x3-7Sc"/>
+                                    <constraint firstItem="hzy-cc-L31" firstAttribute="leading" secondItem="jRA-EM-jW5" secondAttribute="trailing" id="4CQ-x3-7Sc"/>
+                                    <constraint firstItem="zIs-Fg-lRy" firstAttribute="leading" secondItem="hzy-cc-L31" secondAttribute="trailing" constant="57" id="4og-ET-hfQ"/>
                                     <constraint firstItem="gAL-J0-uuH" firstAttribute="leading" secondItem="9rn-ET-iIA" secondAttribute="leading" constant="1" id="D7d-GE-SgU"/>
+                                    <constraint firstItem="hzy-cc-L31" firstAttribute="top" secondItem="jRA-EM-jW5" secondAttribute="top" id="HSO-8w-DTA"/>
                                     <constraint firstItem="Xp9-VR-UEZ" firstAttribute="top" secondItem="9rn-ET-iIA" secondAttribute="top" id="KVF-uH-Oqf"/>
                                     <constraint firstAttribute="trailing" secondItem="Xp9-VR-UEZ" secondAttribute="trailing" constant="10" id="VZ1-GH-xxz"/>
                                     <constraint firstItem="Xp9-VR-UEZ" firstAttribute="top" secondItem="jRA-EM-jW5" secondAttribute="top" id="ZOr-I3-eZX"/>
@@ -317,10 +334,11 @@
                                     <constraint firstItem="jRA-EM-jW5" firstAttribute="leading" secondItem="gAL-J0-uuH" secondAttribute="trailing" constant="22" id="mQe-OX-SAc"/>
                                     <constraint firstItem="Xp9-VR-UEZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zIs-Fg-lRy" secondAttribute="trailing" constant="8" symbolic="YES" id="qk3-th-d2m"/>
                                     <constraint firstItem="Xp9-VR-UEZ" firstAttribute="top" secondItem="gAL-J0-uuH" secondAttribute="top" id="r4s-S9-Ou0"/>
+                                    <constraint firstItem="hzy-cc-L31" firstAttribute="bottom" secondItem="jRA-EM-jW5" secondAttribute="bottom" id="siw-He-dF6"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yhv-cZ-Nfz">
-                                <rect key="frame" x="0.0" y="1245" width="1024" height="121"/>
+                                <rect key="frame" x="0.0" y="1073" width="834" height="101"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29V-wD-I0f">
                                         <rect key="frame" x="10" y="10" width="124" height="101"/>
@@ -345,7 +363,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rV4-Ge-v0W">
-                                        <rect key="frame" x="860" y="13" width="144" height="93"/>
+                                        <rect key="frame" x="670" y="13" width="144" height="73"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="RSh-hE-nER"/>
                                         </constraints>
@@ -367,7 +385,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7T-d6-ztN">
-                                        <rect key="frame" x="694" y="16" width="144" height="95"/>
+                                        <rect key="frame" x="504" y="16" width="144" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="JEz-jh-t7T"/>
                                         </constraints>
@@ -427,6 +445,7 @@
                         <outlet property="background" destination="n0o-ql-oVn" id="NOj-Sb-cbs"/>
                         <outlet property="bluePegButton" destination="gAL-J0-uuH" id="vRx-4g-leq"/>
                         <outlet property="erasePegButton" destination="Xp9-VR-UEZ" id="Ybb-JL-znR"/>
+                        <outlet property="greenPegButton" destination="hzy-cc-L31" id="HZS-C3-1vP"/>
                         <outlet property="orangePegButton" destination="jRA-EM-jW5" id="Qh6-cN-Khl"/>
                         <outlet property="pegBoardView" destination="zH7-Ek-Nsc" id="I8c-BS-Hke"/>
                         <outlet property="textDisplay" destination="zIs-Fg-lRy" id="FV3-Zi-KDx"/>
@@ -451,7 +470,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1084" y="164"/>
+            <point key="canvasLocation" x="1083.453237410072" y="163.81909547738692"/>
         </scene>
     </scenes>
     <resources>
@@ -465,6 +484,6 @@
         <image name="peg-orange" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DjK-VW-kFU"/>
+        <segue reference="cAR-6a-831"/>
     </inferredMetricsTieBreakers>
 </document>

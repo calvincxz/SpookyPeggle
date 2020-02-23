@@ -7,13 +7,13 @@
 //
 
 import XCTest
-@testable import PeggleGame
+@testable import PS3
 
 class GameLevelTest: XCTestCase {
-    let pegOne = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: 0))
-    let pegOneWithSameAttributes = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: 0))
-    let pegOne_differentColour = Peg(withType: PegType.orange, centre: CGPoint(x: 0, y: 0))
-    let pegTwo = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: 50))
+    let pegOne = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: 0))
+    let pegOneWithSameAttributes = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: 0))
+    let pegOne_differentColour = Peg(type: PegType.orange, circleOfCentre: CGPoint(x: 0, y: 0))
+    let pegTwo = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: 50))
 
     func testConstruct() {
         let gameLevel = GameLevel()
@@ -66,7 +66,7 @@ class GameLevelTest: XCTestCase {
     func testCanInsertPeg_nonOverlappingPeg() {
         let gameLevel = GameLevel()
         gameLevel.addToLevel(addedPeg: pegOne)
-        let nonOverlappingPeg = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter)))
+        let nonOverlappingPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter)))
         XCTAssertTrue(gameLevel.canInsertPeg(peg: nonOverlappingPeg), "Should be able to insert peg")
     }
 
@@ -74,7 +74,7 @@ class GameLevelTest: XCTestCase {
         let gameLevel = GameLevel()
 
         gameLevel.addToLevel(addedPeg: pegOne)
-        let overlappingPeg = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter - 1)))
+        let overlappingPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter - 1)))
         XCTAssertFalse(gameLevel.canInsertPeg(peg: overlappingPeg), "Should not be able to insert peg")
     }
 
@@ -83,16 +83,16 @@ class GameLevelTest: XCTestCase {
         let defaultDiameter = Int(Settings.defaultPegDiameter)
         let twiceOfDiameter = 2 * defaultDiameter
 
-        let leftPeg = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: defaultDiameter))
-        let rightPeg = Peg(withType: PegType.blue, centre: CGPoint(x: twiceOfDiameter, y: defaultDiameter))
-        let topPeg = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: 0))
-        let bottomPeg = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: twiceOfDiameter))
+        let leftPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: defaultDiameter))
+        let rightPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: twiceOfDiameter, y: defaultDiameter))
+        let topPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: 0))
+        let bottomPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: twiceOfDiameter))
         gameLevel.addToLevel(addedPeg: leftPeg)
         gameLevel.addToLevel(addedPeg: rightPeg)
         gameLevel.addToLevel(addedPeg: topPeg)
         gameLevel.addToLevel(addedPeg: bottomPeg)
 
-        let centrePeg = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: defaultDiameter))
+        let centrePeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter))
         XCTAssertTrue(gameLevel.canInsertPeg(peg: centrePeg), "Should be able to insert peg")
 
     }
@@ -102,19 +102,19 @@ class GameLevelTest: XCTestCase {
         let defaultDiameter = Int(Settings.defaultPegDiameter)
         let twiceOfDiameter = 2 * defaultDiameter
 
-        let leftPeg = Peg(withType: PegType.blue, centre: CGPoint(x: 0, y: defaultDiameter))
-        let rightPeg = Peg(withType: PegType.blue, centre: CGPoint(x: twiceOfDiameter, y: defaultDiameter))
-        let topPeg = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: 0))
-        let bottomPeg = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: twiceOfDiameter))
+        let leftPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: defaultDiameter))
+        let rightPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: twiceOfDiameter, y: defaultDiameter))
+        let topPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: 0))
+        let bottomPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: twiceOfDiameter))
         gameLevel.addToLevel(addedPeg: leftPeg)
         gameLevel.addToLevel(addedPeg: rightPeg)
         gameLevel.addToLevel(addedPeg: topPeg)
         gameLevel.addToLevel(addedPeg: bottomPeg)
 
-        let centrePegDeviatedLeft = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter - 1, y: defaultDiameter))
-        let centrePegDeviatedRight = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter + 1, y: defaultDiameter))
-        let centrePegDeviatedDown = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: defaultDiameter - 1))
-        let centrePegDeviatedUp = Peg(withType: PegType.blue, centre: CGPoint(x: defaultDiameter, y: defaultDiameter + 1))
+        let centrePegDeviatedLeft = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter - 1, y: defaultDiameter))
+        let centrePegDeviatedRight = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter + 1, y: defaultDiameter))
+        let centrePegDeviatedDown = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter - 1))
+        let centrePegDeviatedUp = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter + 1))
 
         XCTAssertFalse(gameLevel.canInsertPeg(peg: centrePegDeviatedLeft), "Should not be able to insert peg")
         XCTAssertFalse(gameLevel.canInsertPeg(peg: centrePegDeviatedRight), "Should not be able to insert peg")

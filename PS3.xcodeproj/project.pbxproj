@@ -33,6 +33,7 @@
 		3E2DAD6423E7F2A500A211D3 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD6323E7F2A500A211D3 /* GameObject.swift */; };
 		3E8ACFB723EFE51B004B1831 /* PhysicsEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */; };
 		3E8ACFBA23EFEB71004B1831 /* GamePegTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */; };
+		3E91C3222402BD9C0059A882 /* MathHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91C3212402BD9C0059A882 /* MathHelperTest.swift */; };
 		3E9AAAC8240265EA00AF28AD /* PhysicalShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9AAAC7240265EA00AF28AD /* PhysicalShape.swift */; };
 		3E9AAACA2402668D00AF28AD /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9AAAC92402668D00AF28AD /* Circle.swift */; };
 		3E9AAACC24026A0500AF28AD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9AAACB24026A0500AF28AD /* Triangle.swift */; };
@@ -97,6 +98,7 @@
 		3E2DAD6323E7F2A500A211D3 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsEngineTest.swift; sourceTree = "<group>"; };
 		3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePegTest.swift; sourceTree = "<group>"; };
+		3E91C3212402BD9C0059A882 /* MathHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathHelperTest.swift; sourceTree = "<group>"; };
 		3E9AAAC7240265EA00AF28AD /* PhysicalShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalShape.swift; sourceTree = "<group>"; };
 		3E9AAAC92402668D00AF28AD /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		3E9AAACB24026A0500AF28AD /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				3E2DAD2F23E7C92F00A211D3 /* Info.plist */,
 				3EA6AD4A2401611100682FC9 /* GameLevelTest.swift */,
+				3E91C3212402BD9C0059A882 /* MathHelperTest.swift */,
 				3EA6AD4B2401611100682FC9 /* PegTest.swift */,
 				3EA6AD4C2401611100682FC9 /* CGPointTest.swift */,
 				3EA834FB23EF170800FE0A73 /* PhysicsBodyTest.swift */,
@@ -444,6 +447,7 @@
 				3EA834FC23EF170800FE0A73 /* PhysicsBodyTest.swift in Sources */,
 				3EA6AD542401641C00682FC9 /* CGPointTest.swift in Sources */,
 				3EAF89F523F5543C0005F559 /* PeggleGameEngineTest.swift in Sources */,
+				3E91C3222402BD9C0059A882 /* MathHelperTest.swift in Sources */,
 				3EA6AD532401641C00682FC9 /* PegTest.swift in Sources */,
 				3EAF89F123F5524B0005F559 /* GameBallTest.swift in Sources */,
 				3EA6AD522401641C00682FC9 /* GameLevelTest.swift in Sources */,

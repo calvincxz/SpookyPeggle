@@ -59,7 +59,12 @@ extension LevelDesignerController {
         }
         // Creates new peg at current location
         let location = sender.location(in: pegBoardView)
-        let newlyCreatedPeg = Peg(type: selectedPegType, circleOfCentre: location)
+        var newlyCreatedPeg: Peg
+        if selectedPegType == .green {
+            newlyCreatedPeg = Peg(type: selectedPegType, triangleOfCentre: location)
+        } else {
+            newlyCreatedPeg = Peg(type: selectedPegType, circleOfCentre: location)
+        }
 
         guard gameLevel.canInsertPeg(peg: newlyCreatedPeg) else {
             return
@@ -96,7 +101,12 @@ extension LevelDesignerController {
         }
         let oldLocation = oldPeg.centre
         let newLocation = sender.location(in: pegBoardView)
-        let newlySelectedPeg = Peg(type: oldPeg.pegType, circleOfCentre: newLocation)
+        var newlySelectedPeg: Peg
+        if oldPeg.pegType == .green {
+            newlySelectedPeg = Peg(type: oldPeg.pegType, triangleOfCentre: newLocation)
+        } else {
+            newlySelectedPeg = Peg(type: oldPeg.pegType, circleOfCentre: newLocation)
+        }
 
         if gameLevel.canInsertPeg(peg: newlySelectedPeg) && self.pegBoardView.bounds.contains(newLocation) {
             pegImageView.moveTo(point: newLocation)

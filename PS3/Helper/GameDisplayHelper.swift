@@ -108,7 +108,7 @@ enum GameDisplayHelper {
 
       // since floats are so minutely accurate, add
       // a little buffer zone that will give collision
-        let buffer = CGFloat(0.1);    // higher # = less accurate
+        let buffer = CGFloat(0.01);    // higher # = less accurate
 
       // if the two distances are equal to the line's
       // length, the point is on the line!
@@ -141,7 +141,7 @@ enum GameDisplayHelper {
         // get length of the line
         var distX = x1 - x2
         var distY = y1 - y2
-        let len = sqrt( (distX*distX) + (distY*distY) )
+        let len = sqrt( (distX * distX) + (distY * distY) )
 
         // get dot product of the line and circle
         let dot = ( ((cx-x1)*(x2-x1)) + ((cy-y1)*(y2-y1)) ) / (len * len)

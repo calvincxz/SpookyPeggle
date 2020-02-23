@@ -43,7 +43,7 @@ struct PhysicalShape: Codable {
             return MathHelper.checkIntersection(polygonVertices: other.vertices, circleCentre: centre, circleRadius: radius)
         } else {
             // TODO: triangle-triangle intersect
-            return false
+            return MathHelper.checkIntersectionBetweenTriangle(vertices: vertices, otherVertices: other.vertices)
         }
     }
 

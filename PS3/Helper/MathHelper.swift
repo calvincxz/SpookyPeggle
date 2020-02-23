@@ -21,6 +21,11 @@ enum MathHelper {
                 return true
             }
         }
+        for vertex in polygonVertices {
+            if vertex.distanceTo(other: circleCentre) < circleRadius {
+                return true
+            }
+        }
         return false
     }
 
@@ -40,8 +45,25 @@ enum MathHelper {
 
          /* Calculate area of triangle PAB */
          let A3 = GameDisplayHelper.area(p1: vertices[0], p2: vertices[1], p3: point)
-
+        let buffer = CGFloat(0)
+        let sum = A1 + A2 + A3
          /* Check if sum of A1, A2 and A3 is same as A */
-         return (A == A1 + A2 + A3)
+         return A <= sum + buffer && A >= sum - buffer
+    }
+
+    // Returns true if any vertex of one triangle is contained in another triangle
+    static func checkIntersectionBetweenTriangle(vertices: [CGPoint], otherVertices: [CGPoint]) -> Bool {
+        for point in otherVertices {
+            if checkTriangleContains(vertices: vertices, point: point) {
+                return true
+            }
+        }
+
+        for point in vertices {
+            if checkTriangleContains(vertices: otherVertices, point: point) {
+                return true
+            }
+        }
+        return false
     }
 }

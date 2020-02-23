@@ -17,6 +17,7 @@ class LevelDesignerController: UIViewController {
     @IBOutlet weak var textDisplay: UILabel!
     @IBOutlet weak var pegBoardView: PegBoardView!
 
+    @IBOutlet weak var greenPegButton: PalettePegSelector!
     var currentLevelName = "Untitled"
     var currentPegImageView: PegImageView?
     var currentSelectedPeg: Peg?
@@ -34,6 +35,7 @@ class LevelDesignerController: UIViewController {
     private func initializePegSelectors() {
         orangePegButton.pegType = PegType.orange
         bluePegButton.pegType = PegType.blue
+        greenPegButton.pegType = PegType.green
         erasePegButton.pegType = PegType.erase
         PalettePegSelector.currentSelected = bluePegButton
         bluePegButton.alpha = 1
