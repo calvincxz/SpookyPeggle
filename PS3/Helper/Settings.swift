@@ -12,7 +12,7 @@ The `Settings` class contains constants for the game.
 */
 enum Settings {
     static let defaultPegDiameter = CGFloat(60)
-    static let defaultTrianglePegLength = CGFloat(80)
+    static let defaultTrianglePegLength = CGFloat(100)
     static let defaultBallDiameter = CGFloat(40)
     static let lowAlphaForUnselectedButton = CGFloat(0.5)
     static let darkAlphaForSelectedButton = CGFloat(1)

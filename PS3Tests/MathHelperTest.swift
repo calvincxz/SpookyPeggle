@@ -29,13 +29,13 @@ class MathHelperTest: XCTestCase {
         XCTAssertTrue(bool)
     }
 
-    func testCheckTriangleContains() {
+    func testCheckTriangleContains_failure() {
         let vertices = [CGPoint(x: 50, y: 0), CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 100)]
         let bool = MathHelper.checkTriangleContains(vertices: vertices, point: CGPoint(x:25, y:49))
-        XCTAssertTrue(bool)
+        XCTAssertFalse(bool)
     }
 
-    func testCheckTriangleContains() {
+    func testCheckTriangleContains_success() {
         let vertices = [CGPoint(x: 50, y: 0), CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 100)]
         let bool = MathHelper.checkTriangleContains(vertices: vertices, point: CGPoint(x:25, y:50))
         XCTAssertTrue(bool)

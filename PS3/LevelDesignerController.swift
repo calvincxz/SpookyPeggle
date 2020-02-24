@@ -73,7 +73,6 @@ class LevelDesignerController: UIViewController {
         performSegue(withIdentifier: "levelDesignToPlay", sender: self)
     }
 
-
     /// Saves the level design when the save button is pressed.
     @IBAction private func returnToMenu(_ sender: UIButton) {
         performSegue(withIdentifier: "levelDesignToHome", sender: self)
@@ -104,4 +103,5 @@ class LevelDesignerController: UIViewController {
         PalettePegSelector.currentSelected = sender
         sender.selectButton()
     }
+
 }

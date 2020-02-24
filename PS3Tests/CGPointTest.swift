@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Foundation
 @testable import PS3
 
 class CGPointTest: XCTestCase {
@@ -29,6 +30,14 @@ class CGPointTest: XCTestCase {
     func testDistanceTo_relativeToAnotherPoint() {
         let distance = pointC.distanceTo(other: pointD)
         XCTAssertEqual(distance, distanceCD, "Distance is not correct")
+    }
+
+    func testRotate() {
+        let point = CGPoint(x: 50, y: 0)
+        let centre = CGPoint(x: 50, y: 50)
+        let pointAfterRotation = point.rotate(origin: centre, byRadians: CGFloat(Double.pi / 2) )
+        print(pointAfterRotation.debugDescription)
+        XCTAssertEqual(pointAfterRotation, CGPoint(x: 100, y: 50), "Point is not correct")
     }
 
     func testEqual_SamePoint_success() {

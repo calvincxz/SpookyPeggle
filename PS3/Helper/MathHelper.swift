@@ -29,41 +29,39 @@ enum MathHelper {
         return false
     }
 
-    // Code adapted from https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
-    static func checkTriangleContains(vertices: [CGPoint], point: CGPoint) -> Bool {
-        guard vertices.count == 3 else {
-            fatalError("Invalid vertices count")
-        }
-        /* Calculate area of triangle ABC */
-        let A = GameDisplayHelper.area(p1: vertices[0], p2: vertices[1], p3: vertices[2])
-
-         /* Calculate area of triangle PBC */
-         let A1 = GameDisplayHelper.area(p1: point, p2: vertices[1], p3: vertices[2])
-
-         /* Calculate area of triangle PAC */
-         let A2 = GameDisplayHelper.area(p1: vertices[0], p2: point, p3: vertices[2])
-
-         /* Calculate area of triangle PAB */
-         let A3 = GameDisplayHelper.area(p1: vertices[0], p2: vertices[1], p3: point)
-        let buffer = CGFloat(0)
-        let sum = A1 + A2 + A3
-         /* Check if sum of A1, A2 and A3 is same as A */
-         return A <= sum + buffer && A >= sum - buffer
-    }
-
     // Returns true if any vertex of one triangle is contained in another triangle
     static func checkIntersectionBetweenTriangle(vertices: [CGPoint], otherVertices: [CGPoint]) -> Bool {
         for point in otherVertices {
-            if checkTriangleContains(vertices: vertices, point: point) {
+            if triangleContainsPoint(vertices: vertices, pt: point) {
                 return true
             }
         }
 
         for point in vertices {
-            if checkTriangleContains(vertices: otherVertices, point: point) {
+            if triangleContainsPoint(vertices: otherVertices, pt: point) {
                 return true
             }
         }
         return false
+    }
+    static func sign (p1: CGPoint, p2: CGPoint, p3: CGPoint) -> CGFloat {
+        return (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)
+    }
+
+    // Code adapted from https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle
+    static func triangleContainsPoint(vertices: [CGPoint], pt: CGPoint) -> Bool {
+        let v1 = vertices[0]
+        let v2 = vertices[1]
+        let v3 = vertices[2]
+
+        let d1 = sign(p1: pt, p2: v1, p3: v2)
+        let d2 = sign(p1: pt, p2: v2, p3: v3)
+        let d3 = sign(p1: pt, p2: v3, p3: v1)
+
+        let has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0)
+        let has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0)
+
+        return !(has_neg && has_pos)
+
     }
 }

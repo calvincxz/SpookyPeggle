@@ -13,8 +13,79 @@ import UIKit
  */
 extension LevelDesignerController {
 
+//    let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotatePeg))
+
+    @IBAction func handleRotate(_ sender: UIRotationGestureRecognizer) {
+        guard let pegView = currentPegImageView, let oldPeg = currentSelectedPeg else {
+            return
+        }
+//        if sender.state == .began {
+//            gameLevel.removeFromLevel(removedPeg: currentPeg)
+//            pegView.setInitialPosition()
+//
+//        } else if sender.state == .changed {
+//
+//            let rotation = sender.rotation
+//            let rotatedPeg = currentPeg.rotate(by: rotation)
+//            currentSelectedPeg = rotatedPeg
+//            pegView.rotate(by: rotation)
+//            sender.rotation = 0
+//
+//        } else if sender.state == .ended {
+//            if gameLevel.canInsertPeg(peg: currentPeg) {
+//                //print(rotation.description)
+//                gameLevel.addToLevel(addedPeg: currentPeg)
+//                pegToImageView[currentPeg] = pegView
+//            } else {
+//                guard let oldPeg = gameLevel.findPeg(at: currentPeg.centre) else {
+//                    return
+//                }
+//                gameLevel.addToLevel(addedPeg: oldPeg)
+//                pegView.returnToInitialPosition()
+//            }
+//
+//        }
+
+        let rotation = sender.rotation
+        let rotatedPeg = oldPeg.rotate(by: rotation)
+        //print()
+
+        gameLevel.removeFromLevel(removedPeg: oldPeg)
+
+        if gameLevel.canInsertPeg(peg: rotatedPeg) {
+            currentSelectedPeg = rotatedPeg
+            gameLevel.addToLevel(addedPeg: rotatedPeg)
+            pegView.rotate(by: rotation)
+            print(rotatedPeg.rotation.description)
+            currentPegImageView = pegView
+            //pegToImageView[oldPeg] = nil
+            pegToImageView[rotatedPeg] = pegView
+
+        } else {
+            //print(gameLevel.canInsertPeg(peg: rotatedPeg))
+            //currentSelectedPeg = oldPeg
+            gameLevel.addToLevel(addedPeg: oldPeg)
+            //pegToImageView[oldPeg] = pegView
+        }
+        sender.rotation = 0
+
+    }
+
+//    private func handleRotateEnd(_ sender: UIPanGestureRecognizer) {
+//        let rotatedPeg =
+//        if gameLevel.canInsertPeg(peg: newlySelectedPeg) {
+//            reAddPegToModel(peg: newlySelectedPeg, pegImageView: pegImageView)
+//        } else {
+//            reAddPegToModel(peg: oldPeg, pegImageView: pegImageView)
+//        }
+//
+//    }
+
     /// Updates the peg when single tap is detected on the `PegBoardView`.
     @IBAction private func handleSingleTap(_ sender: UITapGestureRecognizer) {
+        for peg in gameLevel.getPegsInLevel() {
+            print(peg.rotation.description)
+        }
         if sender.state == .ended {
             handleUpdatePeg(sender)
         }
@@ -67,6 +138,12 @@ extension LevelDesignerController {
         }
 
         guard gameLevel.canInsertPeg(peg: newlyCreatedPeg) else {
+            if let existingPeg = gameLevel.findPeg(at: location) {
+                currentSelectedPeg = existingPeg
+                currentPegImageView?.applyUnselectedEffect()
+                currentPegImageView = pegToImageView[existingPeg]
+                currentPegImageView?.applySelectedEffect()
+            }
             return
         }
         addPegToModelView(peg: newlyCreatedPeg)
@@ -74,14 +151,19 @@ extension LevelDesignerController {
 
     /// Finds peg at location when drag begins.
     private func handleDragStart(_ sender: UIPanGestureRecognizer) {
+        currentPegImageView?.applyUnselectedEffect()
+
         let location = sender.location(in: pegBoardView)
         if let peg = gameLevel.findPeg(at: location) {
             currentSelectedPeg = peg
             currentPegImageView = pegToImageView[peg]
+            currentPegImageView?.applySelectedEffect()
             gameLevel.removeFromLevel(removedPeg: peg)
             pegToImageView[peg] = nil
             textDisplay.text = "found"
         } else {
+            currentSelectedPeg = nil
+            currentPegImageView = nil
             textDisplay.text = "nope"
         }
     }
@@ -102,11 +184,11 @@ extension LevelDesignerController {
         let oldLocation = oldPeg.centre
         let newLocation = sender.location(in: pegBoardView)
         var newlySelectedPeg: Peg
-        if oldPeg.pegType == .green {
-            newlySelectedPeg = Peg(type: oldPeg.pegType, triangleOfCentre: newLocation)
-        } else {
-            newlySelectedPeg = Peg(type: oldPeg.pegType, circleOfCentre: newLocation)
-        }
+        //if oldPeg.pegType == .green {
+        newlySelectedPeg = oldPeg.moveTo(location: newLocation)
+//        } else {
+//            newlySelectedPeg = Peg(type: oldPeg.pegType, circleOfCentre: newLocation)
+//        }
 
         if gameLevel.canInsertPeg(peg: newlySelectedPeg) && self.pegBoardView.bounds.contains(newLocation) {
             pegImageView.moveTo(point: newLocation)
@@ -115,16 +197,14 @@ extension LevelDesignerController {
             pegImageView.moveTo(point: oldLocation)
             reAddPegToModel(peg: oldPeg, pegImageView: pegImageView)
         }
-        //reAddPegToModel(peg: newlySelectedPeg, pegImageView: pegImageView)
     }
 
     /// Re-adds peg to model after drag gesture ends.
     private func reAddPegToModel(peg: Peg, pegImageView: PegImageView) {
         gameLevel.addToLevel(addedPeg: peg)
         pegToImageView[peg] = pegImageView
-        currentPegImageView = nil
-        currentSelectedPeg = nil
-        textDisplay.text = "Drag Success"
+        // currentPegImageView = nil
+        // currentSelectedPeg = nil
     }
 
     /// Adds a peg to both the model and view.

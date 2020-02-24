@@ -203,8 +203,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-9I-BIx">
-                                <rect key="frame" x="437" y="429" width="181" height="110"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-9I-BIx">
+                                <rect key="frame" x="437" y="429" width="264" height="110"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="Z36-fI-mFU"/>
@@ -215,8 +215,8 @@
                                     <action selector="goToPlay:" destination="zvn-yv-alN" eventType="touchUpInside" id="q7j-8x-GKy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjW-fc-YAU">
-                                <rect key="frame" x="437" y="612" width="181" height="110"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjW-fc-YAU">
+                                <rect key="frame" x="437" y="612" width="264" height="110"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="JL0-1T-a2c"/>
@@ -234,9 +234,9 @@
                             <constraint firstItem="ZjW-fc-YAU" firstAttribute="trailing" secondItem="9rT-9I-BIx" secondAttribute="trailing" id="4d7-MZ-LAh"/>
                             <constraint firstItem="ZjW-fc-YAU" firstAttribute="leading" secondItem="Qe3-Fl-Jog" secondAttribute="leading" constant="437" id="DQF-f8-MCZ"/>
                             <constraint firstItem="9rT-9I-BIx" firstAttribute="top" secondItem="Qe3-Fl-Jog" secondAttribute="top" constant="429" id="SVS-Tf-R5o"/>
-                            <constraint firstItem="Qe3-Fl-Jog" firstAttribute="bottom" secondItem="ZjW-fc-YAU" secondAttribute="bottom" constant="235" id="aqG-2j-J9w"/>
+                            <constraint firstItem="Qe3-Fl-Jog" firstAttribute="bottom" secondItem="ZjW-fc-YAU" secondAttribute="bottom" constant="452" id="aqG-2j-J9w"/>
                             <constraint firstItem="ZjW-fc-YAU" firstAttribute="leading" secondItem="9rT-9I-BIx" secondAttribute="leading" id="dmq-yN-Dz8"/>
-                            <constraint firstItem="Qe3-Fl-Jog" firstAttribute="trailing" secondItem="ZjW-fc-YAU" secondAttribute="trailing" constant="220" id="jWv-m3-p2s"/>
+                            <constraint firstItem="Qe3-Fl-Jog" firstAttribute="trailing" secondItem="ZjW-fc-YAU" secondAttribute="trailing" constant="133" id="jWv-m3-p2s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qe3-Fl-Jog"/>
                     </view>
@@ -268,6 +268,7 @@
                                     <outletCollection property="gestureRecognizers" destination="2Pm-Ag-7a2" appends="YES" id="FXR-kW-cgw"/>
                                     <outletCollection property="gestureRecognizers" destination="her-pP-fVU" appends="YES" id="bvS-fX-2H7"/>
                                     <outletCollection property="gestureRecognizers" destination="hdN-CU-g9n" appends="YES" id="dhx-S1-ohf"/>
+                                    <outletCollection property="gestureRecognizers" destination="RaL-ac-eyx" appends="YES" id="AJw-Ux-RY7"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rn-ET-iIA">
@@ -469,6 +470,11 @@
                         <action selector="handleDrag:" destination="6Rs-yI-Oa9" id="Wov-5G-gOV"/>
                     </connections>
                 </panGestureRecognizer>
+                <rotationGestureRecognizer id="RaL-ac-eyx">
+                    <connections>
+                        <action selector="handleRotate:" destination="6Rs-yI-Oa9" id="W4z-9g-ZOl"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1083.453237410072" y="163.81909547738692"/>
         </scene>
@@ -484,6 +490,6 @@
         <image name="peg-orange" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cAR-6a-831"/>
+        <segue reference="DjK-VW-kFU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -126,7 +126,6 @@ class GamePlayController: UIViewController, ContactDelegate {
             pegBoard.addPegToBoard(peg: pegImageView)
             engine.addToGameEngine(gameObject: pegObject)
             gameObjectToImageViewDictionary[pegObject] = pegImageView
-        
 
     }
 
