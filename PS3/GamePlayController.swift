@@ -28,10 +28,11 @@ class GamePlayController: UIViewController, ContactDelegate {
 
     // Force unwrapping is used since engine must be initialised by viewDidAppear()
     private var engine: PeggleGameEngine!
+    var gameLevel: GameLevel?
     private var gameObjectToImageViewDictionary = [GameObject: PegImageView]()
 
     @IBAction func backToMenu(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -47,7 +48,16 @@ class GamePlayController: UIViewController, ContactDelegate {
             return
         }
         initializeGameEngine()
-        handleLevelOneButtonPressed()
+
+        if let level = gameLevel {
+            reloadLevel(gameLevel: level)
+            return
+
+        } else {
+            handleLevelOneButtonPressed()
+        }
+
+        // handleLevelOneButtonPressed()
     }
 
     /// Initialize game engine after constraints for `PegBoardView` has been updated

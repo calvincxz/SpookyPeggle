@@ -16,9 +16,6 @@ class FileStorageHelper {
     /// - Returns: True if save is successful
     /// If there is an error in the saving process, returns false.
     static func saveLevelToFile(gameLevel: GameLevel, fileName: String) -> Bool {
-        for peg in gameLevel.getPegsInLevel() {
-            print("rotation: " + peg.getRotatedAngle().description)
-        }
         let fileURL = FileStorageHelper.getFileURL(from: fileName, with: "json")
         guard let _ = try? JSONEncoder().encode(gameLevel).write(to: fileURL) else {
             return false

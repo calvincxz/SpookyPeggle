@@ -29,17 +29,23 @@ class MathHelperTest: XCTestCase {
         XCTAssertTrue(bool)
     }
 
-    func testCheckTriangleContains_failure() {
-        let vertices = [CGPoint(x: 50, y: 0), CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 100)]
-        let bool = MathHelper.checkTriangleContains(vertices: vertices, point: CGPoint(x:25, y:49))
-        XCTAssertFalse(bool)
+    func testRoundOff() {
+        let result = MathHelper.roundOffFloat(float: CGFloat(0.99884884))
+        print(result)
+
     }
 
-    func testCheckTriangleContains_success() {
-        let vertices = [CGPoint(x: 50, y: 0), CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 100)]
-        let bool = MathHelper.checkTriangleContains(vertices: vertices, point: CGPoint(x:25, y:50))
-        XCTAssertTrue(bool)
-    }
+//    func testCheckTriangleContains_failure() {
+//        let vertices = [CGPoint(x: 50, y: 0), CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 100)]
+//        let bool = MathHelper.checkTriangleContains(vertices: vertices, point: CGPoint(x:25, y:49))
+//        XCTAssertFalse(bool)
+//    }
+//
+//    func testCheckTriangleContains_success() {
+//        let vertices = [CGPoint(x: 50, y: 0), CGPoint(x: 0, y: 100), CGPoint(x: 100, y: 100)]
+//        let bool = MathHelper.checkTriangleContains(vertices: vertices, point: CGPoint(x:25, y:50))
+//        XCTAssertTrue(bool)
+//    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

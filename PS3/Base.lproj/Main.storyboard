@@ -269,6 +269,7 @@
                                     <outletCollection property="gestureRecognizers" destination="her-pP-fVU" appends="YES" id="bvS-fX-2H7"/>
                                     <outletCollection property="gestureRecognizers" destination="hdN-CU-g9n" appends="YES" id="dhx-S1-ohf"/>
                                     <outletCollection property="gestureRecognizers" destination="RaL-ac-eyx" appends="YES" id="AJw-Ux-RY7"/>
+                                    <outletCollection property="gestureRecognizers" destination="0Na-SG-C9Z" appends="YES" id="nqH-iy-2LP"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rn-ET-iIA">
@@ -450,7 +451,7 @@
                         <outlet property="orangePegButton" destination="jRA-EM-jW5" id="Qh6-cN-Khl"/>
                         <outlet property="pegBoardView" destination="zH7-Ek-Nsc" id="I8c-BS-Hke"/>
                         <outlet property="textDisplay" destination="zIs-Fg-lRy" id="FV3-Zi-KDx"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="levelDesignToPlay" id="DjK-VW-kFU"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="levelDesignToPlay" animates="NO" id="DjK-VW-kFU"/>
                         <segue destination="zvn-yv-alN" kind="showDetail" identifier="levelDesignToHome" id="Ols-ho-l8P"/>
                     </connections>
                 </viewController>
@@ -470,11 +471,16 @@
                         <action selector="handleDrag:" destination="6Rs-yI-Oa9" id="Wov-5G-gOV"/>
                     </connections>
                 </panGestureRecognizer>
-                <rotationGestureRecognizer id="RaL-ac-eyx">
+                <rotationGestureRecognizer delaysTouchesEnded="NO" id="RaL-ac-eyx">
                     <connections>
                         <action selector="handleRotate:" destination="6Rs-yI-Oa9" id="W4z-9g-ZOl"/>
                     </connections>
                 </rotationGestureRecognizer>
+                <pinchGestureRecognizer delaysTouchesEnded="NO" id="0Na-SG-C9Z">
+                    <connections>
+                        <action selector="handlePinchGesture:" destination="6Rs-yI-Oa9" id="Xtm-at-k0A"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1083.453237410072" y="163.81909547738692"/>
         </scene>

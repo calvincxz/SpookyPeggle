@@ -24,7 +24,8 @@ class PegImageView: UIImageView {
         super.init(frame: frame)
         image = GameDisplayHelper.getPegImage(of: pegType)
         self.rotation = rotation
-        transform = transform.rotated(by: rotation)
+        rotate(by: rotation)
+        //resize(by: scale)
     }
 
     func getRotatedAngle() -> CGFloat {
@@ -41,17 +42,21 @@ class PegImageView: UIImageView {
         }
     }
 
-    convenience init(circlePeg: Peg) {
+    private convenience init(circlePeg: Peg) {
         let centre = circlePeg.centre
         let diameter = circlePeg.physicalShape.radius * 2
-        self.init(diameter: diameter, centre: centre, pegType: circlePeg.pegType, rotation: circlePeg.rotation)
+        let pegType = circlePeg.pegType
+        self.init(diameter: diameter, centre: centre, pegType: pegType,
+                  rotation: circlePeg.rotation)
     }
 
-    convenience init(trianglePeg: Peg) {
+    private convenience init(trianglePeg: Peg) {
         let centre = trianglePeg.centre
         let diameter = trianglePeg.physicalShape.length
         // print(trianglePeg.rotation.description)
-        self.init(diameter: diameter, centre: centre, pegType: trianglePeg.pegType, rotation: trianglePeg.rotation)
+        let pegType = trianglePeg.pegType
+        self.init(diameter: diameter, centre: centre, pegType: pegType,
+                  rotation: trianglePeg.rotation)
     }
 
     @available(*, unavailable)
@@ -91,6 +96,10 @@ class PegImageView: UIImageView {
     func rotate(by angle: CGFloat) {
         rotation += angle
         transform = transform.rotated(by: angle)
+    }
+
+    func resize(by scale: CGFloat) {
+        transform = transform.scaledBy(x: scale, y: scale)
     }
 
     func setInitialPosition() {

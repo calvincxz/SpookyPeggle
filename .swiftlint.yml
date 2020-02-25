@@ -58,7 +58,6 @@ opt_in_rules:
   - single_test_class
   - sorted_first_last
   - static_operator
-  - strong_iboutlet
   - switch_case_on_newline
   - toggle_bool
   - unavailable_function

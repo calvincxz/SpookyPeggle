@@ -27,7 +27,6 @@ struct PhysicalShape: Codable, Hashable {
     }
 
     init(triangleOfCentre: CGPoint, length: CGFloat, rotation: CGFloat) {
-        //print(rotation.description)
         self.shape = .Triangle
         self.centre = triangleOfCentre
         self.length = length
@@ -36,11 +35,6 @@ struct PhysicalShape: Codable, Hashable {
         self.vertices = initialVertices.map({ $0.rotate(origin: triangleOfCentre, byRadians: rotation) })
         self.rotationAngle = rotation
     }
-
-//    init(triangleOfCentre: CGPoint, length: CGFloat, rotation: CGFloat) {
-//        let vertices = GameDisplayHelper.getVerticesOfTriangle(centre: triangleOfCentre, lengthOfBase: length)
-//        self.init(triangleOfCentre: triangleOfCentre, length: length, vertices: vertices)
-//    }
 
     init(triangleOfCentre: CGPoint, length: CGFloat) {
         self.init(triangleOfCentre: triangleOfCentre, length: length, rotation: CGFloat.zero)
@@ -70,27 +64,34 @@ struct PhysicalShape: Codable, Hashable {
         }
     }
 
+    func resize(by scale: CGFloat) -> PhysicalShape {
+        switch shape {
+        case .Circle:
+            return PhysicalShape(circleOfCentre: centre, radius: radius * scale)
+        case .Triangle:
+            return PhysicalShape(triangleOfCentre: centre, length: length * scale,
+                                 rotation: rotationAngle)
+        }
+    }
+
     // angle in radians
     func rotate(by angle: CGFloat) -> PhysicalShape {
         switch shape {
         case .Circle:
             return self
         case .Triangle:
-            //let rotatedVertices = vertices.map({ $0.rotate(origin: centre, byRadians: angle) })
-            return PhysicalShape(triangleOfCentre: centre, length: length, rotation: rotationAngle + angle)
+            return PhysicalShape(triangleOfCentre: centre, length: length,
+                                 rotation: rotationAngle + angle)
         }
     }
 
     func moveTo(location: CGPoint) -> PhysicalShape {
-//        let dx = location.x - self.centre.x
-//        let dy = location.y - self.centre.y
-
         switch shape {
         case .Circle:
             return PhysicalShape(circleOfCentre: location, radius: radius)
         case .Triangle:
-            //let movedVertices = vertices.map({ $0.moveTo(dx: dx, dy: dy) })
-            return PhysicalShape(triangleOfCentre: location, length: length, rotation: rotationAngle)
+            return PhysicalShape(triangleOfCentre: location, length: length,
+                                 rotation: rotationAngle)
         }
     }
 

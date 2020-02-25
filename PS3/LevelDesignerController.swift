@@ -71,6 +71,14 @@ class LevelDesignerController: UIViewController {
 
     @IBAction private func startGame(_ sender: UIButton) {
         performSegue(withIdentifier: "levelDesignToPlay", sender: self)
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is GamePlayController {
+            let target = segue.destination as? GamePlayController
+            target?.gameLevel = gameLevel
+        }
     }
 
     /// Saves the level design when the save button is pressed.
@@ -86,7 +94,8 @@ class LevelDesignerController: UIViewController {
     /// Loads previously saved level designs when the load button is pressed.
     @IBAction private func loadLevel(_ sender: UIButton) {
         guard let jsonFileNames = FileStorageHelper.getDocumentDirectoryFileNames() else {
-            Alert.presentAlert(controller: self, title: "Error", message: Settings.messageForDocumentDirectoryAccessFailure)
+            Alert.presentAlert(controller: self, title: "Error",
+                               message: Settings.messageForDocumentDirectoryAccessFailure)
             return
         }
 

@@ -48,7 +48,6 @@ extension LevelDesignerController {
 
         let rotation = sender.rotation
         let rotatedPeg = oldPeg.rotate(by: rotation)
-        //print()
 
         gameLevel.removeFromLevel(removedPeg: oldPeg)
 
@@ -56,16 +55,16 @@ extension LevelDesignerController {
             currentSelectedPeg = rotatedPeg
             gameLevel.addToLevel(addedPeg: rotatedPeg)
             pegView.rotate(by: rotation)
-            print(rotatedPeg.rotation.description)
+            //print(rotatedPeg.rotation.description)
             currentPegImageView = pegView
-            //pegToImageView[oldPeg] = nil
+            pegToImageView[oldPeg] = nil
             pegToImageView[rotatedPeg] = pegView
 
         } else {
             //print(gameLevel.canInsertPeg(peg: rotatedPeg))
             //currentSelectedPeg = oldPeg
             gameLevel.addToLevel(addedPeg: oldPeg)
-            //pegToImageView[oldPeg] = pegView
+            pegToImageView[oldPeg] = pegView
         }
         sender.rotation = 0
 
@@ -81,11 +80,39 @@ extension LevelDesignerController {
 //
 //    }
 
+    /// Resizes the peg when pinch gesture is detected
+    @IBAction private func handlePinchGesture(_ sender: UIPinchGestureRecognizer) {
+        guard let pegView = currentPegImageView, let oldPeg = currentSelectedPeg else {
+            return
+        }
+
+        if sender.state == .began || sender.state == .changed {
+            // pegView.transform = pegView.transform.scaledBy(x: sender.scale, y: sender.scale)
+            print(sender.scale)
+
+            let scale = sender.scale
+            let resizedPeg = oldPeg.resize(by: scale)
+
+            gameLevel.removeFromLevel(removedPeg: oldPeg)
+
+            if gameLevel.canInsertPeg(peg: resizedPeg) {
+                currentSelectedPeg = resizedPeg
+                gameLevel.addToLevel(addedPeg: resizedPeg)
+                pegView.resize(by: scale)
+                currentPegImageView = pegView
+                pegToImageView[oldPeg] = nil
+                pegToImageView[resizedPeg] = pegView
+
+            } else {
+                gameLevel.addToLevel(addedPeg: oldPeg)
+                pegToImageView[oldPeg] = pegView
+            }
+            sender.scale = 1.0
+        }
+    }
+
     /// Updates the peg when single tap is detected on the `PegBoardView`.
     @IBAction private func handleSingleTap(_ sender: UITapGestureRecognizer) {
-        for peg in gameLevel.getPegsInLevel() {
-            print(peg.rotation.description)
-        }
         if sender.state == .ended {
             handleUpdatePeg(sender)
         }

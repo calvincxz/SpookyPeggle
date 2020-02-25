@@ -64,4 +64,11 @@ enum MathHelper {
         return !(has_neg && has_pos)
 
     }
+
+    static func roundOffFloat(float: CGFloat) -> CGFloat {
+        let x = Double(float)
+        let y = Double(round(1000 * x) / 1000)
+
+        return CGFloat(y)
+    }
 }

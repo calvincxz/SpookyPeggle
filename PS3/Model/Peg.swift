@@ -20,10 +20,6 @@ class Peg: Codable, Hashable {
         return physicalShape.rotationAngle
     }
 
-    func getRotatedAngle() -> CGFloat {
-        return physicalShape.rotationAngle
-    }
-
     var shape: PegShape {
         return physicalShape.shape
     }
@@ -46,10 +42,10 @@ class Peg: Codable, Hashable {
         self.physicalShape = PhysicalShape(triangleOfCentre: centre, length: length)
     }
 
-    /// Creates a fixed size triangular peg with the given peg type and centre.
-    init(type pegType: PegType, triangleOfCentre: CGPoint, physicalShape: PhysicalShape) {
+    /// Creates a peg with the given peg type, centre and shape.
+    init(type pegType: PegType, centre: CGPoint, physicalShape: PhysicalShape) {
         self.pegType = pegType
-        self.centre = triangleOfCentre
+        self.centre = centre
         self.physicalShape = physicalShape
     }
 
@@ -68,21 +64,17 @@ class Peg: Codable, Hashable {
     }
 
     func rotate(by angle: CGFloat) -> Peg {
-        switch shape {
-        case .Circle:
-            return self
-        case .Triangle:
-            return Peg(type: pegType, triangleOfCentre: centre, physicalShape: physicalShape.rotate(by: angle))
-        }
+        return Peg(type: pegType, centre: centre, physicalShape: physicalShape.rotate(by: angle))
+    }
+
+    func resize(by scale: CGFloat) -> Peg {
+        return Peg(type: pegType, centre: centre, physicalShape: physicalShape.resize(by: scale))
     }
 
     func moveTo(location: CGPoint) -> Peg {
-        switch shape {
-        case .Circle:
-            return Peg(type: pegType, circleOfCentre: location)
-        case .Triangle:
-            return Peg(type: pegType, triangleOfCentre: location, physicalShape: physicalShape.moveTo(location: location))
-        }
+        return Peg(type: pegType, centre: location,
+                       physicalShape: physicalShape.moveTo(location: location))
+
     }
 
     static func == (lhs: Peg, rhs: Peg) -> Bool {
