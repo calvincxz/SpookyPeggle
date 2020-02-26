@@ -12,16 +12,21 @@ The `GameObject` extends the `PhysicsBody` and represents objects specific to th
 */
 class GameObject: PhysicsBody, Hashable {
 
+//    /// Creates
+//    init(rectangleOfCentre: CGPoint, length: CGFloat, breadth: CGFloat) {
+//
+//    }
+
     /// Defines the equality of`GameObject`s.
     /// Two `GameObject` cannot have the same centre
     static func == (lhs: GameObject, rhs: GameObject) -> Bool {
         lhs.centre == rhs.centre &&
-        lhs.radius == rhs.radius
+            lhs.physicalShape == rhs.physicalShape
     }
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(centre)
-        hasher.combine(radius)
+        hasher.combine(physicalShape)
     }
 
 }

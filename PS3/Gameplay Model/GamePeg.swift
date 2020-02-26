@@ -23,12 +23,12 @@ class GamePeg: GameObject {
             let radius = peg.physicalShape.radius
             let centre = peg.centre
             self.pegType = peg.pegType
-            super.init(radius: radius, centre: centre)
+            super.init(radius: radius, circleWithCentre: centre)
             self.isDynamic = false
         case .Triangle:
             let centre = peg.centre
             self.pegType = peg.pegType
-            super.init(triangleWithCentre: centre, length: peg.physicalShape.length)
+            super.init(triangleWithCentre: centre, length: peg.physicalShape.length, rotation: peg.physicalShape.rotationAngle)
             self.isDynamic = false
         }
 

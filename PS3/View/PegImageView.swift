@@ -14,16 +14,19 @@ import UIKit
 */
 class PegImageView: UIImageView {
 
-    private var pegType: PegType
+    private let pegType: PegType
+    private let pegShape: PegShape
     private var initialState: CGAffineTransform?
     private var rotation = CGFloat.zero
 
-    init(diameter: CGFloat, centre: CGPoint, pegType: PegType, rotation: CGFloat) {
+    init(diameter: CGFloat, centre: CGPoint, pegType: PegType, shape: PegShape, rotation: CGFloat) {
         self.pegType = pegType
+        self.pegShape = shape
+        self.rotation = rotation
         let frame = CGRect(x: centre.x - diameter / 2, y: centre.y - diameter / 2, width: diameter, height: diameter)
         super.init(frame: frame)
-        image = GameDisplayHelper.getPegImage(of: pegType)
-        self.rotation = rotation
+        image = GameDisplayHelper.getPegImage(of: pegType, shape: shape)
+
         rotate(by: rotation)
         //resize(by: scale)
     }
@@ -34,30 +37,23 @@ class PegImageView: UIImageView {
 
     /// Constructs  a `PegImageView` from a `Peg`
     convenience init(peg: Peg) {
-        switch peg.shape {
+        let centre = peg.centre
+        let pegType = peg.pegType
+        let rotation = peg.rotation
+        let shape = peg.shape
+
+        switch shape {
         case .Circle:
-            self.init(circlePeg: peg)
+            let diameter = peg.physicalShape.radius * 2
+            self.init(diameter: diameter, centre: centre, pegType: pegType,
+                      shape: shape, rotation: rotation)
         case .Triangle:
-            self.init(trianglePeg: peg)
+            let diameter = peg.physicalShape.length
+            self.init(diameter: diameter, centre: centre, pegType: pegType,
+                      shape: shape, rotation: rotation)
         }
     }
 
-    private convenience init(circlePeg: Peg) {
-        let centre = circlePeg.centre
-        let diameter = circlePeg.physicalShape.radius * 2
-        let pegType = circlePeg.pegType
-        self.init(diameter: diameter, centre: centre, pegType: pegType,
-                  rotation: circlePeg.rotation)
-    }
-
-    private convenience init(trianglePeg: Peg) {
-        let centre = trianglePeg.centre
-        let diameter = trianglePeg.physicalShape.length
-        // print(trianglePeg.rotation.description)
-        let pegType = trianglePeg.pegType
-        self.init(diameter: diameter, centre: centre, pegType: pegType,
-                  rotation: trianglePeg.rotation)
-    }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
@@ -78,12 +74,12 @@ class PegImageView: UIImageView {
     }
 
     func dimDown() {
-        image = GameDisplayHelper.getPegImage(of: pegType)
+        image = GameDisplayHelper.getPegImage(of: pegType, shape: pegShape)
     }
 
     /// Changes the image of a `PegImageView` to a lighted one
     func lightUp() {
-        self.image = GameDisplayHelper.getLightedPegImage(of: pegType)
+        self.image = GameDisplayHelper.getLightedPegImage(of: pegType, shape: pegShape)
     }
 
     /// Slowly sets the alpha to 0 with animation

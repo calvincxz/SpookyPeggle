@@ -24,7 +24,7 @@ extension CGPoint: Hashable {
         let dx = x - origin.x
         let dy = y - origin.y
         let radius = sqrt(dx * dx + dy * dy)
-        let azimuth = atan2(dy, dx) 
+        let azimuth = atan2(dy, dx)
         let newAzimuth = azimuth + byRadians
         let x = origin.x + radius * cos(newAzimuth)
         let y = origin.y + radius * sin(newAzimuth)

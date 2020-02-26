@@ -15,30 +15,51 @@ The `GameBucket` represents a bucket in the Peggle Game.
 class GameBucket: GameObject {
 
     /// Constructs a `GameBall`
-    var width: CGFloat
-    var height: CGFloat
+    private var width: CGFloat
+    private var height: CGFloat
+    var bucketHoleLength = CGFloat(100)
 
     /// Constructs a `GameBucket` with the default diameter
-    override init(size: CGSize, centre: CGPoint) {
-
-        self.width = Settings.bucketWidth
-        self.height = Settings.bucketHeight
-        super.init(size: size, centre: centre)
-        self.velocity = CGVector(dx: 5, dy: 0)
-
+    init(size: CGSize, centre: CGPoint) {
+        self.width = size.width
+        self.height = size.height
+        super.init(rectangleWithCentre: centre, size: size, rotation: CGFloat.zero)
+        self.velocity = Settings.initialVelocityForBucket
     }
     /// Constructs a `GameBucket` centred at the bottom of a
     /// given area
     convenience init(area: CGSize) {
-        let centre = CGPoint(x: area.width / 2, y: area.height - Settings.bucketHeight/2)
-        self.init(size: CGSize(width: Settings.bucketWidth, height: Settings.bucketHeight), centre: centre)
+        let bucketSize = CGSize(width: Settings.bucketWidth, height: Settings.bucketHeight)
+        let centre = CGPoint(x: area.width / 2, y: area.height - Settings.bucketHeight / 2)
+        self.init(size: bucketSize, centre: centre)
     }
 
     func resetVelocity() {
-        velocity = CGVector(dx: 5, dy: 0)
+        velocity = Settings.initialVelocityForBucket
     }
 
-    func collideWith(ball: GameObject) -> Bool {
-        return ball.centre.y >= centre.y && ball.centre.x < centre.x + width/2 && ball.centre.x > centre.x - width/2
+    func checkHoritzontalPositionForCollision(x: CGFloat) -> Bool {
+        return (x >= centre.x + bucketHoleLength / 2 &&  x <= centre.x + width / 2)
+        || (x >= centre.x - width / 2 &&  x <= centre.x - bucketHoleLength / 2)
+    }
+
+    func checkEnterBucket(ball: GameObject) -> Bool {
+        if ball.centre.x >= centre.x - bucketHoleLength / 2 &&
+        ball.centre.x <= centre.x + bucketHoleLength / 2 {
+            print(ball.centre.x.description)
+            print(centre.x.description)
+        }
+
+        return ball.centre.x >= centre.x - bucketHoleLength / 2 &&
+            ball.centre.x <= centre.x + bucketHoleLength / 2
+    }
+
+
+    func willCollide(ball: GameObject) -> Bool {
+        if ball.willCollide(other: self) {
+            print("collided")
+        }
+        return ball.collidedWith(other: self)
+//        return ball.centre.y >= centre.y && ball.centre.x < centre.x + width/2 && ball.centre.x > centre.x - width/2
     }
 }

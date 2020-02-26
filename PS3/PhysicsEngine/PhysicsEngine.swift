@@ -40,7 +40,7 @@ public class PhysicsEngine {
        - rhs: The second `PhysicsBody`
     */
     public func checkCollision(lhs: PhysicsBody, rhs: PhysicsBody) -> Bool {
-        return lhs.collidedWith(circularObject: rhs) || rhs.collidedWith(circularObject: lhs)
+        return lhs.collidedWith(other: rhs) || rhs.collidedWith(other: lhs)
     }
 
     /// Checks if a `PhysicsBody`collided with the top of the given area.

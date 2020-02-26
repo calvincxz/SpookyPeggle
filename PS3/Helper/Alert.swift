@@ -51,17 +51,17 @@ class Alert {
         controller.present(saveAlert, animated: true)
     }
 
-    /// Presents the UIAlert for loading previous game levels in a controller.
-    static func presentLoadLevelAlert(controller: LevelDesignerController, jsonFileNames: [String]) {
-        let loadAlert = setupAlertController(title: "Load", message: Settings.messageForLoadLevel)
-        guard !jsonFileNames.isEmpty else {
-            presentAlert(controller: controller, title: "Load Failed", message: Settings.messageForLoadLevel_emptyLevels)
-            return
-        }
-        addLoadLevelOptionsToAlert(jsonFileNames: jsonFileNames, alert: loadAlert, controller: controller)
-        loadAlert.addAction(cancelAction)
-        controller.present(loadAlert, animated: true)
-    }
+//    /// Presents the UIAlert for loading previous game levels in a controller.
+//    static func presentLoadLevelAlert(controller: LevelDesignerController, jsonFileNames: [String]) {
+//        let loadAlert = setupAlertController(title: "Load", message: Settings.messageForLoadLevel)
+//        guard !jsonFileNames.isEmpty else {
+//            presentAlert(controller: controller, title: "Load Failed", message: Settings.messageForLoadLevel_emptyLevels)
+//            return
+//        }
+//        addLoadLevelOptionsToAlert(jsonFileNames: jsonFileNames, alert: loadAlert, controller: controller)
+//        loadAlert.addAction(cancelAction)
+//        controller.present(loadAlert, animated: true)
+//    }
 
     /// Creates an `UIAlertController` for general use.
     private static func setupAlertController(title: String, message: String) -> UIAlertController {
@@ -76,11 +76,23 @@ class Alert {
     /// Saves the game level.
     /// If save fails, an alert is shown in controller.
     private static func handleSaveLevel(controller: LevelDesignerController, fileName: String) {
-        if FileStorageHelper.saveLevelToFile(gameLevel: controller.gameLevel, fileName: fileName) {
-            controller.textDisplay.text = "Save Level Success"
-        } else {
+        guard FileStorageHelper.saveLevelToFile(gameLevel: controller.gameLevel, fileName: fileName) else {
             presentAlert(controller: controller, title: "Error", message: Settings.messageForSaveLevelFailure)
+            return
         }
+
+        guard let image = controller.getScreenshot() else {
+            presentAlert(controller: controller, title: "Screenshot Failed", message: Settings.messageForScreenshotFail)
+            return
+        }
+
+        let imageURL = FileStorageHelper.getFileURL(from: fileName, with: "png")
+        guard (try? image.write(to: imageURL)) != nil else {
+            presentAlert(controller: controller, title: "Screenshot Save Failed", message: Settings.messageForScreenshotSaveFail)
+            return
+        }
+
+        controller.textDisplay.text = "Save Level Success"
     }
 
     /// Validates user input for game level saving.
@@ -98,7 +110,8 @@ class Alert {
     }
 
     /// Creates Alert Actions for all the game level files.
-    private static func addLoadLevelOptionsToAlert(jsonFileNames: [String], alert: UIAlertController, controller: LevelDesignerController) {
+    private static func addLoadLevelOptionsToAlert(
+        jsonFileNames: [String], alert: UIAlertController, controller: LevelDesignerController) {
         for jsonFileName in jsonFileNames {
             let loadAction = createAlertActionForLoad(levelName: jsonFileName, controller: controller)
             alert.addAction(loadAction)
@@ -106,14 +119,27 @@ class Alert {
     }
 
     /// Creates an Alert Action for a single game level.
-    private static func createAlertActionForLoad(levelName: String, controller: LevelDesignerController) -> UIAlertAction {
+    private static func createAlertActionForLoad(
+        levelName: String, controller: LevelDesignerController) -> UIAlertAction {
+
         let loadActionForSingleGameLevel = UIAlertAction(title: levelName, style: .default) { _ in
             guard let gameLevelFromData = FileStorageHelper.loadDataFromFile(withName: levelName) else {
                 presentAlert(controller: controller, title: "Error", message: Settings.messageForLoadLevelFailure)
                 return
             }
-            controller.loadNewLevel(newLevel: gameLevelFromData, levelName: levelName)
+            controller.loadNewLevel(level: gameLevelFromData, levelName: levelName)
         }
         return loadActionForSingleGameLevel
+    }
+
+    static func presentDeleteAlert(controller: LevelSelectionViewController, index: Int) {
+        let deleteAlert = setupAlertController(title: "Delete Level", message: Settings.messageForDeleteLevel)
+
+            let loadAction = UIAlertAction(title: "Delete", style: .default) { _ in
+                controller.deleteLevel(at: index)
+            }
+            deleteAlert.addAction(loadAction)
+            deleteAlert.addAction(cancelAction)
+            controller.present(deleteAlert, animated: true)
     }
 }

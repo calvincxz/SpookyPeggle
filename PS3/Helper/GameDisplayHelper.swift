@@ -13,46 +13,52 @@ import UIKit
 */
 enum GameDisplayHelper {
     /// Returns an image associated with the `PegType`.
-    static func getPegImage(of type: PegType) -> UIImage {
-        switch type {
-        case .blue:
-            return #imageLiteral(resourceName: "peg-blue")
-        case .orange:
-            return #imageLiteral(resourceName: "peg-orange")
-        case .erase:
-            return #imageLiteral(resourceName: "delete.png")
-        case .green:
-            return #imageLiteral(resourceName: "peg-green-triangle")
+    static func getPegImage(of type: PegType, shape: PegShape) -> UIImage {
+        switch shape {
+        case .Circle:
+            switch type {
+            case .blue:
+                return #imageLiteral(resourceName: "peg-blue")
+            case .orange:
+                return #imageLiteral(resourceName: "peg-orange")
+            case .green:
+                return #imageLiteral(resourceName: "peg-green")
+            }
+        case .Triangle:
+            switch type {
+            case .blue:
+                return #imageLiteral(resourceName: "peg-blue-triangle")
+            case .orange:
+                return #imageLiteral(resourceName: "peg-orange-triangle")
+            case .green:
+                return #imageLiteral(resourceName: "peg-green-triangle")
+            }
         }
+
     }
 
     /// Returns an image associated with the `PegType`.
-    static func getLightedPegImage(of type: PegType) -> UIImage? {
-        switch type {
-        case .blue:
-            return #imageLiteral(resourceName: "peg-blue-glow")
-        case .orange:
-            return #imageLiteral(resourceName: "peg-orange-glow")
-        case .green:
-            return #imageLiteral(resourceName: "peg-green-glow-triangle")
-        default:
-            return nil
+    static func getLightedPegImage(of type: PegType, shape: PegShape) -> UIImage? {
+        switch shape {
+        case .Circle:
+            switch type {
+            case .blue:
+                return #imageLiteral(resourceName: "peg-blue-glow")
+            case .orange:
+                return #imageLiteral(resourceName: "peg-orange-glow")
+            case .green:
+                return #imageLiteral(resourceName: "peg-green-glow")
+            }
+        case .Triangle:
+            switch type {
+            case .blue:
+                return #imageLiteral(resourceName: "peg-blue-glow-triangle")
+            case .orange:
+                return #imageLiteral(resourceName: "peg-orange-glow-triangle")
+            case .green:
+                return #imageLiteral(resourceName: "peg-green-glow-triangle")
+            }
         }
-    }
-
-     /// Returns a reflected vector after collision.
-     /// Formula adapted from https://math.stackexchange.com/questions/13261/how-to-get-a-reflection-vector
-     /// - Parameters:
-     ///     - a: incident vector
-     ///     - b: normal vector
-    static func calculateReflectedVector(a: CGVector, b: CGVector) -> CGVector {
-        let length = sqrt(b.dx * b.dx + b.dy * b.dy)
-        let normalizedNormal = CGVector(dx: b.dx / length, dy: b.dy / length)
-        let dotProduct = a.dx * normalizedNormal.dx + a.dy * normalizedNormal.dy
-        let result = CGVector(dx: a.dx - 2 * dotProduct * normalizedNormal.dx,
-                              dy: a.dy - 2 * dotProduct * normalizedNormal.dy)
-
-        return result
     }
 
     /// Returns initial velocity of a ball given an angle.
@@ -77,25 +83,13 @@ enum GameDisplayHelper {
         Alert.presentAlert(controller: controller, title: "Game Over!", message: "You lose. Try again next time!")
     }
 
-    // Code adapted from https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
-
-    static func area(p1: CGPoint, p2: CGPoint, p3: CGPoint) -> CGFloat {
-
-        let x1 = p1.x
-        let y1 = p1.y
-        let x2 = p2.x
-        let y2 = p2.y
-        let x3 = p3.x
-        let y3 = p3.y
-        return abs((x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2))/2.0)
-    }
-
     static func pointCircle(point: CGPoint, centre: CGPoint, radius: CGFloat) -> Bool {
         return centre.distanceTo(other: point) < radius
     }
 
-    // LINE/POINT
-    static func linePoint(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat, px: CGFloat, py: CGFloat) -> Bool {
+    // Code adapted from http://www.jeffreythompson.org/collision-detection/line-circle.php
+    static func linePoint(x1: CGFloat, y1: CGFloat, x2: CGFloat,
+                          y2: CGFloat, px: CGFloat, py: CGFloat) -> Bool {
         let point = CGPoint(x: px, y: py)
         let p1 = CGPoint(x: x1, y: y1)
         let p2 = CGPoint(x: x2, y: y2)
@@ -114,7 +108,7 @@ enum GameDisplayHelper {
       // length, the point is on the line!
       // note we use the buffer here to give a range,
       // rather than one #
-      if (d1+d2 >= lineLen-buffer && d1+d2 <= lineLen+buffer) {
+      if (d1 + d2 >= lineLen - buffer && d1 + d2 <= lineLen+buffer) {
         return true
       }
       return false
@@ -156,7 +150,6 @@ enum GameDisplayHelper {
         if !onSegment {
             return false
         }
-
         // get distance to closest point
         distX = closestX - cx
         distY = closestY - cy
@@ -166,14 +159,6 @@ enum GameDisplayHelper {
             return true
         }
         return false
-    }
-
-    static func getVerticesOfTriangle(centre: CGPoint, lengthOfBase: CGFloat) -> [CGPoint] {
-        let halfLength = lengthOfBase / 2
-        let topVertex = CGPoint(x: centre.x, y: centre.y - halfLength)
-        let leftVertex = CGPoint(x: centre.x - halfLength, y: centre.y + halfLength)
-        let rightVertex = CGPoint(x: centre.x + halfLength, y: centre.y + halfLength)
-        return [topVertex, leftVertex, rightVertex]
     }
 
     static func getClosestEdge(centre: CGPoint, radius: CGFloat, vertices: [CGPoint]) -> (CGPoint, CGPoint)? {
@@ -190,6 +175,5 @@ enum GameDisplayHelper {
     static func reverseVelocity(_ velocity: CGVector) -> CGVector {
         return CGVector(dx: -velocity.dx, dy: -velocity.dy)
     }
-
     
 }

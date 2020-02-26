@@ -10,6 +10,5 @@ public enum PegType: Int, Codable {
 
     case blue = 0
     case orange = 1
-    case erase = 2
-    case green = 3
+    case green = 2
 }

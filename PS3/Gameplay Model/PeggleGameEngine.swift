@@ -21,6 +21,7 @@ class PeggleGameEngine {
     weak var contactDelegate: ContactDelegate?
     private var bucket: GameBucket
     var area: CGSize
+    private var spookyCount = 0
 
     private var score = 0 {
         didSet {
@@ -78,7 +79,8 @@ class PeggleGameEngine {
 
     /// Returns true if there are no orange pegs in the `PeggleGameEngine`.
     func checkWinStatus() -> Bool {
-        return !gameObjects.contains(where: { $0.getPegType() == PegType.orange })
+        return false
+        //return !gameObjects.contains(where: { $0.getPegType() == PegType.orange })
     }
 
     /// Gets the current ball in game from the `PeggleGameEngine`.
@@ -130,29 +132,46 @@ class PeggleGameEngine {
     /// Checks if ball will collide with a peg in the `PhysicsEngine`and
     /// updates the velocity of the ball in the game.
     private func handleBallCollisionWithPeg(ball: GameObject) {
-        for peg in gameObjects where ball.willCollide(circularObject: peg, tolerance: Settings.safetyTolerance) {
+        for peg in gameObjects where ball.willCollide(other: peg) {
 
             ball.changeVelocityAfter(collisionWith: peg, energyLoss: Settings.energyLoss)
             peg.hitByBall()
             contactDelegate?.handlePegHitByBall(pegObject: peg)
+            if peg.getHitCount() == 1 {
+                handlePegEffect(specialPeg: peg)
+            }
         }
+    }
 
-        for peg in gameObjects where
-            ball.willCollide(triangularObject: peg, tolerance: CGFloat.zero) {
-                print("triangle peg")
-            ball.changeVelocityAfter(triangularObject: peg, energyLoss: Settings.energyLoss)
-            peg.hitByBall()
-            contactDelegate?.handlePegHitByBall(pegObject: peg)
+    private func handlePegEffect(specialPeg: GamePeg) {
+        switch specialPeg.getPegType() {
+        case .green:
+//            for peg in gameObjects where specialPeg.centre.distanceTo(other: peg.centre) <= Settings.defaultBallDiameter * 5 {
+//                peg.hitByBall()
+//                contactDelegate?.handlePegHitByBall(pegObject: peg)
+//            }
+            spookyCount += 1
+        default:
+            return
         }
     }
 
     /// Checks if ball has exited in the `PhysicsEngine`.
     /// Removes the ball and relevant pegs from the game.
     private func handleBottomExit(ball: GameObject) {
-        if physicsEngine.checkBottomCollision(object: ball) {
-            removePegsAfterBallExit()
-            removeBall()
+        guard physicsEngine.checkBottomCollision(object: ball) else {
+            return
         }
+        guard spookyCount <= 0 else {
+            print("spooky++")
+            removePegsAfterBallExit()
+            ball.centre = CGPoint(x: ball.centre.x, y: 20)
+            spookyCount -= 1
+            return
+        }
+
+        removePegsAfterBallExit()
+        removeBall()
     }
 
     /// Removes relevant pegs from the `PeggleGameEngine` after ball exits.
@@ -177,10 +196,14 @@ class PeggleGameEngine {
     }
 
     private func handleBucketCollision(ball: GameObject) {
-        if bucket.collideWith(ball: ball) {
-            ball.reflectVelocityInDirectionY()
-            ballCount += 10
-            print("collided")
+        if bucket.willCollide(ball: ball) {
+            if bucket.checkEnterBucket(ball: ball) {
+                removePegsAfterBallExit()
+                removeBall()
+                ballCount += 10
+            } else {
+                ball.changeVelocityAfter(polygonObject: bucket, energyLoss: Settings.energyLoss)
+            }
         }
     }
 }

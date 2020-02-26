@@ -14,8 +14,8 @@ The `GameBall` represents a ball in the Peggle Game.
 class GameBall: GameObject {
 
     /// Constructs a `GameBall`
-    override init(radius: CGFloat, centre: CGPoint) {
-        super.init(radius: radius, centre: centre)
+    init(radius: CGFloat, centre: CGPoint) {
+        super.init(radius: radius, circleWithCentre: centre)
     }
 
     /// Constructs a `GameBall` with the default diameter

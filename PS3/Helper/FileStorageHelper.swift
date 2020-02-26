@@ -23,11 +23,18 @@ class FileStorageHelper {
         return true
     }
 
-    /// Loads a `GameLevel` from a file in the document directory.
+    /// Loads a `GameLevel` from a file name in the document directory.
     /// - Returns: a `GameLevel` object
     /// If there is an error in the decoding process, returns nil.
     static func loadDataFromFile(withName fileName: String) -> GameLevel? {
         let fileURL = FileStorageHelper.getFileURL(from: fileName, with: "json")
+        return loadDataFromURL(fileURL: fileURL)
+    }
+
+    /// Loads a `GameLevel` from a given URL
+    /// - Returns: a `GameLevel` object
+    /// If there is an error in the decoding process, returns nil.
+    static func loadDataFromURL(fileURL: URL) -> GameLevel? {
         let gameLevelFromJsonData = try? JSONDecoder().decode(GameLevel.self, from: Data(contentsOf: fileURL))
         return gameLevelFromJsonData
     }
@@ -51,13 +58,22 @@ class FileStorageHelper {
     /// - Returns: an array of file names
     /// If there is an error in locating contents of document directory, returns nil.
     static func getDocumentDirectoryFileNames() -> [String]? {
+        guard let jsonFiles = getDocumentDirectoryFileURLs(pathExtension: "json") else {
+            return nil
+        }
+        let jsonFileNames = jsonFiles.map { $0.deletingPathExtension().lastPathComponent }
+        return jsonFileNames
+    }
+
+    static func getDocumentDirectoryFileURLs(pathExtension: String) -> [URL]? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         guard let directoryContents = try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil) else {
             return nil
         }
+        return directoryContents.filter { $0.pathExtension == pathExtension }
+    }
 
-        let jsonFiles = directoryContents.filter { $0.pathExtension == "json" }
-        let jsonFileNames = jsonFiles.map { $0.deletingPathExtension().lastPathComponent }
-        return jsonFileNames
+    static func deleteFile(filePath: URL) -> Bool {
+        return ((try? FileManager.default.removeItem(at: filePath)) != nil)
     }
 }

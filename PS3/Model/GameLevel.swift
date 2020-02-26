@@ -29,11 +29,7 @@ class GameLevel: Codable {
 
     /// Adds the given peg to the game level.
     func addToLevel(addedPeg: Peg) {
-        guard canInsertPeg(peg: addedPeg) else {
-            return
-        }
         pegsInLevel.insert(addedPeg)
-        print("added PEG")
     }
 
     /// Removes the given peg from the game level.

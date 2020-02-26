@@ -74,7 +74,8 @@ class GameLevelTest: XCTestCase {
         let gameLevel = GameLevel()
 
         gameLevel.addToLevel(addedPeg: pegOne)
-        let overlappingPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter - 1)))
+        let overlappingPeg = Peg(type: PegType.blue,
+                                 circleOfCentre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter - 1)))
         XCTAssertFalse(gameLevel.canInsertPeg(peg: overlappingPeg), "Should not be able to insert peg")
     }
 
