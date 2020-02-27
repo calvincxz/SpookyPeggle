@@ -184,8 +184,6 @@ extension LevelDesignerController {
     private func reAddPegToModel(peg: Peg, pegImageView: PegImageView) {
         gameLevel.addToLevel(addedPeg: peg)
         pegToImageView[peg] = pegImageView
-        // currentPegImageView = nil
-        // currentSelectedPeg = nil
     }
 
     /// Adds a peg to both the model and view.
@@ -212,7 +210,7 @@ extension LevelDesignerController {
 
 extension LevelDesignerController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
             -> Bool {
 
        if gestureRecognizer is UIRotationGestureRecognizer &&
@@ -222,5 +220,4 @@ extension LevelDesignerController: UIGestureRecognizerDelegate {
 
        return false
     }
-
 }

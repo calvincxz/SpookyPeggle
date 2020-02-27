@@ -26,7 +26,8 @@ class Alert {
 
     /// Presents the UIAlert for overwriting an existing game level in a controller.
     static func presentOverwriteAlert(controller: LevelDesignerController, fileName: String) {
-        let overwriteAlert = setupAlertController(title: "Level name already exists!", message: "Overwrite saved level: \(fileName)?")
+        let overwriteAlert = setupAlertController(title: "Level name already exists!",
+                                                  message: "Overwrite saved level: \(fileName)?")
 
         overwriteAlert.addAction(UIAlertAction(title: "Overwrite", style: .default) { _ in
             handleSaveLevel(controller: controller, fileName: fileName)
@@ -55,7 +56,8 @@ class Alert {
 //    static func presentLoadLevelAlert(controller: LevelDesignerController, jsonFileNames: [String]) {
 //        let loadAlert = setupAlertController(title: "Load", message: Settings.messageForLoadLevel)
 //        guard !jsonFileNames.isEmpty else {
-//            presentAlert(controller: controller, title: "Load Failed", message: Settings.messageForLoadLevel_emptyLevels)
+//            presentAlert(controller: controller, title: "Load Failed",
+//    message: Settings.messageForLoadLevel_emptyLevels)
 //            return
 //        }
 //        addLoadLevelOptionsToAlert(jsonFileNames: jsonFileNames, alert: loadAlert, controller: controller)
@@ -133,7 +135,8 @@ class Alert {
     }
 
     static func presentDeleteAlert(controller: LevelSelectionViewController, index: Int) {
-        let deleteAlert = setupAlertController(title: "Delete Level", message: Settings.messageForDeleteLevel)
+        let deleteAlert = setupAlertController(title: "Delete Level",
+                                               message: Settings.messageForDeleteLevel)
 
             let loadAction = UIAlertAction(title: "Delete", style: .default) { _ in
                 controller.deleteLevel(at: index)

@@ -33,6 +33,7 @@ class LevelSelectionViewController: UIViewController {
 }
 
 extension LevelSelectionViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return levelPreviewStorage.levelCount
     }
@@ -73,17 +74,16 @@ extension LevelSelectionViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 
-    //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-    return sectionInsets
+        return sectionInsets
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return sectionInsets.left
+        return sectionInsets.left
     }
 }
 
@@ -100,7 +100,7 @@ extension LevelSelectionViewController {
     }
 
     /// Deletes the level when long press is detected on a specific cell.
-    @IBAction func handleLongPressGesture(_ sender: UILongPressGestureRecognizer) {
+    @IBAction private func handleLongPressGesture(_ sender: UILongPressGestureRecognizer) {
         let location = sender.location(in: levelCollectionView)
         guard let indexPath = levelCollectionView.indexPathForItem(at: location),
             indexPath.row != levelPreviewStorage.levelCount else {
@@ -145,7 +145,6 @@ extension LevelSelectionViewController {
             target?.currentLevelName = levelName
         }
     }
-
 
     func deleteLevel(at index: Int) {
         guard levelPreviewStorage.deleteLevel(at: index) else {

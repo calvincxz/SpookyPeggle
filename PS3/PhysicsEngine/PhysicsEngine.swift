@@ -49,8 +49,8 @@ public class PhysicsEngine {
     }
 
     /// Checks if a `PhysicsBody`collided with the sides of the given area.
-    public func checkSideCollision(object: PhysicsBody) -> Bool {
-        return checkLeftSideCollision(object: object) || checkRightSideCollision(object: object)
+    public func checkSideCollision(circularObject: PhysicsBody) -> Bool {
+        return checkLeftSideCollision(object: circularObject) || checkRightSideCollision(object: circularObject)
     }
 
     public func checkSideCollision(rectangularObject: PhysicsBody) -> Bool {
@@ -59,13 +59,13 @@ public class PhysicsEngine {
     }
 
     /// Checks if a `PhysicsBody`collided with the left side of the given area.
-    public func checkLeftSideCollision(object: PhysicsBody) -> Bool {
+    private func checkLeftSideCollision(object: PhysicsBody) -> Bool {
 
         return object.centre.x <= object.radius
     }
 
     /// Checks if a `PhysicsBody`collided with the right side of the given area.
-    public func checkRightSideCollision(object: PhysicsBody) -> Bool {
+    private func checkRightSideCollision(object: PhysicsBody) -> Bool {
         return object.centre.x >= area.width - object.radius
     }
 

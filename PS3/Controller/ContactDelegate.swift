@@ -30,4 +30,6 @@ protocol ContactDelegate: AnyObject {
 
     func handleBucketMovement(bucket: GameBucket)
 
+    func updateMessage(message: String)
+
 }

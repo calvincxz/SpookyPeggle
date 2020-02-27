@@ -20,7 +20,7 @@ enum SampleLevel {
 
         for j in [3, 5, 7, 9] {
             if j == 3 {
-                for i in [5,7] {
+                for i in [5, 7] {
                     let centre = CGPoint(x: CGFloat(i) * widthInterval, y: CGFloat(j) * heightInterval)
                     let peg = Peg(type: PegType.green, triangleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
@@ -71,5 +71,10 @@ enum SampleLevel {
         }
 
         return level
+    }
+
+    static func saveSampleLevel() {
+        //UIView.
+        //FileStorageHelper.saveLevelToFile(gameLevel: <#T##GameLevel#>, fileName: <#T##String#>)
     }
 }

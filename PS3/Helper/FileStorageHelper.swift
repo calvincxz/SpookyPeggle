@@ -17,7 +17,7 @@ class FileStorageHelper {
     /// If there is an error in the saving process, returns false.
     static func saveLevelToFile(gameLevel: GameLevel, fileName: String) -> Bool {
         let fileURL = FileStorageHelper.getFileURL(from: fileName, with: "json")
-        guard let _ = try? JSONEncoder().encode(gameLevel).write(to: fileURL) else {
+        guard (try? JSONEncoder().encode(gameLevel).write(to: fileURL)) != nil else {
             return false
         }
         return true
@@ -55,7 +55,7 @@ class FileStorageHelper {
     }
 
     /// Gets a list of file names found in the document directory.
-    /// - Returns: an array of file names
+    /// - Returns: a list of file names
     /// If there is an error in locating contents of document directory, returns nil.
     static func getDocumentDirectoryFileNames() -> [String]? {
         guard let jsonFiles = getDocumentDirectoryFileURLs(pathExtension: "json") else {
@@ -65,9 +65,13 @@ class FileStorageHelper {
         return jsonFileNames
     }
 
+    /// Gets a list of file URLs found in the document directory.
+    /// - Returns: a list of URL
+    /// If there is an error in the process, returns nil.
     static func getDocumentDirectoryFileURLs(pathExtension: String) -> [URL]? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        guard let directoryContents = try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil) else {
+        guard let directoryContents = try? FileManager.default.contentsOfDirectory(
+            at: directory, includingPropertiesForKeys: nil) else {
             return nil
         }
         return directoryContents.filter { $0.pathExtension == pathExtension }
@@ -75,5 +79,30 @@ class FileStorageHelper {
 
     static func deleteFile(filePath: URL) -> Bool {
         return ((try? FileManager.default.removeItem(at: filePath)) != nil)
+    }
+
+    /// Checks whether the pre-loaded levels have been loaded before.
+    /// Failure to
+    static func preloadLevels() {
+        Settings.preloadedLevelNames.forEach { loadData($0) }
+    }
+
+    /// Loads the data from a certain file name into the document directory.
+    /// - Parameter fileName: The file name of loaded data.
+    static func loadData(_ fileName: String) -> Bool {
+        /// The URL we copy data from.
+        guard let from = Bundle.main.url(forResource: fileName, withExtension: nil) else {
+            return false
+        }
+        /// The URL we will copy data to.
+        var to = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        to.appendPathComponent(fileName)
+
+        /// Copies the item over.
+        guard (try? FileManager.default.copyItem(at: from, to: to)) != nil else {
+            return false
+        }
+        return true
+
     }
 }

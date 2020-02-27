@@ -13,31 +13,31 @@ The `GamePlayController` is the controller class for game play logic which
  interacts mainly with the the model class:`PeggleGameEngine` and
  the view class:`PegBoardView`
 */
-class GamePlayController: UIViewController, ContactDelegate {
+class GamePlayController: UIViewController {
 
     @IBOutlet private weak var ballView: UIImageView!
-    @IBOutlet private weak var cannonView: CannonView!
     @IBOutlet private weak var cannon: UIImageView!
     @IBOutlet private weak var background: UIImageView!
+    @IBOutlet private weak var cannonView: CannonView!
+    @IBOutlet private weak var pegBoard: PegBoardView!
+    @IBOutlet private weak var bucketView: BucketView!
+    @IBOutlet private weak var playerMessage: UILabel!
     @IBOutlet private weak var display: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var ballCountLabel: UILabel!
-    @IBOutlet private weak var pegBoard: PegBoardView!
 
-    @IBOutlet private weak var bucketView: BucketView!
 
     // Force unwrapping is used since engine must be initialised by viewDidAppear()
     private var engine: PeggleGameEngine!
     var gameLevel: GameLevel?
     private var gameObjectToImageViewDictionary = [GameObject: PegImageView]()
 
-    @IBAction func backToMenu(_ sender: UIButton) {
+    @IBAction private func backToMenu(_ sender: UIButton) {
         dismiss(animated: false, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //bucketView.superview?.bringSubviewToFront(bucketView)
         cannonView.setUpCannonView(cannon: cannon, ball: ballView)
     }
 
@@ -137,11 +137,12 @@ class GamePlayController: UIViewController, ContactDelegate {
             gameObjectToImageViewDictionary[pegObject] = pegImageView
 
     }
+}
 
-    /**
-    `ContactDelegate` methods can be found below. These methods allow the `PeggleGameEngine` to communicate with the
-     `GamePlayController`.
-    */
+/**
+`ContactDelegate` methods can be found below. These methods allow the `PeggleGameEngine` to communicate with the `GamePlayController`.
+*/
+extension GamePlayController: ContactDelegate {
     func handlePegRemoval(pegObject: GameObject) {
         let pegImageView = gameObjectToImageViewDictionary[pegObject]
         pegImageView?.fadeOut()
@@ -180,5 +181,9 @@ class GamePlayController: UIViewController, ContactDelegate {
 
     func updateBallCount(ballCount: Int) {
         ballCountLabel.text = "Ball count: \(ballCount)"
+    }
+
+    func updateMessage(message: String) {
+        playerMessage.text = message
     }
 }

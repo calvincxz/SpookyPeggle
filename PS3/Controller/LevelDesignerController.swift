@@ -59,14 +59,11 @@ class LevelDesignerController: UIViewController {
 
     @IBAction private func switchPaletteButtons(_ sender: UIButton) {
         orangePegButton.togglePegShape()
-        print(orangePegButton.pegShape!)
-
         bluePegButton.togglePegShape()
         greenPegButton.togglePegShape()
         if let current = PalettePegSelector.currentSelected {
             PalettePegSelector.currentSelected = current
         }
-        print(PalettePegSelector.currentSelected!.pegShape!)
     }
 
     /// Resets all data in the current game level.

@@ -122,17 +122,27 @@ public class PhysicsBody {
         velocity = newReflectedVector
     }
 
-    public func changeVelocityAfter(polygonObject: PhysicsBody, energyLoss: CGFloat) {
+    private func changeVelocityAfter(polygonObject: PhysicsBody, energyLoss: CGFloat) {
 
         let object = PhysicsBody(physicsBody: self)
         object.move()
 
-        guard let edge = GameDisplayHelper.getClosestEdge(
-            centre: centre, radius: physicalShape.radius, vertices: polygonObject.physicalShape.vertices) else {
+
+        for point in polygonObject.physicalShape.vertices {
+            if physicalShape.contains(point: point) {
+                let normalVector = CGVector(dx: -(point.x - centre.x), dy: -(point.y - centre.y))
+                let reflectedVector = PhysicsEngineHelper.calculateReflectedVector(a: velocity, b: normalVector)
+                let newReflectedVector = CGVector(dx: energyLoss * reflectedVector.dx, dy: energyLoss * reflectedVector.dy)
+                velocity = newReflectedVector
+                return
+            }
+        }
+        guard let edge = PhysicsEngineHelper.getClosestEdge(
+            centre: object.centre, radius: physicalShape.radius, vertices: polygonObject.physicalShape.vertices) else {
             return
         }
-
-        let normalVector = CGVector(dx: (edge.0.x - edge.1.x), dy: -(edge.0.y - edge.1.y))
+        
+        let normalVector = CGVector(dx: (edge.0.y - edge.1.y), dy: -(edge.0.x - edge.1.x))
         let reflectedVector = PhysicsEngineHelper.calculateReflectedVector(a: velocity, b: normalVector)
         let newReflectedVector = CGVector(dx: energyLoss * reflectedVector.dx, dy: energyLoss * reflectedVector.dy)
         velocity = newReflectedVector
