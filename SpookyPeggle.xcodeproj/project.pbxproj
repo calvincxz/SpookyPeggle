@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34E6B3CBA44D689EE469F932 /* Pods_SpookyPeggle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9026A140852ADE8B0AE84289 /* Pods_SpookyPeggle.framework */; };
 		3E1D2EA723F28D12009779F9 /* GameBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EA623F28D12009779F9 /* GameBall.swift */; };
 		3E1D2EA923F28D27009779F9 /* GamePeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EA823F28D27009779F9 /* GamePeg.swift */; };
 		3E1D2EAB23F291AC009779F9 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EAA23F291AC009779F9 /* BallView.swift */; };
@@ -19,36 +20,29 @@
 		3E2DAD1E23E7C92E00A211D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2DAD1C23E7C92E00A211D3 /* Main.storyboard */; };
 		3E2DAD2023E7C92F00A211D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2DAD1F23E7C92F00A211D3 /* Assets.xcassets */; };
 		3E2DAD2323E7C92F00A211D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2DAD2123E7C92F00A211D3 /* LaunchScreen.storyboard */; };
-		3E2DAD4823E7C9B000A211D3 /* PhysicsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD4723E7C9B000A211D3 /* PhysicsEngine.swift */; };
-		3E2DAD4A23E7CA0E00A211D3 /* PhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD4923E7CA0E00A211D3 /* PhysicsBody.swift */; };
 		3E2DAD4C23E7D8FC00A211D3 /* PeggleGameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD4B23E7D8FC00A211D3 /* PeggleGameEngine.swift */; };
 		3E2DAD5223E7D99300A211D3 /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */; };
 		3E2DAD5323E7D99300A211D3 /* Peg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD4F23E7D99300A211D3 /* Peg.swift */; };
-		3E2DAD5423E7D99300A211D3 /* CGPoint + Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5023E7D99300A211D3 /* CGPoint + Hashable.swift */; };
 		3E2DAD5523E7D99300A211D3 /* PegType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5123E7D99300A211D3 /* PegType.swift */; };
 		3E2DAD5A23E7D9A100A211D3 /* PegBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5723E7D9A100A211D3 /* PegBoardView.swift */; };
 		3E2DAD5C23E7D9A100A211D3 /* PegImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5923E7D9A100A211D3 /* PegImageView.swift */; };
 		3E2DAD5E23E7DA0000A211D3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5D23E7DA0000A211D3 /* Settings.swift */; };
 		3E2DAD6023E7DA1E00A211D3 /* GameDisplayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5F23E7DA1E00A211D3 /* GameDisplayHelper.swift */; };
 		3E2DAD6423E7F2A500A211D3 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD6323E7F2A500A211D3 /* GameObject.swift */; };
+		3E5F0340240A258600F5BDF0 /* CGPoint + Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5F033F240A258600F5BDF0 /* CGPoint + Hashable.swift */; };
 		3E8ACFB723EFE51B004B1831 /* PhysicsEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */; };
 		3E8ACFBA23EFEB71004B1831 /* GamePegTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */; };
-		3E91C3222402BD9C0059A882 /* MathHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91C3212402BD9C0059A882 /* MathHelperTest.swift */; };
-		3E9AAAC8240265EA00AF28AD /* PhysicalShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9AAAC7240265EA00AF28AD /* PhysicalShape.swift */; };
-		3E9AAACE24026BB700AF28AD /* MathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9AAACD24026BB700AF28AD /* MathHelper.swift */; };
-		3E9AAAD024028F2000AF28AD /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9AAACF24028F2000AF28AD /* Shape.swift */; };
 		3E9BF44523EE60860027C454 /* CannonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BF44423EE60860027C454 /* CannonView.swift */; };
 		3E9FD2F923F6CB0D007DE77A /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */; };
-		3EA009FC2407A54A00227E99 /* level3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA009F62407A54900227E99 /* level3.png */; };
-		3EA009FD2407A54A00227E99 /* level1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA009F72407A54900227E99 /* level1.png */; };
-		3EA009FE2407A54A00227E99 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA009F82407A54900227E99 /* level1.json */; };
-		3EA009FF2407A54A00227E99 /* level2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA009F92407A54900227E99 /* level2.png */; };
-		3EA00A002407A54A00227E99 /* level3.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA009FA2407A54A00227E99 /* level3.json */; };
-		3EA00A012407A54A00227E99 /* level2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA009FB2407A54A00227E99 /* level2.json */; };
 		3EA00A032407AD2000227E99 /* HalloweenFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EA00A022407AD1600227E99 /* HalloweenFont.ttf */; };
 		3EA06241240805A9003C5538 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA06240240805A9003C5538 /* ScoreSystem.swift */; };
+		3EA0624B24081A18003C5538 /* level3.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624524081A17003C5538 /* level3.json */; };
+		3EA0624C24081A18003C5538 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624624081A18003C5538 /* level1.json */; };
+		3EA0624D24081A18003C5538 /* level3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624724081A18003C5538 /* level3.png */; };
+		3EA0624E24081A18003C5538 /* level2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624824081A18003C5538 /* level2.png */; };
+		3EA0624F24081A18003C5538 /* level1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624924081A18003C5538 /* level1.png */; };
+		3EA0625024081A18003C5538 /* level2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624A24081A18003C5538 /* level2.json */; };
 		3EA6AD41240160C000682FC9 /* LevelDesignerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD3F240160C000682FC9 /* LevelDesignerController.swift */; };
-		3EA6AD42240160C000682FC9 /* LevelDesignerController + Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD40240160C000682FC9 /* LevelDesignerController + Gestures.swift */; };
 		3EA6AD44240160DC00682FC9 /* FileStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD43240160DC00682FC9 /* FileStorageHelper.swift */; };
 		3EA6AD46240160F800682FC9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD45240160F800682FC9 /* Alert.swift */; };
 		3EA6AD482401610200682FC9 /* PalettePegSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD472401610200682FC9 /* PalettePegSelector.swift */; };
@@ -66,8 +60,20 @@
 		3EAF89F523F5543C0005F559 /* PeggleGameEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */; };
 		3EBC267623E83E07001630AB /* SampleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC267523E83E07001630AB /* SampleLevel.swift */; };
 		3EDB716324066EF2005527D7 /* GameScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB716224066EF2005527D7 /* GameScreenType.swift */; };
-		3EDC849024051BD200AEB185 /* PhysicsEngineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC848F24051BD200AEB185 /* PhysicsEngineHelper.swift */; };
 		3EDC8492240529EC00AEB185 /* PegShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC8491240529EC00AEB185 /* PegShape.swift */; };
+		3EE03481240A3FC50089BD36 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE03480240A3FC40089BD36 /* EndGameViewController.swift */; };
+		3EE0348C240A49ED0089BD36 /* collision.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03482240A49EC0089BD36 /* collision.wav */; };
+		3EE0348E240A49ED0089BD36 /* cannon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03484240A49EC0089BD36 /* cannon.mp3 */; };
+		3EE0348F240A49ED0089BD36 /* orangepeg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03485240A49EC0089BD36 /* orangepeg.wav */; };
+		3EE03491240A49ED0089BD36 /* Bubble heavy 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03487240A49EC0089BD36 /* Bubble heavy 1.wav */; };
+		3EE03493240A49ED0089BD36 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03489240A49ED0089BD36 /* win.wav */; };
+		3EE03494240A49ED0089BD36 /* bluepeg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0348A240A49ED0089BD36 /* bluepeg.wav */; };
+		3EE03495240A49ED0089BD36 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0348B240A49ED0089BD36 /* lose.wav */; };
+		3EE03497240A4ACD0089BD36 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE03496240A4ACD0089BD36 /* MusicPlayer.swift */; };
+		3EE0349B240A50D40089BD36 /* bgm2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03498240A50D40089BD36 /* bgm2.mp3 */; };
+		3EE0349C240A50D40089BD36 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03499240A50D40089BD36 /* bgm.mp3 */; };
+		3EE0349D240A50D40089BD36 /* winning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0349A240A50D40089BD36 /* winning.mp3 */; };
+		CDD4E342133F2AEAA4A66B05 /* Pods_SpookyPeggleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B900E73B52EDD2938B287EE5 /* Pods_SpookyPeggleTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +93,7 @@
 		3E221C6123FE793D00E309B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3E221C6423FE7C6600E309B4 /* GameBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBucket.swift; sourceTree = "<group>"; };
 		3E221C6623FE8A8800E309B4 /* BucketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketView.swift; sourceTree = "<group>"; };
-		3E2DAD1323E7C92E00A211D3 /* PS3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PS3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E2DAD1323E7C92E00A211D3 /* SpookyPeggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpookyPeggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2DAD1623E7C92E00A211D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2DAD1823E7C92E00A211D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3E2DAD1A23E7C92E00A211D3 /* GamePlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayController.swift; sourceTree = "<group>"; };
@@ -95,38 +101,31 @@
 		3E2DAD1F23E7C92F00A211D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E2DAD2223E7C92F00A211D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2DAD2423E7C92F00A211D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E2DAD2923E7C92F00A211D3 /* PS3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PS3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E2DAD2923E7C92F00A211D3 /* SpookyPeggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpookyPeggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2DAD2F23E7C92F00A211D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E2DAD4723E7C9B000A211D3 /* PhysicsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsEngine.swift; sourceTree = "<group>"; };
-		3E2DAD4923E7CA0E00A211D3 /* PhysicsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBody.swift; sourceTree = "<group>"; };
 		3E2DAD4B23E7D8FC00A211D3 /* PeggleGameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleGameEngine.swift; sourceTree = "<group>"; };
 		3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
 		3E2DAD4F23E7D99300A211D3 /* Peg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peg.swift; sourceTree = "<group>"; };
-		3E2DAD5023E7D99300A211D3 /* CGPoint + Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint + Hashable.swift"; sourceTree = "<group>"; };
 		3E2DAD5123E7D99300A211D3 /* PegType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PegType.swift; sourceTree = "<group>"; };
 		3E2DAD5723E7D9A100A211D3 /* PegBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PegBoardView.swift; sourceTree = "<group>"; };
 		3E2DAD5923E7D9A100A211D3 /* PegImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PegImageView.swift; sourceTree = "<group>"; };
 		3E2DAD5D23E7DA0000A211D3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		3E2DAD5F23E7DA1E00A211D3 /* GameDisplayHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDisplayHelper.swift; sourceTree = "<group>"; };
 		3E2DAD6323E7F2A500A211D3 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		3E5F033F240A258600F5BDF0 /* CGPoint + Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint + Hashable.swift"; sourceTree = "<group>"; };
 		3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsEngineTest.swift; sourceTree = "<group>"; };
 		3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePegTest.swift; sourceTree = "<group>"; };
-		3E91C3212402BD9C0059A882 /* MathHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathHelperTest.swift; sourceTree = "<group>"; };
-		3E9AAAC7240265EA00AF28AD /* PhysicalShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalShape.swift; sourceTree = "<group>"; };
-		3E9AAACD24026BB700AF28AD /* MathHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathHelper.swift; sourceTree = "<group>"; };
-		3E9AAACF24028F2000AF28AD /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		3E9BF44423EE60860027C454 /* CannonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CannonView.swift; sourceTree = "<group>"; };
 		3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
-		3EA009F62407A54900227E99 /* level3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level3.png; sourceTree = "<group>"; };
-		3EA009F72407A54900227E99 /* level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level1.png; sourceTree = "<group>"; };
-		3EA009F82407A54900227E99 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
-		3EA009F92407A54900227E99 /* level2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2.png; sourceTree = "<group>"; };
-		3EA009FA2407A54A00227E99 /* level3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level3.json; sourceTree = "<group>"; };
-		3EA009FB2407A54A00227E99 /* level2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level2.json; sourceTree = "<group>"; };
 		3EA00A022407AD1600227E99 /* HalloweenFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HalloweenFont.ttf; sourceTree = "<group>"; };
 		3EA06240240805A9003C5538 /* ScoreSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
+		3EA0624524081A17003C5538 /* level3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level3.json; sourceTree = "<group>"; };
+		3EA0624624081A18003C5538 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
+		3EA0624724081A18003C5538 /* level3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level3.png; sourceTree = "<group>"; };
+		3EA0624824081A18003C5538 /* level2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2.png; sourceTree = "<group>"; };
+		3EA0624924081A18003C5538 /* level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level1.png; sourceTree = "<group>"; };
+		3EA0624A24081A18003C5538 /* level2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level2.json; sourceTree = "<group>"; };
 		3EA6AD3F240160C000682FC9 /* LevelDesignerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelDesignerController.swift; sourceTree = "<group>"; };
-		3EA6AD40240160C000682FC9 /* LevelDesignerController + Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LevelDesignerController + Gestures.swift"; sourceTree = "<group>"; };
 		3EA6AD43240160DC00682FC9 /* FileStorageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorageHelper.swift; sourceTree = "<group>"; };
 		3EA6AD45240160F800682FC9 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3EA6AD472401610200682FC9 /* PalettePegSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalettePegSelector.swift; sourceTree = "<group>"; };
@@ -144,8 +143,25 @@
 		3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleGameEngineTest.swift; sourceTree = "<group>"; };
 		3EBC267523E83E07001630AB /* SampleLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLevel.swift; sourceTree = "<group>"; };
 		3EDB716224066EF2005527D7 /* GameScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenType.swift; sourceTree = "<group>"; };
-		3EDC848F24051BD200AEB185 /* PhysicsEngineHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsEngineHelper.swift; sourceTree = "<group>"; };
 		3EDC8491240529EC00AEB185 /* PegShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegShape.swift; sourceTree = "<group>"; };
+		3EE03480240A3FC40089BD36 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
+		3EE03482240A49EC0089BD36 /* collision.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = collision.wav; sourceTree = "<group>"; };
+		3EE03484240A49EC0089BD36 /* cannon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cannon.mp3; sourceTree = "<group>"; };
+		3EE03485240A49EC0089BD36 /* orangepeg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = orangepeg.wav; sourceTree = "<group>"; };
+		3EE03487240A49EC0089BD36 /* Bubble heavy 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Bubble heavy 1.wav"; sourceTree = "<group>"; };
+		3EE03489240A49ED0089BD36 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
+		3EE0348A240A49ED0089BD36 /* bluepeg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bluepeg.wav; sourceTree = "<group>"; };
+		3EE0348B240A49ED0089BD36 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		3EE03496240A4ACD0089BD36 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		3EE03498240A50D40089BD36 /* bgm2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm2.mp3; sourceTree = "<group>"; };
+		3EE03499240A50D40089BD36 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
+		3EE0349A240A50D40089BD36 /* winning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winning.mp3; sourceTree = "<group>"; };
+		41B1E8A9C99C4704AF4C729F /* Pods-SpookyPeggleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggleTests.release.xcconfig"; path = "Target Support Files/Pods-SpookyPeggleTests/Pods-SpookyPeggleTests.release.xcconfig"; sourceTree = "<group>"; };
+		4579F0CBFA3E4FB2710ED640 /* Pods-SpookyPeggle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggle.debug.xcconfig"; path = "Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle.debug.xcconfig"; sourceTree = "<group>"; };
+		47DD5770F6758D825E43B464 /* Pods-SpookyPeggleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggleTests.debug.xcconfig"; path = "Target Support Files/Pods-SpookyPeggleTests/Pods-SpookyPeggleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9026A140852ADE8B0AE84289 /* Pods_SpookyPeggle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpookyPeggle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B900E73B52EDD2938B287EE5 /* Pods_SpookyPeggleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpookyPeggleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF327771B6D5B09C8E7D36F6 /* Pods-SpookyPeggle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggle.release.xcconfig"; path = "Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34E6B3CBA44D689EE469F932 /* Pods_SpookyPeggle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD4E342133F2AEAA4A66B05 /* Pods_SpookyPeggleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,25 +187,26 @@
 		3E2DAD0A23E7C92E00A211D3 = {
 			isa = PBXGroup;
 			children = (
-				3E2DAD1523E7C92E00A211D3 /* PS3 */,
-				3E2DAD2C23E7C92F00A211D3 /* PS3Tests */,
+				3E2DAD1523E7C92E00A211D3 /* SpookyPeggle */,
+				3E2DAD2C23E7C92F00A211D3 /* SpookyPeggleTests */,
 				3E2DAD1423E7C92E00A211D3 /* Products */,
+				547613CD28757E16378B766B /* Pods */,
+				F4D3B99F7EDB871C532DAB35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		3E2DAD1423E7C92E00A211D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E2DAD1323E7C92E00A211D3 /* PS3.app */,
-				3E2DAD2923E7C92F00A211D3 /* PS3Tests.xctest */,
+				3E2DAD1323E7C92E00A211D3 /* SpookyPeggle.app */,
+				3E2DAD2923E7C92F00A211D3 /* SpookyPeggleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E2DAD1523E7C92E00A211D3 /* PS3 */ = {
+		3E2DAD1523E7C92E00A211D3 /* SpookyPeggle */ = {
 			isa = PBXGroup;
 			children = (
-				3EBC267423E83D3B001630AB /* PhysicsEngine */,
 				3E8ACFB823EFE726004B1831 /* Helper */,
 				3E2DAD4623E7C95900A211D3 /* Supporting Files */,
 				3E2DAD4D23E7D99300A211D3 /* Model */,
@@ -199,15 +218,14 @@
 				3E2DAD1F23E7C92F00A211D3 /* Assets.xcassets */,
 				3E2DAD2423E7C92F00A211D3 /* Info.plist */,
 			);
-			path = PS3;
+			path = SpookyPeggle;
 			sourceTree = "<group>";
 		};
-		3E2DAD2C23E7C92F00A211D3 /* PS3Tests */ = {
+		3E2DAD2C23E7C92F00A211D3 /* SpookyPeggleTests */ = {
 			isa = PBXGroup;
 			children = (
 				3E2DAD2F23E7C92F00A211D3 /* Info.plist */,
 				3EA6AD4A2401611100682FC9 /* GameLevelTest.swift */,
-				3E91C3212402BD9C0059A882 /* MathHelperTest.swift */,
 				3EA6AD4B2401611100682FC9 /* PegTest.swift */,
 				3EA6AD4C2401611100682FC9 /* CGPointTest.swift */,
 				3EA834FB23EF170800FE0A73 /* PhysicsBodyTest.swift */,
@@ -217,7 +235,7 @@
 				3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */,
 				3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */,
 			);
-			path = PS3Tests;
+			path = SpookyPeggleTests;
 			sourceTree = "<group>";
 		};
 		3E2DAD4623E7C95900A211D3 /* Supporting Files */ = {
@@ -233,10 +251,10 @@
 		3E2DAD4D23E7D99300A211D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E5F033F240A258600F5BDF0 /* CGPoint + Hashable.swift */,
 				3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */,
 				3E2DAD4F23E7D99300A211D3 /* Peg.swift */,
 				3EDC8491240529EC00AEB185 /* PegShape.swift */,
-				3E2DAD5023E7D99300A211D3 /* CGPoint + Hashable.swift */,
 				3E2DAD5123E7D99300A211D3 /* PegType.swift */,
 				3EA93C152405897900120368 /* LevelPreviewStorage.swift */,
 			);
@@ -246,6 +264,7 @@
 		3E2DAD5623E7D9A100A211D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3EA93C132405760600120368 /* LevelPreviewCollectionViewCell.swift */,
 				3EA6AD472401610200682FC9 /* PalettePegSelector.swift */,
 				3EAC58802407724400D812A6 /* GameMasterSelector.swift */,
 				3E2DAD5723E7D9A100A211D3 /* PegBoardView.swift */,
@@ -261,11 +280,12 @@
 			isa = PBXGroup;
 			children = (
 				3EA6AD45240160F800682FC9 /* Alert.swift */,
+				3EE03496240A4ACD0089BD36 /* MusicPlayer.swift */,
 				3E2DAD5D23E7DA0000A211D3 /* Settings.swift */,
 				3E2DAD5F23E7DA1E00A211D3 /* GameDisplayHelper.swift */,
 				3EBC267523E83E07001630AB /* SampleLevel.swift */,
 				3EA6AD43240160DC00682FC9 /* FileStorageHelper.swift */,
-				3E9AAACD24026BB700AF28AD /* MathHelper.swift */,
+				3EDB716224066EF2005527D7 /* GameScreenType.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -273,13 +293,23 @@
 		3EA009F52407A53300227E99 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3EE0348A240A49ED0089BD36 /* bluepeg.wav */,
+				3EE03487240A49EC0089BD36 /* Bubble heavy 1.wav */,
+				3EE03499240A50D40089BD36 /* bgm.mp3 */,
+				3EE03498240A50D40089BD36 /* bgm2.mp3 */,
+				3EE0349A240A50D40089BD36 /* winning.mp3 */,
+				3EE03484240A49EC0089BD36 /* cannon.mp3 */,
+				3EE0348B240A49ED0089BD36 /* lose.wav */,
+				3EE03485240A49EC0089BD36 /* orangepeg.wav */,
+				3EE03482240A49EC0089BD36 /* collision.wav */,
+				3EE03489240A49ED0089BD36 /* win.wav */,
 				3EA00A022407AD1600227E99 /* HalloweenFont.ttf */,
-				3EA009F82407A54900227E99 /* level1.json */,
-				3EA009F72407A54900227E99 /* level1.png */,
-				3EA009FB2407A54A00227E99 /* level2.json */,
-				3EA009F92407A54900227E99 /* level2.png */,
-				3EA009FA2407A54A00227E99 /* level3.json */,
-				3EA009F62407A54900227E99 /* level3.png */,
+				3EA0624624081A18003C5538 /* level1.json */,
+				3EA0624924081A18003C5538 /* level1.png */,
+				3EA0624A24081A18003C5538 /* level2.json */,
+				3EA0624824081A18003C5538 /* level2.png */,
+				3EA0624524081A17003C5538 /* level3.json */,
+				3EA0624724081A18003C5538 /* level3.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -304,52 +334,61 @@
 				3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */,
 				3E2DAD1A23E7C92E00A211D3 /* GamePlayController.swift */,
 				3EA6AD3F240160C000682FC9 /* LevelDesignerController.swift */,
-				3EA6AD40240160C000682FC9 /* LevelDesignerController + Gestures.swift */,
-				3EA93C132405760600120368 /* LevelPreviewCollectionViewCell.swift */,
-				3E221C6123FE793D00E309B4 /* HomeViewController.swift */,
 				3EA93C11240570CA00120368 /* LevelSelectionViewController.swift */,
-				3EDB716224066EF2005527D7 /* GameScreenType.swift */,
+				3E221C6123FE793D00E309B4 /* HomeViewController.swift */,
+				3EE03480240A3FC40089BD36 /* EndGameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		3EBC267423E83D3B001630AB /* PhysicsEngine */ = {
+		547613CD28757E16378B766B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3E2DAD4723E7C9B000A211D3 /* PhysicsEngine.swift */,
-				3E2DAD4923E7CA0E00A211D3 /* PhysicsBody.swift */,
-				3E9AAAC7240265EA00AF28AD /* PhysicalShape.swift */,
-				3EDC848F24051BD200AEB185 /* PhysicsEngineHelper.swift */,
-				3E9AAACF24028F2000AF28AD /* Shape.swift */,
+				4579F0CBFA3E4FB2710ED640 /* Pods-SpookyPeggle.debug.xcconfig */,
+				BF327771B6D5B09C8E7D36F6 /* Pods-SpookyPeggle.release.xcconfig */,
+				47DD5770F6758D825E43B464 /* Pods-SpookyPeggleTests.debug.xcconfig */,
+				41B1E8A9C99C4704AF4C729F /* Pods-SpookyPeggleTests.release.xcconfig */,
 			);
-			path = PhysicsEngine;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F4D3B99F7EDB871C532DAB35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9026A140852ADE8B0AE84289 /* Pods_SpookyPeggle.framework */,
+				B900E73B52EDD2938B287EE5 /* Pods_SpookyPeggleTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E2DAD1223E7C92E00A211D3 /* PS3 */ = {
+		3E2DAD1223E7C92E00A211D3 /* SpookyPeggle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E2DAD3D23E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "PS3" */;
+			buildConfigurationList = 3E2DAD3D23E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "SpookyPeggle" */;
 			buildPhases = (
+				C96D2C1538DB913F3255A9F9 /* [CP] Check Pods Manifest.lock */,
 				3E2DAD0F23E7C92E00A211D3 /* Sources */,
 				3E2DAD1023E7C92E00A211D3 /* Frameworks */,
 				3E2DAD1123E7C92E00A211D3 /* Resources */,
 				3E9BF44623EE66F70027C454 /* ShellScript */,
+				1809710E93C09EAE0A6EECBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PS3;
+			name = SpookyPeggle;
 			productName = PS3;
-			productReference = 3E2DAD1323E7C92E00A211D3 /* PS3.app */;
+			productReference = 3E2DAD1323E7C92E00A211D3 /* SpookyPeggle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E2DAD2823E7C92F00A211D3 /* PS3Tests */ = {
+		3E2DAD2823E7C92F00A211D3 /* SpookyPeggleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E2DAD4023E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "PS3Tests" */;
+			buildConfigurationList = 3E2DAD4023E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "SpookyPeggleTests" */;
 			buildPhases = (
+				BA8C72C7A042311C58E0CACE /* [CP] Check Pods Manifest.lock */,
 				3E2DAD2523E7C92F00A211D3 /* Sources */,
 				3E2DAD2623E7C92F00A211D3 /* Frameworks */,
 				3E2DAD2723E7C92F00A211D3 /* Resources */,
@@ -359,9 +398,9 @@
 			dependencies = (
 				3E2DAD2B23E7C92F00A211D3 /* PBXTargetDependency */,
 			);
-			name = PS3Tests;
+			name = SpookyPeggleTests;
 			productName = PS3Tests;
-			productReference = 3E2DAD2923E7C92F00A211D3 /* PS3Tests.xctest */;
+			productReference = 3E2DAD2923E7C92F00A211D3 /* SpookyPeggleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -396,8 +435,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E2DAD1223E7C92E00A211D3 /* PS3 */,
-				3E2DAD2823E7C92F00A211D3 /* PS3Tests */,
+				3E2DAD1223E7C92E00A211D3 /* SpookyPeggle */,
+				3E2DAD2823E7C92F00A211D3 /* SpookyPeggleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,16 +446,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA009FD2407A54A00227E99 /* level1.png in Resources */,
+				3EE03494240A49ED0089BD36 /* bluepeg.wav in Resources */,
+				3EE0348E240A49ED0089BD36 /* cannon.mp3 in Resources */,
+				3EE0349B240A50D40089BD36 /* bgm2.mp3 in Resources */,
 				3EA00A032407AD2000227E99 /* HalloweenFont.ttf in Resources */,
-				3EA009FC2407A54A00227E99 /* level3.png in Resources */,
-				3EA009FF2407A54A00227E99 /* level2.png in Resources */,
+				3EA0625024081A18003C5538 /* level2.json in Resources */,
+				3EA0624D24081A18003C5538 /* level3.png in Resources */,
 				3E2DAD2323E7C92F00A211D3 /* LaunchScreen.storyboard in Resources */,
 				3E2DAD2023E7C92F00A211D3 /* Assets.xcassets in Resources */,
-				3EA009FE2407A54A00227E99 /* level1.json in Resources */,
-				3EA00A002407A54A00227E99 /* level3.json in Resources */,
-				3EA00A012407A54A00227E99 /* level2.json in Resources */,
+				3EA0624F24081A18003C5538 /* level1.png in Resources */,
+				3EE03491240A49ED0089BD36 /* Bubble heavy 1.wav in Resources */,
+				3EE0348C240A49ED0089BD36 /* collision.wav in Resources */,
 				3E2DAD1E23E7C92E00A211D3 /* Main.storyboard in Resources */,
+				3EA0624C24081A18003C5538 /* level1.json in Resources */,
+				3EA0624B24081A18003C5538 /* level3.json in Resources */,
+				3EE03495240A49ED0089BD36 /* lose.wav in Resources */,
+				3EA0624E24081A18003C5538 /* level2.png in Resources */,
+				3EE0349C240A50D40089BD36 /* bgm.mp3 in Resources */,
+				3EE03493240A49ED0089BD36 /* win.wav in Resources */,
+				3EE0348F240A49ED0089BD36 /* orangepeg.wav in Resources */,
+				3EE0349D240A50D40089BD36 /* winning.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +479,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1809710E93C09EAE0A6EECBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3E9BF44623EE66F70027C454 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +513,50 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi  \n";
 		};
+		BA8C72C7A042311C58E0CACE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpookyPeggleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C96D2C1538DB913F3255A9F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpookyPeggle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -456,9 +566,8 @@
 			files = (
 				3EA93C12240570CA00120368 /* LevelSelectionViewController.swift in Sources */,
 				3E9BF44523EE60860027C454 /* CannonView.swift in Sources */,
-				3E9AAAD024028F2000AF28AD /* Shape.swift in Sources */,
+				3EE03497240A4ACD0089BD36 /* MusicPlayer.swift in Sources */,
 				3EDC8492240529EC00AEB185 /* PegShape.swift in Sources */,
-				3EDC849024051BD200AEB185 /* PhysicsEngineHelper.swift in Sources */,
 				3E2DAD5323E7D99300A211D3 /* Peg.swift in Sources */,
 				3E2DAD1B23E7C92E00A211D3 /* GamePlayController.swift in Sources */,
 				3E2DAD5A23E7D9A100A211D3 /* PegBoardView.swift in Sources */,
@@ -466,30 +575,26 @@
 				3E2DAD4C23E7D8FC00A211D3 /* PeggleGameEngine.swift in Sources */,
 				3E2DAD5E23E7DA0000A211D3 /* Settings.swift in Sources */,
 				3EAC58812407724400D812A6 /* GameMasterSelector.swift in Sources */,
-				3E2DAD5423E7D99300A211D3 /* CGPoint + Hashable.swift in Sources */,
 				3E2DAD5223E7D99300A211D3 /* GameLevel.swift in Sources */,
 				3EA93C162405897900120368 /* LevelPreviewStorage.swift in Sources */,
 				3E2DAD6423E7F2A500A211D3 /* GameObject.swift in Sources */,
 				3E221C6723FE8A8800E309B4 /* BucketView.swift in Sources */,
 				3EDB716324066EF2005527D7 /* GameScreenType.swift in Sources */,
-				3EA6AD42240160C000682FC9 /* LevelDesignerController + Gestures.swift in Sources */,
 				3E2DAD6023E7DA1E00A211D3 /* GameDisplayHelper.swift in Sources */,
 				3E221C6223FE793D00E309B4 /* HomeViewController.swift in Sources */,
-				3E2DAD4A23E7CA0E00A211D3 /* PhysicsBody.swift in Sources */,
 				3E2DAD1723E7C92E00A211D3 /* AppDelegate.swift in Sources */,
 				3E2DAD1923E7C92E00A211D3 /* SceneDelegate.swift in Sources */,
+				3EE03481240A3FC50089BD36 /* EndGameViewController.swift in Sources */,
 				3E9FD2F923F6CB0D007DE77A /* ContactDelegate.swift in Sources */,
-				3E9AAACE24026BB700AF28AD /* MathHelper.swift in Sources */,
 				3EA6AD41240160C000682FC9 /* LevelDesignerController.swift in Sources */,
-				3E9AAAC8240265EA00AF28AD /* PhysicalShape.swift in Sources */,
 				3E2DAD5523E7D99300A211D3 /* PegType.swift in Sources */,
 				3E1D2EA723F28D12009779F9 /* GameBall.swift in Sources */,
 				3E1D2EAB23F291AC009779F9 /* BallView.swift in Sources */,
 				3EA6AD46240160F800682FC9 /* Alert.swift in Sources */,
 				3E2DAD5C23E7D9A100A211D3 /* PegImageView.swift in Sources */,
-				3E2DAD4823E7C9B000A211D3 /* PhysicsEngine.swift in Sources */,
 				3EBC267623E83E07001630AB /* SampleLevel.swift in Sources */,
 				3EA6AD44240160DC00682FC9 /* FileStorageHelper.swift in Sources */,
+				3E5F0340240A258600F5BDF0 /* CGPoint + Hashable.swift in Sources */,
 				3EA93C142405760600120368 /* LevelPreviewCollectionViewCell.swift in Sources */,
 				3EAC587F2407714500D812A6 /* GameMaster.swift in Sources */,
 				3E1D2EA923F28D27009779F9 /* GamePeg.swift in Sources */,
@@ -507,7 +612,6 @@
 				3EA834FC23EF170800FE0A73 /* PhysicsBodyTest.swift in Sources */,
 				3EA6AD542401641C00682FC9 /* CGPointTest.swift in Sources */,
 				3EAF89F523F5543C0005F559 /* PeggleGameEngineTest.swift in Sources */,
-				3E91C3222402BD9C0059A882 /* MathHelperTest.swift in Sources */,
 				3EA6AD532401641C00682FC9 /* PegTest.swift in Sources */,
 				3EAF89F123F5524B0005F559 /* GameBallTest.swift in Sources */,
 				3EA6AD522401641C00682FC9 /* GameLevelTest.swift in Sources */,
@@ -520,7 +624,7 @@
 /* Begin PBXTargetDependency section */
 		3E2DAD2B23E7C92F00A211D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3E2DAD1223E7C92E00A211D3 /* PS3 */;
+			target = 3E2DAD1223E7C92E00A211D3 /* SpookyPeggle */;
 			targetProxy = 3E2DAD2A23E7C92F00A211D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -661,17 +765,18 @@
 		};
 		3E2DAD3E23E7C92F00A211D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4579F0CBFA3E4FB2710ED640 /* Pods-SpookyPeggle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TX4SC3T3TN;
-				INFOPLIST_FILE = PS3/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SpookyPeggle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.PS3;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.SpookyPeggle;
+				PRODUCT_NAME = SpookyPeggle;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -679,17 +784,18 @@
 		};
 		3E2DAD3F23E7C92F00A211D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF327771B6D5B09C8E7D36F6 /* Pods-SpookyPeggle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TX4SC3T3TN;
-				INFOPLIST_FILE = PS3/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SpookyPeggle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.PS3;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.SpookyPeggle;
+				PRODUCT_NAME = SpookyPeggle;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -697,6 +803,7 @@
 		};
 		3E2DAD4123E7C92F00A211D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47DD5770F6758D825E43B464 /* Pods-SpookyPeggleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -712,12 +819,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PS3.app/PS3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpookyPeggle.app/SpookyPeggle";
 			};
 			name = Debug;
 		};
 		3E2DAD4223E7C92F00A211D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41B1E8A9C99C4704AF4C729F /* Pods-SpookyPeggleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -733,7 +841,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PS3.app/PS3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpookyPeggle.app/SpookyPeggle";
 			};
 			name = Release;
 		};
@@ -749,7 +857,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E2DAD3D23E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "PS3" */ = {
+		3E2DAD3D23E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "SpookyPeggle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E2DAD3E23E7C92F00A211D3 /* Debug */,
@@ -758,7 +866,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E2DAD4023E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "PS3Tests" */ = {
+		3E2DAD4023E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "SpookyPeggleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E2DAD4123E7C92F00A211D3 /* Debug */,

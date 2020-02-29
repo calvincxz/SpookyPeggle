@@ -1,0 +1,16 @@
+PODS:
+  - PhysicsEngine (1.0.2)
+
+DEPENDENCIES:
+  - PhysicsEngine
+
+SPEC REPOS:
+  https://github.com/calvincxz/PhysicsEnginePodsRepo.git:
+    - PhysicsEngine
+
+SPEC CHECKSUMS:
+  PhysicsEngine: 2ae00cf17488813414a37ed5ac9c0009538c92f5
+
+PODFILE CHECKSUM: e92441f9b745d4abc45b141be55ab42eed6ecd51
+
+COCOAPODS: 1.9.0
