@@ -1,7 +1,7 @@
 # Developer Guide for *SpookyPeggle* 
 ## Architecture + Class Diagram
 <p align="center">
-<img src=Images/Architecture+ClassDiagram.png width=70% height=70%>
+<img src=Images/Architecture.png width=70% height=70%>
 </p>
 
 ## Architecture
@@ -44,7 +44,7 @@ The `LevelDesignerController` controls level design screen to allow users to des
 *SpookyPeggle* level.
 
 <p align="center">
-<img src=Images/LevelDesign.png width=70% height=40%>
+<img src=Images/LevelDesign.PNG width=70% height=40%>
 </p>
 
 * Handles user gestures for peg modification in level designer
@@ -53,7 +53,15 @@ The `LevelDesignerController` controls level design screen to allow users to des
 	1. `LevelSelectionViewController` via load button
 	2. `GamePlayController` via start button
 	3. `HomeViewController` via menu button
-	
+
+#### Activity Diagram for Adding Peg
+<p align="center">
+<img src=Images/AD2.png width=70% height=40%>
+</p>
+#### Activity Diagram for Saving Level
+<p align="center">
+<img src=Images/AD1.png width=70% height=40%>
+</p>
 
 
 ### LevelSelectionViewController
@@ -63,7 +71,7 @@ If user came from `LevelDesignerController`, selecting a level will segue back t
 If user came from `HomeViewController`, selecting a level will segue to `GamePlayController` 
 
 <p align="center">
-<img src=Images/LevelSelect.png width=70% height=40%>
+<img src=Images/LevelSelect.PNG width=70% height=40%>
 </p>
 
 * Handles user gestures for selecting and deleting a game level
@@ -77,7 +85,18 @@ via a `ContactDelegate` protocol to provide an accurate simulation of movements/
 	1. Go back to `LevelSelectionViewController` or `LevelDesignerController` via back button
 
 <p align="center">
-<img src=Images/GamePlay.png width=70% height=40%>
+<img src=Images/GamePlay.PNG width=70% height=40%>
+</p>
+
+#### Activity Diagram for Cannon Rotation
+<p align="center">
+<img src=Images/AD3.png width=70% height=40%>
+</p>
+
+
+#### Activity Diagram for Game Play
+<p align="center">
+<img src=Images/AD4.png width=70% height=40%>
 </p>
 
 ### EndGameViewController
@@ -87,5 +106,5 @@ The `EndGameViewController` controls end game screen after player wins/loses the
 	2. `HomeViewController` via home button
 
 <p align="center">
-<img src=Images/EndGame.png width=70% height=40%>
+<img src=Images/EndGame.PNG width=70% height=40%>
 </p>
