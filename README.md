@@ -11,7 +11,6 @@
 4. <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
 5. <a href="https://soundcloud.com/zebestian/sets/halloween-music-pack-2019">Background Music created by Zebestian</a>
 6. <a href="https://www.deviantart.com/ry-spirit/art/Pikaboo-569364686">Pikachu image created by Ry-Spirit</a>
-7. <a href="https://www.pinterest.com/pin/548313323384389547/">Togepi image</a>
 8. <a href="https://www.gamedevmarket.net/asset/halloween-icons/">General halloween icons by Kandles</a>
 9. <a href="https://opengameart.org/content/won-orchestral-winning-jingle">Sound effect for win</a>
 10. <a href="https://freesound.org/people/pinkyfinger/sounds/">Peg hit sound effects by pinkyfinger</a>
@@ -31,7 +30,6 @@
 3. Do not burn out. Have fun!
 
 ## Dev Guide
-
 [Developer Guide](DeveloperGuide.md)
 
 ## Rules of the Game
@@ -43,7 +41,6 @@ write this section in a new file entirely, if you wish.
 
 ### Cannon Direction
 * Pan gesture only works in the UIView covered by the background image
-* Pan gesture with multiple fingers is not recognized
 * Any pan gesture with translation in x < 0 should cause cannon to rotate left
 * Any pan gesture with translation in x > 0 should cause cannon to rotate right
 * Cannon should not be able to rotate further than 70 degrees from its initial position (either left or right)
@@ -53,8 +50,7 @@ write this section in a new file entirely, if you wish.
     * When there are no more orange pegs remaining
     * Ball exits gameplay
 * Lose conditions
-    * Ball count reaches 0
-    * Ball exits gameplay 
+    * Ball count reaches 0 when ball exits gameplay
     * There are still orange pegs left
 
 ### Prevention of ball getting stuck
@@ -62,13 +58,18 @@ write this section in a new file entirely, if you wish.
 * This prevents the ball from getting stuck
 
 ### Selecting a Game Master
-* There are 2 Game Masters to choose 
+* There are 3 Game Masters to choose 
     1. Bat (Spooky Blast)
         * Releases a smoke near the power-up peg which lights up nearby pegs
     2. Pumpkin (Spooky Ball)
         * Turns the ball into a spooky ball which enters the game play area
         from the top after exit
         * The bucket is blocked during this time
+    3. Wizard (Fire Ball)
+        * Turns the ball into a fireball for one turn
+        * Fireball lights up all pegs it passes through along the way, but does not collide with any pegs
+
+### Home Menu
 * There should be 2 buttons available to transition to the next screen.
     1. `Level Design` button
     2. `Play` button
@@ -124,24 +125,24 @@ write this section in a new file entirely, if you wish.
     * Game master decides the power-up effect of the green peg
 4. Modified Power-ups
     * Added smoke effect for "space blast"
-  * Added shadow glow for "spooky ball"
+    * Added shadow glow for "spooky ball"
 5. Added NPC in game to share tips/messages with player
-  * When power-up effect is in play
-  * Close to winning
+    * When power-up effect is in play
+    * Close to winning
 6. Added music/sound
-  * Background music
-  * Sound effects for cannon/pegs lighting/winning the game/etc
+    * Background music
+    * Sound effects for cannon/pegs lighting/winning the game/etc
 7. Added display for status of orange pegs
-  * Shows number of orange pegs hit
+    * Shows number of orange pegs hit
 8. Score system
-  * Gives free ball when exceeding a certain score for the round
-  * Reward player for using less balls to clear the level
+    * Awards score based on peg type of pegs hit
+    * Gives free ball when exceeding a certain score for the round
 9. Added Power-ups
-  * Fireball which does not collide with pegs but light up all pegs along its way
-10. Added End Game Screen
-11. Added Purple pegs which gives score boost
-  * Increases chance of free ball
-
+    * Turns ball into a fireball
+    * Fireball which does not collide with pegs but light up all pegs along its way
+10. Added Purple pegs which gives score boost
+    * Increases chance of free ball
+11. Added End Game Screen
 
 ## Tests
 [Test Plan](TestPlan.md)
@@ -159,4 +160,4 @@ write this section in a new file entirely, if you wish.
 
 The MVC architecture for the previous problem sets is generally correct and continues to be relevant for this problem set. However, one problem of my previous model design was that the shape of the peg was not considered. Therefore, extension of pegs to different shapes required additional modification. This was also the main problem I faced for this problem set. I should have abstracted out the shape property for the pegs as a class for the `PhysicsEngine`. This is because the functions to check for collision and intersection are actually the same for the `LevelDesignerController` and `PeggleGameEngine`.
 
-If I were to redo the application, I would still use my current design, but include the shape class at the start to allow for easy extension. I believe the design for my `LevelDesignerController` and `PeggleGameEngine` can also be improved since they are quite long in length.
+If I were to redo the application, I would still use my current design, but include the shape class at the start to allow for easy extension. I believe the design for my `LevelDesignerController` and `PeggleGameEngine` can also be improved and further abstracted since they are quite long in length.
