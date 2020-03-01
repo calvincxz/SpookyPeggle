@@ -22,14 +22,18 @@ class GamePlayController: UIViewController {
     @IBOutlet private weak var pegBoard: PegBoardView!
     @IBOutlet private weak var bucketView: BucketView!
     @IBOutlet private weak var playerMessage: UILabel!
-    @IBOutlet private weak var display: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var ballCountLabel: UILabel!
     @IBOutlet private weak var orangePegCountLabel: UILabel!
 
+    /// Hides the status bar at the top
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     // Force unwrapping is used since engine must be initialised by viewDidAppear()
     private var engine: PeggleGameEngine!
-    var gameLevel: GameLevel?
+    private var gameLevel: GameLevel?
     private var gameObjectToImageViewDictionary = [GameObject: PegImageView]()
     private var ballOnFireCount = 0 {
         didSet {
@@ -39,79 +43,34 @@ class GamePlayController: UIViewController {
         }
     }
 
-    @IBAction private func backToMenu(_ sender: UIButton) {
-        dismiss(animated: false, completion: nil)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is EndGameViewController {
-            let target = segue.destination as? EndGameViewController
-            target?.setGameState(state: engine.checkWinStatus())
-        }
-
-        if let level = gameLevel {
-            reloadLevel(gameLevel: level)
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        cannonView.setUpCannonView(cannon: cannon, ball: ballView)
-        MusicPlayer.playInGameMusic()
-
     }
 
     /// Creates game engine if engine is not initialized.
-    /// Loads level one
+    /// Loads level from previous controller
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        MusicPlayer.playInGameMusic()
+        cannonView.setUpCannonView(cannon: cannon, ball: ballView)
         guard engine == nil else {
             return
         }
         initializeGameEngine()
-
         if let level = gameLevel {
             reloadLevel(gameLevel: level)
             return
         }
     }
 
-    /// Initialize game engine after constraints for `PegBoardView` has been updated
-    private func initializeGameEngine() {
-        let area = pegBoard.bounds.size
-        engine = PeggleGameEngine(area: area)
-        engine.contactDelegate = self
-    }
-
-    /// Handles the rotation of the `cannonView`.
-    @IBAction private func handleCannonRotation(_ sender: UIPanGestureRecognizer) {
-        guard engine.readyToStart else {
-            return
-        }
-        let translation = sender.translation(in: pegBoard)
-        cannonView.rotate(translation: translation)
-        sender.setTranslation(CGPoint.zero, in: pegBoard)
-    }
-
-    /// Starts the game by firing the ball from the cannon.
-    @IBAction private func handleGameStart(_ sender: UITapGestureRecognizer) {
-        guard engine.readyToStart else {
-            return
-        }
-        let ballLaunchPoint = pegBoard.convert(ballView.center, from: cannonView)
-        let ballOriginPoint = pegBoard.convert(cannon.center, from: cannonView)
-        let angle = GameDisplayHelper.getAngle(of: ballLaunchPoint, from: ballOriginPoint)
-        shootBall(at: angle)
-    }
-
-    /// Loads level 2 of Peggle Game when button is pressed.
-    @IBAction private func handleLevelTwoButtonPressed() {
-        let gameLevel = SampleLevel.getSampleLevelTwo(view: pegBoard)
-        reloadLevel(gameLevel: gameLevel)
+    func setGameLevel(gameLevel: GameLevel?) {
+        self.gameLevel = gameLevel
     }
 
     /// Resets the engine and view.
     private func reloadLevel(gameLevel: GameLevel) {
+        ballOnFireCount = 0
+        playerMessage.text = ""
         pegBoard.clearBoard()
         engine.resetEngine()
         cannonView.resetCannonDirection()
@@ -120,23 +79,11 @@ class GamePlayController: UIViewController {
         setupGameLevel(gameLevel: gameLevel)
     }
 
-    /// Adds the ball to the game engine and peg board.
-    /// Passes the control of game to the game engine.
-    private func shootBall(at angle: CGFloat) {
-        MusicPlayer.playCannonSound()
-        cannonView.removeBall()
-        let ballLaunchPoint = pegBoard.convert(ballView.center, from: cannonView)
-
-        let imageViewOfBall = BallView(centre: ballLaunchPoint)
-        let ballObject = GameBall(centre: ballLaunchPoint)
-        if ballOnFireCount > 0 {
-            imageViewOfBall.setOnFire()
-            ballObject.setOnFire()
-            ballOnFireCount -= 1
-        }
-
-        engine.addBall(ball: ballObject, angle: angle)
-        pegBoard.addBallToBoard(ball: imageViewOfBall)
+    /// Initialize game engine after constraints for `PegBoardView` has been updated
+    private func initializeGameEngine() {
+        let area = pegBoard.bounds.size
+        engine = PeggleGameEngine(area: area)
+        engine.contactDelegate = self
     }
 
     /// Loads the game pegs from a game level.
@@ -171,7 +118,6 @@ extension GamePlayController: ContactDelegate {
 
     func handleBallExit() {
         pegBoard.removeBallFromBoard()
-
         if engine.checkWinStatus() {
             performSegue(withIdentifier: "gameToEnd", sender: self)
         } else if engine.ranOutOfBalls {
@@ -239,5 +185,64 @@ extension GamePlayController: ContactDelegate {
         ballView.layer.cornerRadius = 0.5 * ballView.bounds.size.width
         ballView.clipsToBounds = true
         ballOnFireCount += 1
+    }
+}
+
+/// Extension to handle gestures
+extension GamePlayController {
+    /// Handles the rotation of the `cannonView`.
+    @IBAction private func handleCannonRotation(_ sender: UIPanGestureRecognizer) {
+        guard engine.readyToStart else {
+            return
+        }
+        let translation = sender.translation(in: pegBoard)
+        cannonView.rotate(translation: translation)
+        sender.setTranslation(CGPoint.zero, in: pegBoard)
+    }
+
+    /// Starts the game by firing the ball from the cannon.
+    @IBAction private func handleGameStart(_ sender: UITapGestureRecognizer) {
+        guard engine.readyToStart else {
+            return
+        }
+        let ballLaunchPoint = pegBoard.convert(ballView.center, from: cannonView)
+        let ballOriginPoint = pegBoard.convert(cannon.center, from: cannonView)
+        let angle = GameDisplayHelper.getAngle(of: ballLaunchPoint, from: ballOriginPoint)
+        shootBall(at: angle)
+    }
+
+    /// Adds the ball to the game engine and peg board.
+    /// Passes the control of game to the game engine.
+    private func shootBall(at angle: CGFloat) {
+        MusicPlayer.playCannonSound()
+        cannonView.removeBall()
+        let ballLaunchPoint = pegBoard.convert(ballView.center, from: cannonView)
+        let imageViewOfBall = BallView(centre: ballLaunchPoint)
+        let ballObject = GameBall(centre: ballLaunchPoint)
+        if ballOnFireCount > 0 {
+            imageViewOfBall.setOnFire()
+            ballObject.setOnFire()
+            ballOnFireCount -= 1
+        }
+        engine.addBall(ball: ballObject, angle: angle)
+        pegBoard.addBallToBoard(ball: imageViewOfBall)
+    }
+}
+
+/// Extension to handle segues
+extension GamePlayController {
+    @IBAction private func backToMenu(_ sender: UIButton) {
+        dismiss(animated: false, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is EndGameViewController {
+            let target = segue.destination as? EndGameViewController
+            target?.setGameState(state: engine.checkWinStatus(), score: scoreLabel.text ?? "")
+        }
+
+        if let level = gameLevel {
+            reloadLevel(gameLevel: level)
+        }
     }
 }

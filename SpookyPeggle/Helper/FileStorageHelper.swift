@@ -100,6 +100,5 @@ class FileStorageHelper {
             return false
         }
         return true
-
     }
 }

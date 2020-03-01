@@ -38,6 +38,5 @@ class BallView: UIImageView {
         image = #imageLiteral(resourceName: "peg-red-glow")
         layer.cornerRadius = 0.5 * bounds.size.width
         clipsToBounds = true
-
     }
 }

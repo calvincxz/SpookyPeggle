@@ -14,6 +14,11 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var pumpkinButton: GameMasterSelector!
     @IBOutlet private weak var wizardButton: GameMasterSelector!
 
+    /// Hides the status bar at the top
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     override func viewDidLoad() {
         initializeGameMasterSelectors()
         MusicPlayer.playBackgroundMusic()
@@ -26,10 +31,6 @@ class HomeViewController: UIViewController {
         wizardButton.setupButton(master: .FlameWizard)
         GameMasterSelector.currentSelected = pumpkinButton
         pumpkinButton.selectButton()
-    }
-
-    @IBAction private func goToPlay(_ sender: UIButton) {
-        performSegue(withIdentifier: "homeToPlay", sender: self)
     }
 
     @IBAction private func goToLevelDesign(_ sender: UIButton) {
@@ -54,7 +55,5 @@ class HomeViewController: UIViewController {
             let target = segue.destination as? LevelSelectionViewController
             target?.previousScreen = .Home
         }
-
     }
-
 }

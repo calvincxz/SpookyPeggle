@@ -113,19 +113,4 @@ class Alert {
             handleSaveLevel(controller: controller, fileName: fileName)
         }
     }
-
-    /// Creates an Alert Action for a single game level.
-    private static func createAlertActionForLoad(
-        levelName: String, controller: LevelDesignerController) -> UIAlertAction {
-
-        let loadActionForSingleGameLevel = UIAlertAction(title: levelName, style: .default) { _ in
-            guard let gameLevelFromData = FileStorageHelper.loadDataFromFile(withName: levelName) else {
-                presentAlert(controller: controller, title: "Error", message: Settings.messageForLoadLevelFailure)
-                return
-            }
-            controller.loadNewLevel(level: gameLevelFromData, levelName: levelName)
-        }
-        return loadActionForSingleGameLevel
-    }
-
 }

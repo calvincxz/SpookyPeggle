@@ -22,7 +22,7 @@ class Peg: Codable, Hashable {
         return physicalShape.rotationAngle
     }
 
-    /// Creates a circular peg with the given peg type and centre.
+    /// Creates a circular peg.
     init(type pegType: PegType, circleOfCentre: CGPoint, radius: CGFloat) {
         self.pegType = pegType
         self.centre = circleOfCentre
@@ -30,26 +30,12 @@ class Peg: Codable, Hashable {
         self.physicalShape = PhysicalShape(circleOfCentre: centre, radius: radius)
     }
 
-    /// Creates a fixed size triangular peg with the given peg type and centre.
+    /// Creates a triangular peg.
     init(type pegType: PegType, triangleOfCentre: CGPoint, length: CGFloat) {
         self.pegType = pegType
         self.centre = triangleOfCentre
         self.shape = .Triangle
         self.physicalShape = PhysicalShape(triangleOfCentre: centre, length: length)
-    }
-
-    convenience init(type pegType: PegType, circleOfCentre: CGPoint) {
-        self.init(type: pegType, circleOfCentre: circleOfCentre, radius: Settings.defaultPegDiameter / 2)
-    }
-
-    convenience init(type pegType: PegType, centre: CGPoint, shape: PegShape) {
-        switch shape {
-        case .Circle:
-            self.init(type: pegType, circleOfCentre: centre)
-        case .Triangle:
-            self.init(type: pegType, triangleOfCentre: centre)
-        }
-
     }
 
     /// Creates a peg with the given peg type, centre and shape.
@@ -60,6 +46,22 @@ class Peg: Codable, Hashable {
         self.shape = shape
     }
 
+    /// Creates a peg of default size
+    convenience init(type pegType: PegType, centre: CGPoint, shape: PegShape) {
+        switch shape {
+        case .Circle:
+            self.init(type: pegType, circleOfCentre: centre)
+        case .Triangle:
+            self.init(type: pegType, triangleOfCentre: centre)
+        }
+    }
+
+    /// Creates a circlular peg of default size
+    convenience init(type pegType: PegType, circleOfCentre: CGPoint) {
+        self.init(type: pegType, circleOfCentre: circleOfCentre, radius: Settings.defaultPegDiameter / 2)
+    }
+
+    /// Creates a triangular peg of default size
     convenience init(type pegType: PegType, triangleOfCentre: CGPoint) {
         self.init(type: pegType, triangleOfCentre: triangleOfCentre, length: Settings.defaultTrianglePegLength)
     }

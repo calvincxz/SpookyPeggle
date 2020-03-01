@@ -255,11 +255,11 @@
 		3E2DAD4D23E7D99300A211D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E5F033F240A258600F5BDF0 /* CGPoint.swift */,
 				3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */,
 				3E2DAD4F23E7D99300A211D3 /* Peg.swift */,
 				3EDC8491240529EC00AEB185 /* PegShape.swift */,
 				3E2DAD5123E7D99300A211D3 /* PegType.swift */,
+				3E5F033F240A258600F5BDF0 /* CGPoint.swift */,
 				3EA93C152405897900120368 /* LevelPreviewStorage.swift */,
 			);
 			path = Model;
@@ -320,12 +320,12 @@
 		3EA1FC1A23F436EF0005A3A5 /* Gameplay Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E2DAD4B23E7D8FC00A211D3 /* PeggleGameEngine.swift */,
 				3EAC587E2407714500D812A6 /* GameMaster.swift */,
 				3E2DAD6323E7F2A500A211D3 /* GameObject.swift */,
 				3E1D2EA623F28D12009779F9 /* GameBall.swift */,
 				3E221C6423FE7C6600E309B4 /* GameBucket.swift */,
 				3E1D2EA823F28D27009779F9 /* GamePeg.swift */,
-				3E2DAD4B23E7D8FC00A211D3 /* PeggleGameEngine.swift */,
 				3EA06240240805A9003C5538 /* ScoreSystem.swift */,
 			);
 			path = "Gameplay Model";
@@ -334,12 +334,12 @@
 		3EA6AD3E240160C000682FC9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */,
-				3E2DAD1A23E7C92E00A211D3 /* GamePlayController.swift */,
+				3E221C6123FE793D00E309B4 /* HomeViewController.swift */,
 				3EA6AD3F240160C000682FC9 /* LevelDesignerController.swift */,
 				3EA93C11240570CA00120368 /* LevelSelectionViewController.swift */,
-				3E221C6123FE793D00E309B4 /* HomeViewController.swift */,
+				3E2DAD1A23E7C92E00A211D3 /* GamePlayController.swift */,
 				3EE03480240A3FC40089BD36 /* EndGameViewController.swift */,
+				3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

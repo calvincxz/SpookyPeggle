@@ -13,8 +13,13 @@ private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, ri
 private let itemsPerRow: CGFloat = 3
 
 class LevelSelectionViewController: UIViewController {
-
     @IBOutlet private weak var levelCollectionView: UICollectionView!
+
+    /// Hides the status bar at the top
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     private var levelName = "Untitled"
     private var gameLevel: GameLevel?
     private let levelPreviewStorage = LevelPreviewStorage()
@@ -69,9 +74,8 @@ extension LevelSelectionViewController: UICollectionViewDelegateFlowLayout {
 
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         //view
-        let availableWidth = UIScreen.main.bounds.width - paddingSpace
+        let availableWidth = levelCollectionView.bounds.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
-        print(widthPerItem.description)
 
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
@@ -82,11 +86,11 @@ extension LevelSelectionViewController: UICollectionViewDelegateFlowLayout {
         return sectionInsets
     }
 
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return sectionInsets.left
-//    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
 }
 
 /// Gestures
@@ -135,7 +139,7 @@ extension LevelSelectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is GamePlayController {
             let target = segue.destination as? GamePlayController
-            target?.gameLevel = gameLevel
+            target?.setGameLevel(gameLevel: gameLevel)
         }
 
         if segue.destination is LevelDesignerController {

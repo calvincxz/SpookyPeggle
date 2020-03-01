@@ -31,7 +31,7 @@ enum Settings {
 
     // Game settings
     static let energyLoss = CGFloat(0.8)
-    static let initialBallCount = 5
+    static let initialBallCount = 10
     static let cannonRotationPerGesture = CGFloat(0.02)
     static let maximumCannonRotationAngle = CGFloat(1.2)
     static let minScoreForFreeBall = 2_000

@@ -23,6 +23,11 @@ class LevelDesignerController: UIViewController {
     var gameLevel: GameLevel!
     var pegToImageView: [Peg: PegImageView] = [:]
 
+    /// Hides the status bar at the top
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     override func viewDidLoad() {
         initializePegSelectors()
         super.viewDidLoad()
@@ -30,7 +35,6 @@ class LevelDesignerController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         guard gameLevel == nil else {
             loadNewLevel(level: gameLevel, levelName: currentLevelName ?? "Untitled")
             return
@@ -41,7 +45,7 @@ class LevelDesignerController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is GamePlayController {
             let target = segue.destination as? GamePlayController
-            target?.gameLevel = gameLevel
+            target?.setGameLevel(gameLevel: gameLevel)
         }
         if segue.destination is LevelSelectionViewController {
             let target = segue.destination as? LevelSelectionViewController
@@ -69,7 +73,7 @@ class LevelDesignerController: UIViewController {
     }
 
     /// Replaces level with data from another `GameLevel`
-    func loadNewLevel(level: GameLevel, levelName: String) {
+    private func loadNewLevel(level: GameLevel, levelName: String) {
         let newLevel = GameLevel()
         newLevel.loadGameLevel(gameLevel: level)
         resetLevel()

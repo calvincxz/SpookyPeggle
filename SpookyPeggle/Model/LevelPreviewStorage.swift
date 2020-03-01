@@ -13,10 +13,13 @@ class LevelPreviewStorage {
     private var imageURLs = [URL]()
     private var dataURLs = [URL]()
 
+    // Number of saved levels in storage
     var levelCount: Int {
         return imageURLs.count
     }
 
+    /// Initializes with 3 preloaded levels.
+    /// Also loads other saved levels with an accessible screenshot
     init() {
         FileStorageHelper.preloadLevels()
         imageURLs = FileStorageHelper.getDocumentDirectoryFileURLs(pathExtension: "png") ?? []
@@ -24,6 +27,7 @@ class LevelPreviewStorage {
         }
     }
 
+    /// Gets the image at a specific index
     func getImage(at index: Int, size: CGSize) -> UIImage? {
         guard let levelImage = UIImage(contentsOfFile: imageURLs[index].path) else {
             return nil
@@ -34,17 +38,20 @@ class LevelPreviewStorage {
         }
     }
 
+    /// Gets the file name without extension at a specific index
     func getFileName(at index: Int) -> String {
         let URL = dataURLs[index]
         return URL.deletingPathExtension().lastPathComponent
     }
 
+    /// Gets the decoded game level object at a specific index
     func getData(at index: Int) -> GameLevel? {
         let URL = dataURLs[index]
         return FileStorageHelper.loadDataFromURL(fileURL: URL)
     }
 
     /// Deletes the level at a specific index
+    /// Both image and data are deleted
     func deleteLevel(at index: Int) -> Bool {
         guard index >= 0 && index < levelCount else {
             return false
@@ -52,6 +59,10 @@ class LevelPreviewStorage {
 
         let imagePath = imageURLs[index]
         let dataPath = dataURLs[index]
+        let levelName = getFileName(at: index)
+        guard !Settings.preloadedLevelNames.contains(levelName) else {
+            return false
+        }
 
         guard FileStorageHelper.deleteFile(filePath: imagePath) &&
             FileStorageHelper.deleteFile(filePath: dataPath) else {

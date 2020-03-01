@@ -100,7 +100,6 @@ class PeggleGameEngine {
 
     /// Returns true if there are no orange pegs in the `PeggleGameEngine`.
     func checkWinStatus() -> Bool {
-        //return false
         return !gameObjects.contains(where: { $0.getPegType() == PegType.orange })
     }
 
@@ -152,6 +151,7 @@ class PeggleGameEngine {
         contactDelegate?.handleBallMovement(ballObject: ball)
     }
 
+    /// Handles movement of the bucket
     private func handleBucketMovement(bucket: GameBucket) {
         bucket.move()
         contactDelegate?.handleBucketMovement(bucket: bucket)
@@ -232,13 +232,13 @@ class PeggleGameEngine {
             spookyCount -= 1
             return
         }
-        removeBall()
         let scoreForRound = ScoreSystem.getScoreForRound()
         if scoreForRound > Settings.minScoreForFreeBall {
             ballCount += 1
             contactDelegate?.updateMessage(message: Settings.messageForFreeBallFromScore)
         }
         score += scoreForRound
+        removeBall()
     }
 
     /// Removes relevant pegs from the `PeggleGameEngine` after ball exits.
@@ -267,10 +267,10 @@ class PeggleGameEngine {
     private func handleBucketCollision(ball: GameObject) {
         if bucket.willCollide(ball: ball) {
             if bucket.checkEnterBucket(ball: ball) {
+                ballCount += 1
                 contactDelegate?.updateMessage(message: Settings.messageForFreeBallFromBucket)
                 removePegsAfterBallExit()
                 removeBall()
-                ballCount += 1
             } else {
                 contactDelegate?.handleBallCollision()
                 contactDelegate?.updateMessage(message: Settings.messageForBucketHit_NoFreeBall)

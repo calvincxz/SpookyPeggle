@@ -10,18 +10,25 @@ import UIKit
 
 class EndGameViewController: UIViewController {
 
-    var isGameWon: Bool?
-    var previousGameLevel: GameLevel?
+    @IBOutlet private weak var scoreLabel: UILabel!
+    @IBOutlet private weak var endGameMessage: UILabel!
 
-    @IBOutlet private weak var textLabel: UILabel!
+    private var scoreText: String = ""
+    private var isGameWon: Bool?
+
+    /// Hides the status bar at the top
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeMessage()
     }
 
-    func setGameState(state: Bool) {
-        isGameWon = state
+    func setGameState(state: Bool, score: String) {
+        self.isGameWon = state
+        self.scoreText = score
     }
 
     private func initializeMessage() {
@@ -30,11 +37,12 @@ class EndGameViewController: UIViewController {
         }
         if win {
             MusicPlayer.playGameWinMusic()
-            textLabel.text = "victory"
+            endGameMessage.text = "victory"
         } else {
             MusicPlayer.playGameLoseMusic()
-            textLabel.text = "Defeat"
+            endGameMessage.text = "Defeat"
         }
+        scoreLabel.text = scoreText
     }
 
     @IBAction private func replayLevel(_ sender: UIButton) {
@@ -43,5 +51,12 @@ class EndGameViewController: UIViewController {
 
     @IBAction private func backToMainMenu(_ sender: UIButton) {
         performSegue(withIdentifier: "endToMenu", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is GamePlayController {
+            let target = segue.destination as? GamePlayController
+            target?.viewDidLoad()
+        }
     }
 }
