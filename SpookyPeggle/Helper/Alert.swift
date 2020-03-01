@@ -52,18 +52,17 @@ class Alert {
         controller.present(saveAlert, animated: true)
     }
 
-//    /// Presents the UIAlert for loading previous game levels in a controller.
-//    static func presentLoadLevelAlert(controller: LevelDesignerController, jsonFileNames: [String]) {
-//        let loadAlert = setupAlertController(title: "Load", message: Settings.messageForLoadLevel)
-//        guard !jsonFileNames.isEmpty else {
-//            presentAlert(controller: controller, title: "Load Failed",
-//    message: Settings.messageForLoadLevel_emptyLevels)
-//            return
-//        }
-//        addLoadLevelOptionsToAlert(jsonFileNames: jsonFileNames, alert: loadAlert, controller: controller)
-//        loadAlert.addAction(cancelAction)
-//        controller.present(loadAlert, animated: true)
-//    }
+    static func presentDeleteAlert(controller: LevelSelectionViewController, index: Int) {
+        let deleteAlert = setupAlertController(title: "Delete Level",
+                                               message: Settings.messageForDeleteLevel)
+
+            let deleteAction = UIAlertAction(title: "Delete", style: .default) { _ in
+                controller.deleteLevel(at: index)
+            }
+            deleteAlert.addAction(deleteAction)
+            deleteAlert.addAction(cancelAction)
+            controller.present(deleteAlert, animated: true)
+    }
 
     /// Creates an `UIAlertController` for general use.
     private static func setupAlertController(title: String, message: String) -> UIAlertController {
@@ -98,6 +97,11 @@ class Alert {
 
     /// Validates user input for game level saving.
     private static func handleFileNameInputByUser(controller: LevelDesignerController, fileName: String) {
+        guard !Settings.preloadedLevelNames.contains(fileName) else {
+            presentAlert(controller: controller, title: "Save Error",
+                         message: Settings.messageForPreloadLevelOverwriteError)
+            return
+        }
         guard fileName.range(of: "[^a-zA-Z0-9]+", options: .regularExpression) == nil else {
             presentSaveLevelAlert(controller: controller, message: Settings.messageForSaveLevel_invalidFileName)
             return
@@ -107,15 +111,6 @@ class Alert {
             presentOverwriteAlert(controller: controller, fileName: fileName)
         } else {
             handleSaveLevel(controller: controller, fileName: fileName)
-        }
-    }
-
-    /// Creates Alert Actions for all the game level files.
-    private static func addLoadLevelOptionsToAlert(
-        jsonFileNames: [String], alert: UIAlertController, controller: LevelDesignerController) {
-        for jsonFileName in jsonFileNames {
-            let loadAction = createAlertActionForLoad(levelName: jsonFileName, controller: controller)
-            alert.addAction(loadAction)
         }
     }
 
@@ -133,15 +128,4 @@ class Alert {
         return loadActionForSingleGameLevel
     }
 
-    static func presentDeleteAlert(controller: LevelSelectionViewController, index: Int) {
-        let deleteAlert = setupAlertController(title: "Delete Level",
-                                               message: Settings.messageForDeleteLevel)
-
-            let loadAction = UIAlertAction(title: "Delete", style: .default) { _ in
-                controller.deleteLevel(at: index)
-            }
-            deleteAlert.addAction(loadAction)
-            deleteAlert.addAction(cancelAction)
-            controller.present(deleteAlert, animated: true)
-    }
 }

@@ -1,6 +1,6 @@
 //
 //  LevelDesignerController.swift
-//  PeggleGame
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 21/1/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -13,8 +13,8 @@ class LevelDesignerController: UIViewController {
     @IBOutlet private weak var erasePegButton: PalettePegSelector!
     @IBOutlet private weak var bluePegButton: PalettePegSelector!
     @IBOutlet private weak var greenPegButton: PalettePegSelector!
+    @IBOutlet private weak var purplePegButton: PalettePegSelector!
     @IBOutlet private weak var background: UIImageView!
-    @IBOutlet private weak var textDisplay: UILabel!
     @IBOutlet private weak var pegBoardView: PegBoardView!
 
     var currentLevelName: String?
@@ -52,9 +52,11 @@ class LevelDesignerController: UIViewController {
     /// Initializes the peg type for all peg selectors.
     /// Blue peg selector is selected by default.
     private func initializePegSelectors() {
-        orangePegButton.setButton(type: .orange, shape: .Circle)
         bluePegButton.setButton(type: .blue, shape: .Circle)
+        orangePegButton.setButton(type: .orange, shape: .Circle)
         greenPegButton.setButton(type: .green, shape: .Circle)
+        purplePegButton.setButton(type: .purple, shape: .Circle)
+
         PalettePegSelector.currentSelected = bluePegButton
         bluePegButton.selectButton()
     }
@@ -79,9 +81,7 @@ class LevelDesignerController: UIViewController {
             pegToImageView[peg] = pegImageView
 
         }
-        textDisplay.text = "Load Level Success"
     }
-
 
     func getScreenshot() -> Data? {
         UIGraphicsBeginImageContext(pegBoardView.frame.size)
@@ -103,13 +103,13 @@ extension LevelDesignerController {
     /// Resets the level design when the reset button is pressed.
     @IBAction private func resetLevel(_ sender: UIButton) {
         resetLevel()
-        textDisplay.text = "Reset Level Success"
     }
 
     @IBAction private func switchPaletteButtons(_ sender: UIButton) {
         orangePegButton.togglePegShape()
         bluePegButton.togglePegShape()
         greenPegButton.togglePegShape()
+        purplePegButton.togglePegShape()
         if let current = PalettePegSelector.currentSelected {
             PalettePegSelector.currentSelected = current
         }
@@ -294,7 +294,7 @@ extension LevelDesignerController {
         let newLocation = sender.location(in: pegBoardView)
         let newlySelectedPeg = oldPeg.moveTo(location: newLocation)
 
-        if gameLevel.canInsertPeg(peg: newlySelectedPeg) && self.pegBoardView.bounds.contains(newLocation) {
+        if gameLevel.canInsertPeg(peg: newlySelectedPeg) && pegBoardView.bounds.contains(newLocation) {
             pegImageView.moveTo(point: newLocation)
             reAddPegToModel(peg: newlySelectedPeg, pegImageView: pegImageView)
         } else {

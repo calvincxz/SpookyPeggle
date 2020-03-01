@@ -38,4 +38,8 @@ protocol ContactDelegate: AnyObject {
 
     func handleBucketAppearance(isSpooky: Bool)
 
+    func handleBallCollision()
+
+    func activateFireBallNextTurn()
+
 }

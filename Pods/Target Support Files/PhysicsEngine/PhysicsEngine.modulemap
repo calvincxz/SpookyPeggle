@@ -1,4 +1,4 @@
-framework module PhysicsEngine {
+module PhysicsEngine {
   umbrella header "PhysicsEngine-umbrella.h"
 
   export *

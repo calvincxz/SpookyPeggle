@@ -41,6 +41,8 @@ enum ScoreSystem {
             return 10
         case .orange:
             return 100
+        case .purple:
+            return 500
         }
     }
 

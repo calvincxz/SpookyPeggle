@@ -1,6 +1,6 @@
 //
 //  PeggleGameEngine.swift
-//  PS3
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 3/2/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -16,12 +16,12 @@ The `PeggleGameEngine` deals with logic specific to the Peggle Game.
 */
 class PeggleGameEngine {
 
+    weak var contactDelegate: ContactDelegate?
     private let physicsEngine: PhysicsEngine
     private var gameObjects = Set<GamePeg>()
     private var ballObject: GameBall?
-    weak var contactDelegate: ContactDelegate?
     private var bucket: GameBucket
-    var area: CGSize
+    private var area: CGSize
     private var spookyCount = 0 {
         didSet {
             spookyCount > 0 ? bucket.close() : bucket.open()
@@ -31,11 +31,13 @@ class PeggleGameEngine {
     }
 
     private var totalOrangePegCount: Int?
-
     private var currentOrangePegCount: Int? {
         didSet {
             guard let current = currentOrangePegCount, let total = totalOrangePegCount else {
                 return
+            }
+            if current == 1 {
+                MusicPlayer.playCloseToWinSound()
             }
             contactDelegate?.updateOrangePegStatus(currentCount: current, totalCount: total)
         }
@@ -67,7 +69,7 @@ class PeggleGameEngine {
         self.physicsEngine = PhysicsEngine(area: area)
         self.bucket = GameBucket(area: area)
         let displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
-        displayLink.preferredFramesPerSecond = 60
+        displayLink.preferredFramesPerSecond = 40
         displayLink.add(to: .current, forMode: .common)
     }
 
@@ -79,7 +81,6 @@ class PeggleGameEngine {
         guard let ball = ballObject else {
             return
         }
-
         handleBottomExit(ball: ball)
         handleWallCollision(ball: ball)
         handleBallCollisionWithPeg(ball: ball)
@@ -108,15 +109,10 @@ class PeggleGameEngine {
         return ballObject
     }
 
-    func addBucket() {
-        self.bucket = GameBucket(area: area)
-    }
-
     func initializeOrangePegStatus() {
         let count = gameObjects.filter { $0.getPegType() == PegType.orange }.count
         totalOrangePegCount = count
         currentOrangePegCount = count
-
     }
 
     /// Loads a ball to the `PeggleGameEngine`for starting the game.
@@ -132,7 +128,6 @@ class PeggleGameEngine {
     func removeBall() {
         self.ballObject = nil
         contactDelegate?.handleBallExit()
-        //bucket.resetVelocity()
     }
 
     /// Adds a  `GameObject` to the `PeggleGameEngine`.
@@ -149,9 +144,6 @@ class PeggleGameEngine {
     private func handleBallMovement(ball: GameBall) {
         let vx = ball.velocity.dx
         let vy = ball.velocity.dy
-        if vx > Settings.maxVelocityForBall {
-            ball.velocity = CGVector(dx: Settings.maxVelocityForBall, dy: vy)
-        }
 
         if vy > Settings.maxVelocityForBall {
             ball.velocity = CGVector(dx: vx, dy: Settings.maxVelocityForBall)
@@ -167,13 +159,13 @@ class PeggleGameEngine {
 
     /// Checks if ball will collide with a peg in the `PhysicsEngine`and
     /// updates the velocity of the ball in the game.
-    private func handleBallCollisionWithPeg(ball: GameObject) {
+    private func handleBallCollisionWithPeg(ball: GameBall) {
         for peg in gameObjects where ball.willCollide(other: peg) {
-            ball.changeVelocityAfter(collisionWith: peg, energyLoss: Settings.energyLoss)
-            MusicPlayer.playPegHitSound()
-            peg.hitByBall()
-            contactDelegate?.handlePegHitByBall(pegObject: peg)
-            handlePegEffect(peg: peg)
+            if !ball.onFire {
+                ball.changeVelocityAfter(collisionWith: peg, energyLoss: Settings.energyLoss)
+            }
+
+            handlePegHitEffect(peg: peg)
 
             guard peg.getHitCount() < 20 else {
                 contactDelegate?.handlePegRemoval(pegObject: peg)
@@ -184,27 +176,31 @@ class PeggleGameEngine {
         }
     }
 
+    /// Handles the special effect for a power-up peg
     private func handlePowerUpEffect(specialPeg: GamePeg) {
         switch Settings.gameMaster {
         case .Bat:
             contactDelegate?.handleSpecialEffect(peg: specialPeg)
             for peg in gameObjects where specialPeg.centre.distanceTo(other: peg.centre)
                 <= Settings.spookyBlastMaxLength {
-                peg.hitByBall()
-                contactDelegate?.handlePegHitByBall(pegObject: peg)
-                handlePegEffect(peg: peg)
+                handlePegHitEffect(peg: peg)
             }
-            contactDelegate?.updateMessage(message: "SPOOKY BLAAAAST!")
-
-        case.Pumpkin:
+            contactDelegate?.updateMessage(message: Settings.messageForBatPowerUp)
+        case .Pumpkin:
             spookyCount += 1
-            contactDelegate?.updateMessage(message: "SPOOKY")
+        case .FlameWizard:
+            contactDelegate?.activateFireBallNextTurn()
+            contactDelegate?.updateMessage(message: Settings.messageForWizardPowerUp)
+
         default:
             return
         }
     }
 
-    private func handlePegEffect(peg: GamePeg) {
+    /// Handles the effect when a peg gets hit by ball/power-up
+    private func handlePegHitEffect(peg: GamePeg) {
+        peg.hitByBall()
+        contactDelegate?.handlePegHitByBall(pegObject: peg)
         guard peg.getHitCount() == 1 else {
             return
         }
@@ -231,12 +227,18 @@ class PeggleGameEngine {
         removePegsAfterBallExit()
 
         guard spookyCount <= 0 else {
-            ball.centre = CGPoint(x: ball.centre.x, y: 20)
+            let areaTop = CGFloat(20)
+            ball.centre = CGPoint(x: ball.centre.x, y: areaTop)
             spookyCount -= 1
             return
         }
         removeBall()
-        score += ScoreSystem.getScoreForRound()
+        let scoreForRound = ScoreSystem.getScoreForRound()
+        if scoreForRound > Settings.minScoreForFreeBall {
+            ballCount += 1
+            contactDelegate?.updateMessage(message: Settings.messageForFreeBallFromScore)
+        }
+        score += scoreForRound
     }
 
     /// Removes relevant pegs from the `PeggleGameEngine` after ball exits.
@@ -265,12 +267,13 @@ class PeggleGameEngine {
     private func handleBucketCollision(ball: GameObject) {
         if bucket.willCollide(ball: ball) {
             if bucket.checkEnterBucket(ball: ball) {
-                contactDelegate?.updateMessage(message: "FREE BALL")
+                contactDelegate?.updateMessage(message: Settings.messageForFreeBallFromBucket)
                 removePegsAfterBallExit()
                 removeBall()
-                ballCount += 10
+                ballCount += 1
             } else {
-                contactDelegate?.updateMessage(message: "oops close!")
+                contactDelegate?.handleBallCollision()
+                contactDelegate?.updateMessage(message: Settings.messageForBucketHit_NoFreeBall)
                 ball.changeVelocityAfter(collisionWith: bucket, energyLoss: Settings.energyLoss)
             }
         }

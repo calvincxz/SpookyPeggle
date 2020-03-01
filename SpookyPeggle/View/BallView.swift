@@ -33,4 +33,11 @@ class BallView: UIImageView {
     func moveTo(point: CGPoint) {
         self.center = point
     }
+
+    func setOnFire() {
+        image = #imageLiteral(resourceName: "peg-red-glow")
+        layer.cornerRadius = 0.5 * bounds.size.width
+        clipsToBounds = true
+
+    }
 }

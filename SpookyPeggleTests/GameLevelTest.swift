@@ -66,7 +66,8 @@ class GameLevelTest: XCTestCase {
     func testCanInsertPeg_nonOverlappingPeg() {
         let gameLevel = GameLevel()
         gameLevel.addToLevel(addedPeg: pegOne)
-        let nonOverlappingPeg = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: Int(Settings.defaultPegDiameter)))
+        let nonOverlappingPeg = Peg(type: PegType.blue,
+                                    circleOfCentre: CGPoint(x: 0, y: Settings.defaultPegDiameter))
         XCTAssertTrue(gameLevel.canInsertPeg(peg: nonOverlappingPeg), "Should be able to insert peg")
     }
 
@@ -112,16 +113,18 @@ class GameLevelTest: XCTestCase {
         gameLevel.addToLevel(addedPeg: topPeg)
         gameLevel.addToLevel(addedPeg: bottomPeg)
 
-        let centrePegDeviatedLeft = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter - 1, y: defaultDiameter))
-        let centrePegDeviatedRight = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter + 1, y: defaultDiameter))
-        let centrePegDeviatedDown = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter - 1))
-        let centrePegDeviatedUp = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter + 1))
+        let centrePegDeviatedLeft = Peg(type: PegType.blue,
+                                        circleOfCentre: CGPoint(x: defaultDiameter - 1, y: defaultDiameter))
+        let centrePegDeviatedRight = Peg(type: PegType.blue,
+                                         circleOfCentre: CGPoint(x: defaultDiameter + 1, y: defaultDiameter))
+        let centrePegDeviatedDown = Peg(type: PegType.blue,
+                                        circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter - 1))
+        let centrePegDeviatedUp = Peg(type: PegType.blue,
+                                      circleOfCentre: CGPoint(x: defaultDiameter, y: defaultDiameter + 1))
 
         XCTAssertFalse(gameLevel.canInsertPeg(peg: centrePegDeviatedLeft), "Should not be able to insert peg")
         XCTAssertFalse(gameLevel.canInsertPeg(peg: centrePegDeviatedRight), "Should not be able to insert peg")
         XCTAssertFalse(gameLevel.canInsertPeg(peg: centrePegDeviatedDown), "Should not be able to insert peg")
         XCTAssertFalse(gameLevel.canInsertPeg(peg: centrePegDeviatedUp), "Should not be able to insert peg")
-
     }
-
 }

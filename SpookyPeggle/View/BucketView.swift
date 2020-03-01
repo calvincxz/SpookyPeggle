@@ -15,14 +15,6 @@ class BucketView: UIImageView {
         self.center = point
     }
 
-    func hide() {
-        alpha = 0
-    }
-
-    func show() {
-        alpha = 1
-    }
-
     func open() {
         image = #imageLiteral(resourceName: "bucket")
     }

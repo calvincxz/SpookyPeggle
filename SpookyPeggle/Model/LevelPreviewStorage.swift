@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class LevelPreviewStorage {
     private var imageURLs = [URL]()
     private var dataURLs = [URL]()
@@ -25,9 +24,6 @@ class LevelPreviewStorage {
         }
     }
 
-    /// Gets the screenshot image path to the level at a specific index.
-    /// - Parameter index: The index of the intended level (zero-based).
-    /// - Returns: The URL to the screenshot image.
     func getImage(at index: Int, size: CGSize) -> UIImage? {
         guard let levelImage = UIImage(contentsOfFile: imageURLs[index].path) else {
             return nil
@@ -49,8 +45,6 @@ class LevelPreviewStorage {
     }
 
     /// Deletes the level at a specific index
-    /// Does nothing if there is no level at the specified index.
-    /// - Parameter index: The index of the intended level (zero-based).
     func deleteLevel(at index: Int) -> Bool {
         guard index >= 0 && index < levelCount else {
             return false

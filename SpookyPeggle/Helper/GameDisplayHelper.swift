@@ -24,6 +24,8 @@ enum GameDisplayHelper {
                 return #imageLiteral(resourceName: "peg-orange")
             case .green:
                 return #imageLiteral(resourceName: "peg-green")
+            case .purple:
+                return #imageLiteral(resourceName: "peg-purple")
             }
         case .Triangle:
             switch type {
@@ -33,6 +35,8 @@ enum GameDisplayHelper {
                 return #imageLiteral(resourceName: "peg-orange-triangle")
             case .green:
                 return #imageLiteral(resourceName: "peg-green-triangle")
+            case .purple:
+                return #imageLiteral(resourceName: "peg-purple-triangle")
             }
         }
 
@@ -49,6 +53,8 @@ enum GameDisplayHelper {
                 return #imageLiteral(resourceName: "peg-orange-glow")
             case .green:
                 return #imageLiteral(resourceName: "peg-green-glow")
+            case .purple:
+                return #imageLiteral(resourceName: "peg-purple-glow")
             }
         case .Triangle:
             switch type {
@@ -58,18 +64,38 @@ enum GameDisplayHelper {
                 return #imageLiteral(resourceName: "peg-orange-glow-triangle")
             case .green:
                 return #imageLiteral(resourceName: "peg-green-glow-triangle")
+            case .purple:
+                return #imageLiteral(resourceName: "peg-purple-glow-triangle")
             }
         }
     }
 
-    /// Gets the image for the `GameMaster`
-    static func getGameMasterImage(master: GameMaster) -> UIImage {
-        switch master {
-        case .Pumpkin:
-            return #imageLiteral(resourceName: "Pumpkin")
-        case .Bat:
-            return #imageLiteral(resourceName: "Bat")
-        }
+    static func createSmokeImageView(centre: CGPoint) -> UIImageView {
+
+        let diameter = Settings.spookyBlastMaxLength * 2
+        let frame = CGRect(x: centre.x - diameter / 2, y: centre.y - diameter / 2,
+                           width: diameter, height: diameter)
+
+        let smoke = UIImageView(frame: frame)
+        smoke.image = #imageLiteral(resourceName: "smoke")
+        smoke.layer.cornerRadius = 0.5 * smoke.bounds.size.width
+        smoke.clipsToBounds = true
+        return smoke
+
+    }
+
+    static func addGlowEffect(view: UIView, colour: CGColor) {
+        view.layer.cornerRadius = 0.5 * view.bounds.size.width
+        view.clipsToBounds = true
+        view.layer.shadowOffset = .zero
+        view.layer.shadowColor = colour
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 1
+        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
+    }
+
+    static func removeGlowEffect(view: UIView) {
+        view.layer.shadowOpacity = 0
     }
 
     /// Returns initial velocity of a ball
@@ -89,14 +115,6 @@ enum GameDisplayHelper {
         let deltaX = point.x - otherPoint.x
         let deltaY = point.y - otherPoint.y
         return atan2(deltaY, deltaX)
-    }
-
-    static func showWinAlert(in controller: UIViewController) {
-        Alert.presentAlert(controller: controller, title: "Level Cleared!", message: "You win!!!")
-    }
-
-    static func showLoseAlert(in controller: UIViewController) {
-        Alert.presentAlert(controller: controller, title: "Game Over!", message: "You lose. Try again next time!")
     }
 
     static func reverseVelocity(_ velocity: CGVector) -> CGVector {

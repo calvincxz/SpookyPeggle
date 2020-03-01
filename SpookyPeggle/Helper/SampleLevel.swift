@@ -46,8 +46,8 @@ enum SampleLevel {
 
     static func getSampleLevelTwo(view: UIView) -> GameLevel {
         let level = GameLevel()
-        let widthInterval = view.bounds.width / 11
-        let heightInterval = view.bounds.height / 11
+        let widthInterval = view.bounds.width / 12
+        let heightInterval = view.bounds.height / 12
 
         for i in [3, 5, 7, 9] {
             for j in [3, 5, 7, 9] {
@@ -64,7 +64,7 @@ enum SampleLevel {
                     let peg = Peg(type: PegType.orange, circleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 } else {
-                    let peg = Peg(type: PegType.blue, circleOfCentre: centre)
+                    let peg = Peg(type: PegType.purple, circleOfCentre: centre)
                     level.addToLevel(addedPeg: peg)
                 }
             }
@@ -73,8 +73,4 @@ enum SampleLevel {
         return level
     }
 
-    static func saveSampleLevel() {
-        //UIView.
-        //FileStorageHelper.saveLevelToFile(gameLevel: <#T##GameLevel#>, fileName: <#T##String#>)
-    }
 }

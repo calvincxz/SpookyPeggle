@@ -1,6 +1,0 @@
-framework module Pods_SpookyPeggleTests {
-  umbrella header "Pods-SpookyPeggleTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

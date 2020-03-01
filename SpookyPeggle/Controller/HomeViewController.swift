@@ -1,6 +1,6 @@
 //
 //  HomeViewController.swift
-//  PS3
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 20/2/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet private weak var batButton: GameMasterSelector!
     @IBOutlet private weak var pumpkinButton: GameMasterSelector!
+    @IBOutlet private weak var wizardButton: GameMasterSelector!
 
     override func viewDidLoad() {
         initializeGameMasterSelectors()
@@ -22,6 +23,7 @@ class HomeViewController: UIViewController {
     private func initializeGameMasterSelectors() {
         batButton.setupButton(master: .Bat)
         pumpkinButton.setupButton(master: .Pumpkin)
+        wizardButton.setupButton(master: .FlameWizard)
         GameMasterSelector.currentSelected = pumpkinButton
         pumpkinButton.selectButton()
     }

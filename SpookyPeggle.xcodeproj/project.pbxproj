@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34E6B3CBA44D689EE469F932 /* Pods_SpookyPeggle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9026A140852ADE8B0AE84289 /* Pods_SpookyPeggle.framework */; };
 		3E1D2EA723F28D12009779F9 /* GameBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EA623F28D12009779F9 /* GameBall.swift */; };
 		3E1D2EA923F28D27009779F9 /* GamePeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EA823F28D27009779F9 /* GamePeg.swift */; };
 		3E1D2EAB23F291AC009779F9 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D2EAA23F291AC009779F9 /* BallView.swift */; };
@@ -29,19 +28,20 @@
 		3E2DAD5E23E7DA0000A211D3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5D23E7DA0000A211D3 /* Settings.swift */; };
 		3E2DAD6023E7DA1E00A211D3 /* GameDisplayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD5F23E7DA1E00A211D3 /* GameDisplayHelper.swift */; };
 		3E2DAD6423E7F2A500A211D3 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DAD6323E7F2A500A211D3 /* GameObject.swift */; };
-		3E5F0340240A258600F5BDF0 /* CGPoint + Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5F033F240A258600F5BDF0 /* CGPoint + Hashable.swift */; };
+		3E5F0340240A258600F5BDF0 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5F033F240A258600F5BDF0 /* CGPoint.swift */; };
 		3E8ACFB723EFE51B004B1831 /* PhysicsEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */; };
 		3E8ACFBA23EFEB71004B1831 /* GamePegTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */; };
+		3E9123CD240B732700F0EAC9 /* PreloadLevel1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E9123C7240B732600F0EAC9 /* PreloadLevel1.json */; };
+		3E9123CE240B732700F0EAC9 /* PreloadLevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9123C8240B732600F0EAC9 /* PreloadLevel2.png */; };
+		3E9123CF240B732700F0EAC9 /* PreloadLevel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9123C9240B732600F0EAC9 /* PreloadLevel3.png */; };
+		3E9123D0240B732700F0EAC9 /* PreloadLevel2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E9123CA240B732600F0EAC9 /* PreloadLevel2.json */; };
+		3E9123D1240B732700F0EAC9 /* PreloadLevel3.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E9123CB240B732600F0EAC9 /* PreloadLevel3.json */; };
+		3E9123D2240B732700F0EAC9 /* PreloadLevel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9123CC240B732700F0EAC9 /* PreloadLevel1.png */; };
 		3E9BF44523EE60860027C454 /* CannonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BF44423EE60860027C454 /* CannonView.swift */; };
 		3E9FD2F923F6CB0D007DE77A /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */; };
 		3EA00A032407AD2000227E99 /* HalloweenFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EA00A022407AD1600227E99 /* HalloweenFont.ttf */; };
 		3EA06241240805A9003C5538 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA06240240805A9003C5538 /* ScoreSystem.swift */; };
-		3EA0624B24081A18003C5538 /* level3.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624524081A17003C5538 /* level3.json */; };
-		3EA0624C24081A18003C5538 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624624081A18003C5538 /* level1.json */; };
-		3EA0624D24081A18003C5538 /* level3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624724081A18003C5538 /* level3.png */; };
-		3EA0624E24081A18003C5538 /* level2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624824081A18003C5538 /* level2.png */; };
-		3EA0624F24081A18003C5538 /* level1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624924081A18003C5538 /* level1.png */; };
-		3EA0625024081A18003C5538 /* level2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA0624A24081A18003C5538 /* level2.json */; };
+		3EA24E3C240A8D6600C98B9D /* bucket-collision.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EA24E3B240A8D6600C98B9D /* bucket-collision.mp3 */; };
 		3EA6AD41240160C000682FC9 /* LevelDesignerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD3F240160C000682FC9 /* LevelDesignerController.swift */; };
 		3EA6AD44240160DC00682FC9 /* FileStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD43240160DC00682FC9 /* FileStorageHelper.swift */; };
 		3EA6AD46240160F800682FC9 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6AD45240160F800682FC9 /* Alert.swift */; };
@@ -59,13 +59,12 @@
 		3EAF89F323F5542F0005F559 /* GameObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF89F223F5542F0005F559 /* GameObjectTest.swift */; };
 		3EAF89F523F5543C0005F559 /* PeggleGameEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */; };
 		3EBC267623E83E07001630AB /* SampleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC267523E83E07001630AB /* SampleLevel.swift */; };
+		3ED7C414240AB24800AB8957 /* libPhysicsEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED7C413240AB24800AB8957 /* libPhysicsEngine.a */; };
 		3EDB716324066EF2005527D7 /* GameScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB716224066EF2005527D7 /* GameScreenType.swift */; };
 		3EDC8492240529EC00AEB185 /* PegShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC8491240529EC00AEB185 /* PegShape.swift */; };
 		3EE03481240A3FC50089BD36 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE03480240A3FC40089BD36 /* EndGameViewController.swift */; };
 		3EE0348C240A49ED0089BD36 /* collision.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03482240A49EC0089BD36 /* collision.wav */; };
 		3EE0348E240A49ED0089BD36 /* cannon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03484240A49EC0089BD36 /* cannon.mp3 */; };
-		3EE0348F240A49ED0089BD36 /* orangepeg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03485240A49EC0089BD36 /* orangepeg.wav */; };
-		3EE03491240A49ED0089BD36 /* Bubble heavy 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03487240A49EC0089BD36 /* Bubble heavy 1.wav */; };
 		3EE03493240A49ED0089BD36 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03489240A49ED0089BD36 /* win.wav */; };
 		3EE03494240A49ED0089BD36 /* bluepeg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0348A240A49ED0089BD36 /* bluepeg.wav */; };
 		3EE03495240A49ED0089BD36 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0348B240A49ED0089BD36 /* lose.wav */; };
@@ -73,7 +72,8 @@
 		3EE0349B240A50D40089BD36 /* bgm2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03498240A50D40089BD36 /* bgm2.mp3 */; };
 		3EE0349C240A50D40089BD36 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE03499240A50D40089BD36 /* bgm.mp3 */; };
 		3EE0349D240A50D40089BD36 /* winning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE0349A240A50D40089BD36 /* winning.mp3 */; };
-		CDD4E342133F2AEAA4A66B05 /* Pods_SpookyPeggleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B900E73B52EDD2938B287EE5 /* Pods_SpookyPeggleTests.framework */; };
+		47EC1580FCCC426750D43A31 /* libPods-SpookyPeggleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1013C3FD2747AEDBB7CD3AA /* libPods-SpookyPeggleTests.a */; };
+		B0A3D2B1F81A8EE0722B07F4 /* libPods-SpookyPeggle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C34A95B30A57C96202B369FA /* libPods-SpookyPeggle.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,19 +112,21 @@
 		3E2DAD5D23E7DA0000A211D3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		3E2DAD5F23E7DA1E00A211D3 /* GameDisplayHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDisplayHelper.swift; sourceTree = "<group>"; };
 		3E2DAD6323E7F2A500A211D3 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
-		3E5F033F240A258600F5BDF0 /* CGPoint + Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint + Hashable.swift"; sourceTree = "<group>"; };
+		3E5F033F240A258600F5BDF0 /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		3E8ACFB623EFE51B004B1831 /* PhysicsEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsEngineTest.swift; sourceTree = "<group>"; };
 		3E8ACFB923EFEB71004B1831 /* GamePegTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePegTest.swift; sourceTree = "<group>"; };
+		3E9123C7240B732600F0EAC9 /* PreloadLevel1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreloadLevel1.json; sourceTree = "<group>"; };
+		3E9123C8240B732600F0EAC9 /* PreloadLevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PreloadLevel2.png; sourceTree = "<group>"; };
+		3E9123C9240B732600F0EAC9 /* PreloadLevel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PreloadLevel3.png; sourceTree = "<group>"; };
+		3E9123CA240B732600F0EAC9 /* PreloadLevel2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreloadLevel2.json; sourceTree = "<group>"; };
+		3E9123CB240B732600F0EAC9 /* PreloadLevel3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreloadLevel3.json; sourceTree = "<group>"; };
+		3E9123CC240B732700F0EAC9 /* PreloadLevel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PreloadLevel1.png; sourceTree = "<group>"; };
 		3E9BF44423EE60860027C454 /* CannonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CannonView.swift; sourceTree = "<group>"; };
 		3E9FD2F823F6CB0D007DE77A /* ContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
 		3EA00A022407AD1600227E99 /* HalloweenFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HalloweenFont.ttf; sourceTree = "<group>"; };
 		3EA06240240805A9003C5538 /* ScoreSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
-		3EA0624524081A17003C5538 /* level3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level3.json; sourceTree = "<group>"; };
-		3EA0624624081A18003C5538 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
-		3EA0624724081A18003C5538 /* level3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level3.png; sourceTree = "<group>"; };
-		3EA0624824081A18003C5538 /* level2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2.png; sourceTree = "<group>"; };
-		3EA0624924081A18003C5538 /* level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level1.png; sourceTree = "<group>"; };
-		3EA0624A24081A18003C5538 /* level2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level2.json; sourceTree = "<group>"; };
+		3EA24E3B240A8D6600C98B9D /* bucket-collision.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bucket-collision.mp3"; sourceTree = "<group>"; };
+		3EA24E40240AAEDF00C98B9D /* PhysicsEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhysicsEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA6AD3F240160C000682FC9 /* LevelDesignerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelDesignerController.swift; sourceTree = "<group>"; };
 		3EA6AD43240160DC00682FC9 /* FileStorageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorageHelper.swift; sourceTree = "<group>"; };
 		3EA6AD45240160F800682FC9 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -142,13 +144,13 @@
 		3EAF89F223F5542F0005F559 /* GameObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjectTest.swift; sourceTree = "<group>"; };
 		3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleGameEngineTest.swift; sourceTree = "<group>"; };
 		3EBC267523E83E07001630AB /* SampleLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLevel.swift; sourceTree = "<group>"; };
+		3ED7C410240AB1D600AB8957 /* libPhysicsEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libPhysicsEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED7C413240AB24800AB8957 /* libPhysicsEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libPhysicsEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDB716224066EF2005527D7 /* GameScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenType.swift; sourceTree = "<group>"; };
 		3EDC8491240529EC00AEB185 /* PegShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegShape.swift; sourceTree = "<group>"; };
 		3EE03480240A3FC40089BD36 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		3EE03482240A49EC0089BD36 /* collision.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = collision.wav; sourceTree = "<group>"; };
 		3EE03484240A49EC0089BD36 /* cannon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cannon.mp3; sourceTree = "<group>"; };
-		3EE03485240A49EC0089BD36 /* orangepeg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = orangepeg.wav; sourceTree = "<group>"; };
-		3EE03487240A49EC0089BD36 /* Bubble heavy 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Bubble heavy 1.wav"; sourceTree = "<group>"; };
 		3EE03489240A49ED0089BD36 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		3EE0348A240A49ED0089BD36 /* bluepeg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bluepeg.wav; sourceTree = "<group>"; };
 		3EE0348B240A49ED0089BD36 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
@@ -156,12 +158,12 @@
 		3EE03498240A50D40089BD36 /* bgm2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm2.mp3; sourceTree = "<group>"; };
 		3EE03499240A50D40089BD36 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		3EE0349A240A50D40089BD36 /* winning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winning.mp3; sourceTree = "<group>"; };
-		41B1E8A9C99C4704AF4C729F /* Pods-SpookyPeggleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggleTests.release.xcconfig"; path = "Target Support Files/Pods-SpookyPeggleTests/Pods-SpookyPeggleTests.release.xcconfig"; sourceTree = "<group>"; };
-		4579F0CBFA3E4FB2710ED640 /* Pods-SpookyPeggle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggle.debug.xcconfig"; path = "Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle.debug.xcconfig"; sourceTree = "<group>"; };
-		47DD5770F6758D825E43B464 /* Pods-SpookyPeggleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggleTests.debug.xcconfig"; path = "Target Support Files/Pods-SpookyPeggleTests/Pods-SpookyPeggleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9026A140852ADE8B0AE84289 /* Pods_SpookyPeggle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpookyPeggle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B900E73B52EDD2938B287EE5 /* Pods_SpookyPeggleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpookyPeggleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF327771B6D5B09C8E7D36F6 /* Pods-SpookyPeggle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggle.release.xcconfig"; path = "Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle.release.xcconfig"; sourceTree = "<group>"; };
+		48CF7CE33EF1423A6DD6F32C /* Pods-SpookyPeggle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggle.release.xcconfig"; path = "Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle.release.xcconfig"; sourceTree = "<group>"; };
+		656E415E45FD05B6AD652676 /* Pods-SpookyPeggle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggle.debug.xcconfig"; path = "Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle.debug.xcconfig"; sourceTree = "<group>"; };
+		679667FC88EAC05215C389F1 /* Pods-SpookyPeggleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggleTests.release.xcconfig"; path = "Target Support Files/Pods-SpookyPeggleTests/Pods-SpookyPeggleTests.release.xcconfig"; sourceTree = "<group>"; };
+		C34A95B30A57C96202B369FA /* libPods-SpookyPeggle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpookyPeggle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7581D4ED3F0C05CEB4F7727 /* Pods-SpookyPeggleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpookyPeggleTests.debug.xcconfig"; path = "Target Support Files/Pods-SpookyPeggleTests/Pods-SpookyPeggleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F1013C3FD2747AEDBB7CD3AA /* libPods-SpookyPeggleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpookyPeggleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E6B3CBA44D689EE469F932 /* Pods_SpookyPeggle.framework in Frameworks */,
+				3ED7C414240AB24800AB8957 /* libPhysicsEngine.a in Frameworks */,
+				B0A3D2B1F81A8EE0722B07F4 /* libPods-SpookyPeggle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD4E342133F2AEAA4A66B05 /* Pods_SpookyPeggleTests.framework in Frameworks */,
+				47EC1580FCCC426750D43A31 /* libPods-SpookyPeggleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +195,7 @@
 				3E2DAD1423E7C92E00A211D3 /* Products */,
 				547613CD28757E16378B766B /* Pods */,
 				F4D3B99F7EDB871C532DAB35 /* Frameworks */,
+				3ED7C40D240AB10500AB8957 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,7 +255,7 @@
 		3E2DAD4D23E7D99300A211D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E5F033F240A258600F5BDF0 /* CGPoint + Hashable.swift */,
+				3E5F033F240A258600F5BDF0 /* CGPoint.swift */,
 				3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */,
 				3E2DAD4F23E7D99300A211D3 /* Peg.swift */,
 				3EDC8491240529EC00AEB185 /* PegShape.swift */,
@@ -294,22 +298,21 @@
 			isa = PBXGroup;
 			children = (
 				3EE0348A240A49ED0089BD36 /* bluepeg.wav */,
-				3EE03487240A49EC0089BD36 /* Bubble heavy 1.wav */,
 				3EE03499240A50D40089BD36 /* bgm.mp3 */,
 				3EE03498240A50D40089BD36 /* bgm2.mp3 */,
 				3EE0349A240A50D40089BD36 /* winning.mp3 */,
+				3EA24E3B240A8D6600C98B9D /* bucket-collision.mp3 */,
 				3EE03484240A49EC0089BD36 /* cannon.mp3 */,
 				3EE0348B240A49ED0089BD36 /* lose.wav */,
-				3EE03485240A49EC0089BD36 /* orangepeg.wav */,
 				3EE03482240A49EC0089BD36 /* collision.wav */,
 				3EE03489240A49ED0089BD36 /* win.wav */,
 				3EA00A022407AD1600227E99 /* HalloweenFont.ttf */,
-				3EA0624624081A18003C5538 /* level1.json */,
-				3EA0624924081A18003C5538 /* level1.png */,
-				3EA0624A24081A18003C5538 /* level2.json */,
-				3EA0624824081A18003C5538 /* level2.png */,
-				3EA0624524081A17003C5538 /* level3.json */,
-				3EA0624724081A18003C5538 /* level3.png */,
+				3E9123C7240B732600F0EAC9 /* PreloadLevel1.json */,
+				3E9123CC240B732700F0EAC9 /* PreloadLevel1.png */,
+				3E9123CA240B732600F0EAC9 /* PreloadLevel2.json */,
+				3E9123C8240B732600F0EAC9 /* PreloadLevel2.png */,
+				3E9123CB240B732600F0EAC9 /* PreloadLevel3.json */,
+				3E9123C9240B732600F0EAC9 /* PreloadLevel3.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -317,8 +320,8 @@
 		3EA1FC1A23F436EF0005A3A5 /* Gameplay Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E2DAD6323E7F2A500A211D3 /* GameObject.swift */,
 				3EAC587E2407714500D812A6 /* GameMaster.swift */,
+				3E2DAD6323E7F2A500A211D3 /* GameObject.swift */,
 				3E1D2EA623F28D12009779F9 /* GameBall.swift */,
 				3E221C6423FE7C6600E309B4 /* GameBucket.swift */,
 				3E1D2EA823F28D27009779F9 /* GamePeg.swift */,
@@ -341,13 +344,20 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		3ED7C40D240AB10500AB8957 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		547613CD28757E16378B766B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4579F0CBFA3E4FB2710ED640 /* Pods-SpookyPeggle.debug.xcconfig */,
-				BF327771B6D5B09C8E7D36F6 /* Pods-SpookyPeggle.release.xcconfig */,
-				47DD5770F6758D825E43B464 /* Pods-SpookyPeggleTests.debug.xcconfig */,
-				41B1E8A9C99C4704AF4C729F /* Pods-SpookyPeggleTests.release.xcconfig */,
+				656E415E45FD05B6AD652676 /* Pods-SpookyPeggle.debug.xcconfig */,
+				48CF7CE33EF1423A6DD6F32C /* Pods-SpookyPeggle.release.xcconfig */,
+				E7581D4ED3F0C05CEB4F7727 /* Pods-SpookyPeggleTests.debug.xcconfig */,
+				679667FC88EAC05215C389F1 /* Pods-SpookyPeggleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -355,8 +365,11 @@
 		F4D3B99F7EDB871C532DAB35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9026A140852ADE8B0AE84289 /* Pods_SpookyPeggle.framework */,
-				B900E73B52EDD2938B287EE5 /* Pods_SpookyPeggleTests.framework */,
+				3ED7C413240AB24800AB8957 /* libPhysicsEngine.a */,
+				3ED7C410240AB1D600AB8957 /* libPhysicsEngine.a */,
+				3EA24E40240AAEDF00C98B9D /* PhysicsEngine.framework */,
+				C34A95B30A57C96202B369FA /* libPods-SpookyPeggle.a */,
+				F1013C3FD2747AEDBB7CD3AA /* libPods-SpookyPeggleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -368,12 +381,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E2DAD3D23E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "SpookyPeggle" */;
 			buildPhases = (
-				C96D2C1538DB913F3255A9F9 /* [CP] Check Pods Manifest.lock */,
+				BC223B15AF4BA6131F8F5B6F /* [CP] Check Pods Manifest.lock */,
 				3E2DAD0F23E7C92E00A211D3 /* Sources */,
 				3E2DAD1023E7C92E00A211D3 /* Frameworks */,
 				3E2DAD1123E7C92E00A211D3 /* Resources */,
 				3E9BF44623EE66F70027C454 /* ShellScript */,
-				1809710E93C09EAE0A6EECBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,7 +400,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E2DAD4023E7C92F00A211D3 /* Build configuration list for PBXNativeTarget "SpookyPeggleTests" */;
 			buildPhases = (
-				BA8C72C7A042311C58E0CACE /* [CP] Check Pods Manifest.lock */,
+				D85A0732148170553F2F44D1 /* [CP] Check Pods Manifest.lock */,
 				3E2DAD2523E7C92F00A211D3 /* Sources */,
 				3E2DAD2623E7C92F00A211D3 /* Frameworks */,
 				3E2DAD2723E7C92F00A211D3 /* Resources */,
@@ -448,24 +460,23 @@
 			files = (
 				3EE03494240A49ED0089BD36 /* bluepeg.wav in Resources */,
 				3EE0348E240A49ED0089BD36 /* cannon.mp3 in Resources */,
+				3E9123D1240B732700F0EAC9 /* PreloadLevel3.json in Resources */,
+				3E9123CD240B732700F0EAC9 /* PreloadLevel1.json in Resources */,
 				3EE0349B240A50D40089BD36 /* bgm2.mp3 in Resources */,
+				3E9123CE240B732700F0EAC9 /* PreloadLevel2.png in Resources */,
+				3E9123D0240B732700F0EAC9 /* PreloadLevel2.json in Resources */,
 				3EA00A032407AD2000227E99 /* HalloweenFont.ttf in Resources */,
-				3EA0625024081A18003C5538 /* level2.json in Resources */,
-				3EA0624D24081A18003C5538 /* level3.png in Resources */,
+				3E9123CF240B732700F0EAC9 /* PreloadLevel3.png in Resources */,
 				3E2DAD2323E7C92F00A211D3 /* LaunchScreen.storyboard in Resources */,
 				3E2DAD2023E7C92F00A211D3 /* Assets.xcassets in Resources */,
-				3EA0624F24081A18003C5538 /* level1.png in Resources */,
-				3EE03491240A49ED0089BD36 /* Bubble heavy 1.wav in Resources */,
+				3EA24E3C240A8D6600C98B9D /* bucket-collision.mp3 in Resources */,
 				3EE0348C240A49ED0089BD36 /* collision.wav in Resources */,
 				3E2DAD1E23E7C92E00A211D3 /* Main.storyboard in Resources */,
-				3EA0624C24081A18003C5538 /* level1.json in Resources */,
-				3EA0624B24081A18003C5538 /* level3.json in Resources */,
 				3EE03495240A49ED0089BD36 /* lose.wav in Resources */,
-				3EA0624E24081A18003C5538 /* level2.png in Resources */,
 				3EE0349C240A50D40089BD36 /* bgm.mp3 in Resources */,
 				3EE03493240A49ED0089BD36 /* win.wav in Resources */,
-				3EE0348F240A49ED0089BD36 /* orangepeg.wav in Resources */,
 				3EE0349D240A50D40089BD36 /* winning.mp3 in Resources */,
+				3E9123D2240B732700F0EAC9 /* PreloadLevel1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,23 +490,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1809710E93C09EAE0A6EECBC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpookyPeggle/Pods-SpookyPeggle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3E9BF44623EE66F70027C454 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,29 +507,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi  \n";
 		};
-		BA8C72C7A042311C58E0CACE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SpookyPeggleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C96D2C1538DB913F3255A9F9 /* [CP] Check Pods Manifest.lock */ = {
+		BC223B15AF4BA6131F8F5B6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -551,6 +523,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-SpookyPeggle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D85A0732148170553F2F44D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpookyPeggleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,7 +588,7 @@
 				3E2DAD5C23E7D9A100A211D3 /* PegImageView.swift in Sources */,
 				3EBC267623E83E07001630AB /* SampleLevel.swift in Sources */,
 				3EA6AD44240160DC00682FC9 /* FileStorageHelper.swift in Sources */,
-				3E5F0340240A258600F5BDF0 /* CGPoint + Hashable.swift in Sources */,
+				3E5F0340240A258600F5BDF0 /* CGPoint.swift in Sources */,
 				3EA93C142405760600120368 /* LevelPreviewCollectionViewCell.swift in Sources */,
 				3EAC587F2407714500D812A6 /* GameMaster.swift in Sources */,
 				3E1D2EA923F28D27009779F9 /* GamePeg.swift in Sources */,
@@ -765,7 +759,7 @@
 		};
 		3E2DAD3E23E7C92F00A211D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4579F0CBFA3E4FB2710ED640 /* Pods-SpookyPeggle.debug.xcconfig */;
+			baseConfigurationReference = 656E415E45FD05B6AD652676 /* Pods-SpookyPeggle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -784,7 +778,7 @@
 		};
 		3E2DAD3F23E7C92F00A211D3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF327771B6D5B09C8E7D36F6 /* Pods-SpookyPeggle.release.xcconfig */;
+			baseConfigurationReference = 48CF7CE33EF1423A6DD6F32C /* Pods-SpookyPeggle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -803,7 +797,7 @@
 		};
 		3E2DAD4123E7C92F00A211D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47DD5770F6758D825E43B464 /* Pods-SpookyPeggleTests.debug.xcconfig */;
+			baseConfigurationReference = E7581D4ED3F0C05CEB4F7727 /* Pods-SpookyPeggleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -825,7 +819,7 @@
 		};
 		3E2DAD4223E7C92F00A211D3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41B1E8A9C99C4704AF4C729F /* Pods-SpookyPeggleTests.release.xcconfig */;
+			baseConfigurationReference = 679667FC88EAC05215C389F1 /* Pods-SpookyPeggleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

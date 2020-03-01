@@ -83,7 +83,7 @@ class FileStorageHelper {
 
     /// Preloads some `GameLevel` for level selection.
     static func preloadLevels() {
-        Settings.preloadedLevelNames.forEach { loadData($0) }
+        Settings.preloadedFileNames.forEach { loadData($0) }
     }
 
     /// Copies file from resource folder into the document directory.

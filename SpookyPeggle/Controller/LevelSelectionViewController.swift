@@ -68,8 +68,10 @@ extension LevelSelectionViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
+        //view
+        let availableWidth = UIScreen.main.bounds.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
+        print(widthPerItem.description)
 
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
@@ -80,11 +82,11 @@ extension LevelSelectionViewController: UICollectionViewDelegateFlowLayout {
         return sectionInsets
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
-    }
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return sectionInsets.left
+//    }
 }
 
 /// Gestures
@@ -148,7 +150,7 @@ extension LevelSelectionViewController {
 
     func deleteLevel(at index: Int) {
         guard levelPreviewStorage.deleteLevel(at: index) else {
-            Alert.presentAlert(controller: self, title: "Delete Fail", message: "Unable to delete game level!")
+            Alert.presentAlert(controller: self, title: "Delete Fail", message: Settings.messageForDeleteFail)
             return
         }
         levelCollectionView.reloadData()

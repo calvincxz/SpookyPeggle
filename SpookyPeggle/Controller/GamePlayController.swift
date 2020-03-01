@@ -31,6 +31,13 @@ class GamePlayController: UIViewController {
     private var engine: PeggleGameEngine!
     var gameLevel: GameLevel?
     private var gameObjectToImageViewDictionary = [GameObject: PegImageView]()
+    private var ballOnFireCount = 0 {
+        didSet {
+            if ballOnFireCount == 0 {
+                ballView.image = #imageLiteral(resourceName: "ball")
+            }
+        }
+    }
 
     @IBAction private func backToMenu(_ sender: UIButton) {
         dismiss(animated: false, completion: nil)
@@ -39,7 +46,11 @@ class GamePlayController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is EndGameViewController {
             let target = segue.destination as? EndGameViewController
-            target?.isGameWon = engine.checkWinStatus()
+            target?.setGameState(state: engine.checkWinStatus())
+        }
+
+        if let level = gameLevel {
+            reloadLevel(gameLevel: level)
         }
     }
 
@@ -47,6 +58,7 @@ class GamePlayController: UIViewController {
         super.viewDidLoad()
         cannonView.setUpCannonView(cannon: cannon, ball: ballView)
         MusicPlayer.playInGameMusic()
+
     }
 
     /// Creates game engine if engine is not initialized.
@@ -61,9 +73,6 @@ class GamePlayController: UIViewController {
         if let level = gameLevel {
             reloadLevel(gameLevel: level)
             return
-
-        } else {
-            handleLevelOneButtonPressed()
         }
     }
 
@@ -101,12 +110,6 @@ class GamePlayController: UIViewController {
         reloadLevel(gameLevel: gameLevel)
     }
 
-    /// Loads level 1 of Peggle Game when button is pressed.
-    @IBAction private func handleLevelOneButtonPressed() {
-        let gameLevel = SampleLevel.getSampleLevel(view: pegBoard)
-        reloadLevel(gameLevel: gameLevel)
-    }
-
     /// Resets the engine and view.
     private func reloadLevel(gameLevel: GameLevel) {
         pegBoard.clearBoard()
@@ -120,13 +123,20 @@ class GamePlayController: UIViewController {
     /// Adds the ball to the game engine and peg board.
     /// Passes the control of game to the game engine.
     private func shootBall(at angle: CGFloat) {
+        MusicPlayer.playCannonSound()
         cannonView.removeBall()
         let ballLaunchPoint = pegBoard.convert(ballView.center, from: cannonView)
+
         let imageViewOfBall = BallView(centre: ballLaunchPoint)
         let ballObject = GameBall(centre: ballLaunchPoint)
+        if ballOnFireCount > 0 {
+            imageViewOfBall.setOnFire()
+            ballObject.setOnFire()
+            ballOnFireCount -= 1
+        }
+
         engine.addBall(ball: ballObject, angle: angle)
         pegBoard.addBallToBoard(ball: imageViewOfBall)
-
     }
 
     /// Loads the game pegs from a game level.
@@ -152,6 +162,7 @@ class GamePlayController: UIViewController {
  to communicate with the `GamePlayController`.
 */
 extension GamePlayController: ContactDelegate {
+
     func handlePegRemoval(pegObject: GameObject) {
         let pegImageView = gameObjectToImageViewDictionary[pegObject]
         pegImageView?.fadeOut()
@@ -162,11 +173,8 @@ extension GamePlayController: ContactDelegate {
         pegBoard.removeBallFromBoard()
 
         if engine.checkWinStatus() {
-//            GameDisplayHelper.showWinAlert(in: self)
-//            handleLevelTwoButtonPressed()
             performSegue(withIdentifier: "gameToEnd", sender: self)
         } else if engine.ranOutOfBalls {
-            //GameDisplayHelper.showLoseAlert(in: self)
             performSegue(withIdentifier: "gameToEnd", sender: self)
         } else {
             cannonView.reloadBall()
@@ -182,6 +190,7 @@ extension GamePlayController: ContactDelegate {
     }
 
     func handlePegHitByBall(pegObject: GameObject) {
+        MusicPlayer.playPegHitSound()
         let pegImageView = gameObjectToImageViewDictionary[pegObject]
         pegImageView?.lightUp()
     }
@@ -211,6 +220,24 @@ extension GamePlayController: ContactDelegate {
     }
 
     func handleBucketAppearance(isSpooky: Bool) {
-        isSpooky ? bucketView.close() : bucketView.open()
+        if isSpooky {
+            bucketView.close()
+            pegBoard.addBallGlow(colour: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1))
+
+        } else {
+            bucketView.open()
+        }
+    }
+
+    func handleBallCollision() {
+        MusicPlayer.playBucketCollisionSound()
+    }
+
+    func activateFireBallNextTurn() {
+        ballView.image = #imageLiteral(resourceName: "peg-red-glow")
+        ballView.backgroundColor = nil
+        ballView.layer.cornerRadius = 0.5 * ballView.bounds.size.width
+        ballView.clipsToBounds = true
+        ballOnFireCount += 1
     }
 }

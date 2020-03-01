@@ -1,6 +1,6 @@
 //
 //  PegBoardView.swift
-//  PS2
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 24/1/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -56,24 +56,26 @@ class PegBoardView: UIView {
         }
     }
 
+    func addBallGlow(colour: CGColor) {
+        guard let ball = ball else {
+            return
+        }
+        ball.layer.shadowOffset = .zero
+        ball.layer.shadowColor = colour
+        ball.layer.shadowRadius = 10
+        ball.layer.shadowOpacity = 1
+        ball.layer.shadowPath = UIBezierPath(rect: ball.bounds).cgPath
+    }
+
+    func removeBallGlow() {
+        ball?.layer.shadowOpacity = 0
+    }
+
     func createSmokeEffect(peg: PegImageView) {
-
-        let diameter = Settings.spookyBlastMaxLength * 2
-        let frame = CGRect(x: peg.center.x - diameter / 2, y: peg.center.y - diameter / 2,
-                           width: diameter, height: diameter)
-
-        //let smokeFrame = peg.frame.insetBy(dx: scale, dy: scale)
-        let smoke = UIImageView(frame: frame)
-
-        smoke.image = #imageLiteral(resourceName: "smoke")
-        smoke.layer.cornerRadius = 0.5 * smoke.bounds.size.width
-        smoke.clipsToBounds = true
-
+        let smoke = GameDisplayHelper.createSmokeImageView(centre: peg.center)
         addSubview(smoke)
 
         UIView.animate(withDuration: 1.5, delay: 0, options: UIView.AnimationOptions.curveEaseIn,
                        animations: { smoke.alpha = 0 }, completion: { _ in smoke.removeFromSuperview() })
-        //smoke.removeFromSuperview()
-
     }
 }

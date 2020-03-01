@@ -41,7 +41,6 @@ class GameBucket: GameObject {
 
     func close() {
         bucketHoleLength = CGFloat.zero
-        //width = CGFloat.zero
     }
 
     func open() {
