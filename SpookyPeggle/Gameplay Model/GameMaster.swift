@@ -9,4 +9,6 @@
 enum GameMaster {
     case Bat
     case Pumpkin
+    case FlameWizard
+    case Cauldron
 }

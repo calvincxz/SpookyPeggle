@@ -1,5 +1,5 @@
 //
-//  CGPoint + Hashable.swift
+//  CGPoint.swift
 //  SpookyPeggle
 //
 //  Created by Calvin Chen on 25/1/20.
