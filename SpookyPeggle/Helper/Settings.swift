@@ -19,7 +19,7 @@ enum Settings {
     static let darkAlphaForSelectedButton = CGFloat(1)
 
     // Ball settings
-    static let initialVelocityForBall = CGFloat(15)
+    static let initialVelocityForBall = CGFloat(8)
     static let initialVelocityForBucket = CGVector(dx: 3, dy: 0)
     static let accelerationForBall = CGVector(dx: 0, dy: 0.2)
     static let maxVelocityForBall = CGFloat(10)
