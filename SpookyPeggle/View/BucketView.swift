@@ -1,6 +1,6 @@
 //
 //  BucketView.swift
-//  PS3
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 20/2/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.

@@ -49,7 +49,7 @@ class LevelDesignerController: UIViewController {
         }
         if segue.destination is LevelSelectionViewController {
             let target = segue.destination as? LevelSelectionViewController
-            target?.previousScreen = .LevelDesign
+            target?.setPreviousScreen(previous: .LevelDesign)
         }
     }
 
@@ -87,6 +87,7 @@ class LevelDesignerController: UIViewController {
         }
     }
 
+    /// Gets screenshot of current view.
     func getScreenshot() -> Data? {
         UIGraphicsBeginImageContext(pegBoardView.frame.size)
         guard let context = UIGraphicsGetCurrentContext() else {
@@ -101,6 +102,7 @@ class LevelDesignerController: UIViewController {
         return image.pngData()
     }
 }
+
 /// Extension for Buttons Actions
 extension LevelDesignerController {
 
@@ -109,6 +111,7 @@ extension LevelDesignerController {
         resetLevel()
     }
 
+    ///
     @IBAction private func switchPaletteButtons(_ sender: UIButton) {
         orangePegButton.togglePegShape()
         bluePegButton.togglePegShape()
@@ -119,10 +122,9 @@ extension LevelDesignerController {
         }
     }
 
-    /// Starts a game
+    /// Starts a game by performing segue to `GamePlayController`
     @IBAction private func startGame(_ sender: UIButton) {
         performSegue(withIdentifier: "levelDesignToPlay", sender: self)
-
     }
 
     /// Returns to main menu when menu button is pressed
@@ -155,6 +157,7 @@ extension LevelDesignerController {
 Extension for `LevelDesignerController`, which supports all the required gestures.
 */
 extension LevelDesignerController {
+    /// Rotates peg when rotation gesture is detected
     @IBAction private func handleRotate(_ sender: UIRotationGestureRecognizer) {
         guard let pegView = currentPegImageView, let oldPeg = currentSelectedPeg else {
             return
@@ -242,8 +245,8 @@ extension LevelDesignerController {
 
     /// Updates a peg in game level.
     private func handleUpdatePeg(_ sender: UIGestureRecognizer) {
-        guard let selectedPegType = PalettePegSelector.currentSelected?.pegType,
-            let selectedPegShape = PalettePegSelector.currentSelected?.pegShape else {
+        guard let selectedPegType = PalettePegSelector.currentSelected?.getPegType(),
+            let selectedPegShape = PalettePegSelector.currentSelected?.getPegShape() else {
             handleDeletePeg(sender)
             return
         }

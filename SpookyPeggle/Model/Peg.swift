@@ -92,6 +92,7 @@ class Peg: Codable, Hashable {
         return Peg(type: pegType, centre: centre, physicalShape: physicalShape.resize(by: scale), shape: shape)
     }
 
+    /// Moves the centre of a `Peg` to a new location
     func moveTo(location: CGPoint) -> Peg {
         return Peg(type: pegType, centre: location,
                    physicalShape: physicalShape.moveTo(location: location), shape: shape)

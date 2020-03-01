@@ -26,8 +26,6 @@ class PegBoardView: UIView {
     }
 
     func addBucketToBoard(bucket: BucketView) {
-//        self.bucket?.removeFromSuperview()
-//        self.addSubview(bucket)
         self.bucket = bucket
     }
 

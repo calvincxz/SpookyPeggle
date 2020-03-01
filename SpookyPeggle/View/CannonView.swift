@@ -1,6 +1,6 @@
 //
 //  CannonView.swift
-//  PS3
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 8/2/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -24,10 +24,6 @@ class CannonView: UIView {
     func setUpCannonView(cannon: UIImageView, ball: UIImageView) {
         self.cannon = cannon
         self.ball = ball
-        //let vw = UIView(frame: CGRect(x: 100, y: 100, width: 128, height: 128))
-        //backgroundColor = .white
-        //cannon.la
-
     }
 
     /// Hides the ball when game starts.

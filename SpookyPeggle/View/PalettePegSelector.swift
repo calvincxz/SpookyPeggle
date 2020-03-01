@@ -1,6 +1,6 @@
 //
 //  PalettePegSelector.swift
-//  PS2
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 22/1/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -16,7 +16,7 @@ import UIKit
 class PalettePegSelector: UIButton {
 
     static var currentSelected: PalettePegSelector?
-    var pegType: PegType? {
+    private var pegType: PegType? {
         didSet {
             guard let type = pegType, let shape = pegShape else {
                 return
@@ -24,13 +24,21 @@ class PalettePegSelector: UIButton {
             setImage(GameDisplayHelper.getPegImage(of: type, shape: shape), for: .normal)
         }
     }
-    var pegShape: PegShape? {
+    private var pegShape: PegShape? {
         didSet {
             guard let type = pegType, let shape = pegShape else {
                 return
             }
             setImage(GameDisplayHelper.getPegImage(of: type, shape: shape), for: .normal)
         }
+    }
+
+    func getPegShape() -> PegShape? {
+        return pegShape
+    }
+
+    func getPegType() -> PegType? {
+        return pegType
     }
 
     func setButton(type: PegType, shape: PegShape) {

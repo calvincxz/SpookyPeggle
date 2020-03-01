@@ -18,7 +18,7 @@ class GameLevel: Codable {
     func loadGameLevel(gameLevel: GameLevel) {
         resetLevel()
         for peg in gameLevel.getPegsInLevel() {
-            self.addToLevel(addedPeg: peg)
+            addToLevel(addedPeg: peg)
         }
     }
 
@@ -40,9 +40,7 @@ class GameLevel: Codable {
 
     /// Checks if insertion of new peg in the game level is possible.
     func canInsertPeg(peg: Peg) -> Bool {
-
         let overlapCount = pegsInLevel.filter({ $0.intersects(otherPeg: peg) }).count
-
         return overlapCount == 0
     }
 

@@ -1,6 +1,6 @@
 //
 //  BallView.swift
-//  PS3
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 11/2/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -34,6 +34,7 @@ class BallView: UIImageView {
         self.center = point
     }
 
+    /// Sets `BallView` on fire.
     func setOnFire() {
         image = #imageLiteral(resourceName: "peg-red-glow")
         layer.cornerRadius = 0.5 * bounds.size.width

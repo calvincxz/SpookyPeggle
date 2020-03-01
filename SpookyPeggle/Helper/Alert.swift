@@ -1,6 +1,6 @@
 //
 //  Alert.swift
-//  PS2
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 26/1/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.

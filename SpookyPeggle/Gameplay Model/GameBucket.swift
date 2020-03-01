@@ -1,6 +1,6 @@
 //
 //  GameBucket.swift
-//  PS3
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 20/2/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -15,12 +15,12 @@ The `GameBucket` represents a bucket in the Peggle Game.
 */
 class GameBucket: GameObject {
 
-    /// Constructs a `GameBall`
+    /// Constructs a `GameBucket`
     private var width: CGFloat
     private var height: CGFloat
     var bucketHoleLength = Settings.defaultBucketHoleLength
 
-    /// Constructs a `GameBucket` with the default diameter
+    /// Constructs a `GameBucket`
     init(size: CGSize, centre: CGPoint) {
         self.width = size.width
         self.height = size.height
@@ -52,7 +52,7 @@ class GameBucket: GameObject {
             ball.centre.x < centre.x + bucketHoleLength / 2
     }
 
-    func willCollide(ball: GameObject) -> Bool {
+    func collidedWith(ball: GameObject) -> Bool {
         return ball.collidedWith(other: self)
     }
 }

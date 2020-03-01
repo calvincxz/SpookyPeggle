@@ -161,7 +161,7 @@ class PeggleGameEngine {
     /// updates the velocity of the ball in the game.
     private func handleBallCollisionWithPeg(ball: GameBall) {
         for peg in gameObjects where ball.willCollide(other: peg) {
-            if !ball.onFire {
+            if !ball.isOnFire() {
                 ball.changeVelocityAfter(collisionWith: peg, energyLoss: Settings.energyLoss)
             }
 
@@ -250,22 +250,23 @@ class PeggleGameEngine {
         }
     }
 
-    /// Checks if ball has collided with the wall in the `PhysicsEngine`.
-    /// Updates velocity of the ball in the game.
+    /// Handles wall collision of ball using the `PhysicsEngine`
     private func handleWallCollision(ball: GameObject) {
         if physicsEngine.checkSideCollision(circularObject: ball) {
             ball.reflectVelocityInDirectionX()
         }
     }
 
+    /// Handles wall collision of bucket using the `PhysicsEngine`
     private func handleWallCollision(bucket: GameBucket) {
         if physicsEngine.checkSideCollision(rectangularObject: bucket) {
             bucket.reflectVelocityInDirectionX()
         }
     }
 
+    /// Handles bucket collision of ball
     private func handleBucketCollision(ball: GameObject) {
-        if bucket.willCollide(ball: ball) {
+        if bucket.collidedWith(ball: ball) {
             if bucket.checkEnterBucket(ball: ball) {
                 ballCount += 1
                 contactDelegate?.updateMessage(message: Settings.messageForFreeBallFromBucket)

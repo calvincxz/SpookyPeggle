@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is LevelSelectionViewController {
             let target = segue.destination as? LevelSelectionViewController
-            target?.previousScreen = .Home
+            target?.setPreviousScreen(previous: .Home)
         }
     }
 }

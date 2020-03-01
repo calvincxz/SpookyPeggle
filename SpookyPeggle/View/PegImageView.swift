@@ -1,6 +1,6 @@
 //
 //  PegImageView.swift
-//  PS2
+//  SpookyPeggle
 //
 //  Created by Calvin Chen on 23/1/20.
 //  Copyright © 2020 Calvin Chen. All rights reserved.
@@ -76,7 +76,7 @@ class PegImageView: UIImageView {
 
     /// Changes the image of a `PegImageView` to a lighted one
     func lightUp() {
-        self.image = GameDisplayHelper.getLightedPegImage(of: pegType, shape: pegShape)
+        image = GameDisplayHelper.getLightedPegImage(of: pegType, shape: pegShape)
     }
 
     /// Slowly sets the alpha to 0 with animation

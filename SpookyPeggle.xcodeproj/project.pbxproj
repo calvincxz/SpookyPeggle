@@ -102,7 +102,6 @@
 		3E2DAD2223E7C92F00A211D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2DAD2423E7C92F00A211D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2DAD2923E7C92F00A211D3 /* SpookyPeggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpookyPeggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E2DAD2F23E7C92F00A211D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2DAD4B23E7D8FC00A211D3 /* PeggleGameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleGameEngine.swift; sourceTree = "<group>"; };
 		3E2DAD4E23E7D99300A211D3 /* GameLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
 		3E2DAD4F23E7D99300A211D3 /* Peg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peg.swift; sourceTree = "<group>"; };
@@ -143,6 +142,7 @@
 		3EAF89F023F5524B0005F559 /* GameBallTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBallTest.swift; sourceTree = "<group>"; };
 		3EAF89F223F5542F0005F559 /* GameObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjectTest.swift; sourceTree = "<group>"; };
 		3EAF89F423F5543C0005F559 /* PeggleGameEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeggleGameEngineTest.swift; sourceTree = "<group>"; };
+		3EB24865240BC81A009DD156 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EBC267523E83E07001630AB /* SampleLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLevel.swift; sourceTree = "<group>"; };
 		3ED7C410240AB1D600AB8957 /* libPhysicsEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libPhysicsEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED7C413240AB24800AB8957 /* libPhysicsEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libPhysicsEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,7 +228,7 @@
 		3E2DAD2C23E7C92F00A211D3 /* SpookyPeggleTests */ = {
 			isa = PBXGroup;
 			children = (
-				3E2DAD2F23E7C92F00A211D3 /* Info.plist */,
+				3EB24865240BC81A009DD156 /* Info.plist */,
 				3EA6AD4A2401611100682FC9 /* GameLevelTest.swift */,
 				3EA6AD4B2401611100682FC9 /* PegTest.swift */,
 				3EA6AD4C2401611100682FC9 /* CGPointTest.swift */,
@@ -802,14 +802,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PS3Tests/Info.plist;
+				INFOPLIST_FILE = SpookyPeggleTests;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.PS3Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.SpookyPeggleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -824,14 +824,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PS3Tests/Info.plist;
+				INFOPLIST_FILE = SpookyPeggleTests;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.PS3Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calvincxz.SpookyPeggleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

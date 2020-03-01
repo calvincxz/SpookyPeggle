@@ -23,7 +23,7 @@ class LevelSelectionViewController: UIViewController {
     private var levelName = "Untitled"
     private var gameLevel: GameLevel?
     private let levelPreviewStorage = LevelPreviewStorage()
-    var previousScreen: GameScreenType?
+    private var previousScreen: GameScreenType?
     override func viewDidLoad() {
         levelCollectionView.delegate = self
         levelCollectionView.dataSource = self
@@ -31,6 +31,28 @@ class LevelSelectionViewController: UIViewController {
 
     }
 
+    /// Prepares for segue to `GamePlayController` or `LevelDesignerController`
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is GamePlayController {
+            let target = segue.destination as? GamePlayController
+            target?.setGameLevel(gameLevel: gameLevel)
+        }
+
+        if segue.destination is LevelDesignerController {
+            let target = segue.destination as? LevelDesignerController
+            guard let level = gameLevel else {
+                return
+            }
+            target?.gameLevel = level
+            target?.currentLevelName = levelName
+        }
+    }
+
+    func setPreviousScreen(previous: GameScreenType) {
+        previousScreen = previous
+    }
+
+    /// Goes back to home menu when button is pressed
     @IBAction private func backToMenu() {
         dismiss(animated: false, completion: nil)
     }
@@ -93,7 +115,7 @@ extension LevelSelectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-/// Gestures
+/// Handles gestures for `LevelSelectionViewController`
 extension LevelSelectionViewController {
 
     /// Loads a level when single tap is detected on a specific cell.
@@ -136,22 +158,6 @@ extension LevelSelectionViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is GamePlayController {
-            let target = segue.destination as? GamePlayController
-            target?.setGameLevel(gameLevel: gameLevel)
-        }
-
-        if segue.destination is LevelDesignerController {
-            let target = segue.destination as? LevelDesignerController
-            guard let level = gameLevel else {
-                return
-            }
-            target?.gameLevel = level
-            target?.currentLevelName = levelName
-        }
-    }
-
     func deleteLevel(at index: Int) {
         guard levelPreviewStorage.deleteLevel(at: index) else {
             Alert.presentAlert(controller: self, title: "Delete Fail", message: Settings.messageForDeleteFail)
@@ -159,5 +165,4 @@ extension LevelSelectionViewController {
         }
         levelCollectionView.reloadData()
     }
-
 }
