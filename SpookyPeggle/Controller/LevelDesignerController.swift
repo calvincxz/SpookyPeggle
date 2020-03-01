@@ -17,11 +17,11 @@ class LevelDesignerController: UIViewController {
     @IBOutlet private weak var background: UIImageView!
     @IBOutlet private weak var pegBoardView: PegBoardView!
 
-    var currentLevelName: String?
-    var currentPegImageView: PegImageView?
-    var currentSelectedPeg: Peg?
+    private var pegToImageView: [Peg: PegImageView] = [:]
+    private var currentPegImageView: PegImageView?
+    private var currentSelectedPeg: Peg?
     var gameLevel: GameLevel!
-    var pegToImageView: [Peg: PegImageView] = [:]
+    var currentLevelName: String?
 
     /// Hides the status bar at the top
     override var prefersStatusBarHidden: Bool {
@@ -39,7 +39,7 @@ class LevelDesignerController: UIViewController {
             loadNewLevel(level: gameLevel, levelName: currentLevelName ?? "Untitled")
             return
         }
-        gameLevel = GameLevel()
+        gameLevel = GameLevel(size: pegBoardView.frame.size)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,16 +74,16 @@ class LevelDesignerController: UIViewController {
 
     /// Replaces level with data from another `GameLevel`
     private func loadNewLevel(level: GameLevel, levelName: String) {
-        let newLevel = GameLevel()
-        newLevel.loadGameLevel(gameLevel: level)
         resetLevel()
         currentLevelName = levelName
-        for peg in newLevel.getPegsInLevel() {
+        for newPeg in level.getPegsInLevel() {
+            let scaleX = pegBoardView.frame.width / level.getAreaSize().width
+            let scaleY = pegBoardView.frame.height / level.getAreaSize().height
+            let peg = newPeg.moveTo(location: newPeg.centre.moveTo(scaleX: scaleX, scaleY: scaleY))
             gameLevel?.addToLevel(addedPeg: peg)
             let pegImageView = PegImageView(peg: peg)
             pegBoardView.addPegToBoard(peg: pegImageView)
             pegToImageView[peg] = pegImageView
-
         }
     }
 

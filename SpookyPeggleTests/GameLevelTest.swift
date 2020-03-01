@@ -16,25 +16,25 @@ class GameLevelTest: XCTestCase {
     let pegTwo = Peg(type: PegType.blue, circleOfCentre: CGPoint(x: 0, y: 50))
 
     func testConstruct() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         XCTAssertEqual(gameLevel.getPegsInLevel(), [], "Level should be empty")
     }
 
     func testAddToLevel_emptyLevel() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         gameLevel.addToLevel(addedPeg: pegOne)
         XCTAssertEqual(gameLevel.getPegsInLevel(), [pegOne], "Level should contain peg")
     }
 
     func testAddToLevel_nonEmptyLevel_nonExistingPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         gameLevel.addToLevel(addedPeg: pegOne)
         gameLevel.addToLevel(addedPeg: pegTwo)
         XCTAssertEqual(gameLevel.getPegsInLevel(), [pegOne, pegTwo], "Level should contain pegs")
     }
 
     func testAddToLevel_nonEmptyLevel_existingPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
 
         gameLevel.addToLevel(addedPeg: pegOne)
         gameLevel.addToLevel(addedPeg: pegOneWithSameAttributes)
@@ -43,28 +43,28 @@ class GameLevelTest: XCTestCase {
     }
 
     func testRemoveFromLevel_existingPeg_sameConstructedPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         gameLevel.addToLevel(addedPeg: pegOne)
         gameLevel.removeFromLevel(removedPeg: pegOne)
         XCTAssertEqual(gameLevel.getPegsInLevel(), [], "Peg should be removed")
     }
 
     func testRemoveFromLevel_existingPeg_differentConstructedPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         gameLevel.addToLevel(addedPeg: pegOne)
         gameLevel.removeFromLevel(removedPeg: pegOneWithSameAttributes)
         XCTAssertEqual(gameLevel.getPegsInLevel(), [], "Peg should be removed")
     }
 
     func testRemoveFromLevel_nonExistingPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         gameLevel.addToLevel(addedPeg: pegOne)
         gameLevel.removeFromLevel(removedPeg: pegOne_differentColour)
         XCTAssertEqual(gameLevel.getPegsInLevel(), [pegOne], "Peg should not be removed")
     }
 
     func testCanInsertPeg_nonOverlappingPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         gameLevel.addToLevel(addedPeg: pegOne)
         let nonOverlappingPeg = Peg(type: PegType.blue,
                                     circleOfCentre: CGPoint(x: 0, y: Settings.defaultPegDiameter))
@@ -72,7 +72,7 @@ class GameLevelTest: XCTestCase {
     }
 
     func testCanInsertPeg_overlappingPeg() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
 
         gameLevel.addToLevel(addedPeg: pegOne)
         let overlappingPeg = Peg(type: PegType.blue,
@@ -81,7 +81,7 @@ class GameLevelTest: XCTestCase {
     }
 
     func testCanInsertPeg_surroundedByFourPeg_success() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         let defaultDiameter = Int(Settings.defaultPegDiameter)
         let twiceOfDiameter = 2 * defaultDiameter
 
@@ -100,7 +100,7 @@ class GameLevelTest: XCTestCase {
     }
 
     func testCanInsertPeg_surroundedByFourPeg_failure() {
-        let gameLevel = GameLevel()
+        let gameLevel = GameLevel(size: CGSize.zero)
         let defaultDiameter = Int(Settings.defaultPegDiameter)
         let twiceOfDiameter = 2 * defaultDiameter
 

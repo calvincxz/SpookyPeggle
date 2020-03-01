@@ -84,8 +84,8 @@ class PeggleGameEngine {
         handleBottomExit(ball: ball)
         handleWallCollision(ball: ball)
         handleBallCollisionWithPeg(ball: ball)
-        handleBallMovement(ball: ball)
         handleBucketCollision(ball: ball)
+        handleBallMovement(ball: ball)
     }
 
     /// Resets the `PeggleGameEngine` for a new game.
@@ -141,12 +141,6 @@ class PeggleGameEngine {
 
     /// Handles movement of the ball.
     private func handleBallMovement(ball: GameBall) {
-        let vx = ball.velocity.dx
-        let vy = ball.velocity.dy
-
-        if vy > Settings.maxVelocityForBall {
-            ball.velocity = CGVector(dx: vx, dy: Settings.maxVelocityForBall)
-        }
         ball.move()
         contactDelegate?.handleBallMovement(ballObject: ball)
     }

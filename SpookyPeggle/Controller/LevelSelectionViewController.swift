@@ -8,22 +8,24 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-private let itemsPerRow: CGFloat = 3
-
 class LevelSelectionViewController: UIViewController {
+
     @IBOutlet private weak var levelCollectionView: UICollectionView!
+
+    private let reuseIdentifier = "Cell"
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let itemsPerRow: CGFloat = 3
+
+    private var levelName = "Untitled"
+    private var gameLevel: GameLevel?
+    private let levelPreviewStorage = LevelPreviewStorage()
+    private var previousScreen: GameScreenType?
 
     /// Hides the status bar at the top
     override var prefersStatusBarHidden: Bool {
         return true
     }
 
-    private var levelName = "Untitled"
-    private var gameLevel: GameLevel?
-    private let levelPreviewStorage = LevelPreviewStorage()
-    private var previousScreen: GameScreenType?
     override func viewDidLoad() {
         levelCollectionView.delegate = self
         levelCollectionView.dataSource = self
@@ -139,7 +141,8 @@ extension LevelSelectionViewController {
 
     private func loadGameLevel(at index: Int) {
         guard let gameLevel = levelPreviewStorage.getData(at: index) else {
-            fatalError("No game")
+            Alert.presentAlert(controller: self, title: "Load Level Fail", message: Settings.messageForLoadLevelFailure)
+            return
         }
 
         guard let previous = previousScreen else {

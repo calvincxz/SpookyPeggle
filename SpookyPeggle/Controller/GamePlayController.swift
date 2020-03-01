@@ -88,7 +88,10 @@ class GamePlayController: UIViewController {
 
     /// Loads the game pegs from a game level.
     private func setupGameLevel(gameLevel: GameLevel) {
-        for peg in gameLevel.getPegsInLevel() {
+        for newPeg in gameLevel.getPegsInLevel() {
+            let scaleX = pegBoard.frame.width / gameLevel.getAreaSize().width
+            let scaleY = pegBoard.frame.height / gameLevel.getAreaSize().height
+            let peg = newPeg.moveTo(location: newPeg.centre.moveTo(scaleX: scaleX, scaleY: scaleY))
             addToModelView(peg: peg)
         }
         engine.initializeOrangePegStatus()

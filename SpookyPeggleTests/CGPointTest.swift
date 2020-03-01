@@ -7,8 +7,7 @@
 //
 
 import XCTest
-import Foundation
-@testable import PS3
+@testable import PhysicsEngine
 
 class CGPointTest: XCTestCase {
 

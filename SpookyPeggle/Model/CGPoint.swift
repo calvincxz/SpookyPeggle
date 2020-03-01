@@ -31,6 +31,10 @@ extension CGPoint {
         return CGPoint(x: x, y: y)
     }
 
+    func moveTo(scaleX: CGFloat, scaleY: CGFloat) -> CGPoint {
+        return CGPoint(x: x * scaleX, y: y * scaleY)
+    }
+
     func moveTo(dx: CGFloat, dy: CGFloat) -> CGPoint {
         return CGPoint(x: x + dx, y: y + dy)
     }

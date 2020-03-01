@@ -138,7 +138,7 @@ open class PhysicsBody {
                                                                 vertices: polygonObject.physicalShape.vertices) else {
                 return
             }
-            normalVector = CGVector(dx: (edge.0.y - edge.1.y), dy: -(edge.0.x - edge.1.x))
+            normalVector = CGVector(dx: -(edge.0.y - edge.1.y), dy: (edge.0.x - edge.1.x))
         }
 
         guard let normal = normalVector else {

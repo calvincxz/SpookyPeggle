@@ -14,6 +14,16 @@ import CoreGraphics
 */
 class GameLevel: Codable {
     private var pegsInLevel = Set<Peg>()
+    private var size: CGSize
+
+    /// Constructs a `GameLevel` with the given size as bounds
+    init(size: CGSize) {
+        self.size = size
+    }
+
+    func getAreaSize() -> CGSize {
+        return size
+    }
 
     func loadGameLevel(gameLevel: GameLevel) {
         resetLevel()

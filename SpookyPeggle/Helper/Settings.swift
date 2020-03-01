@@ -35,6 +35,7 @@ enum Settings {
     static let cannonRotationPerGesture = CGFloat(0.02)
     static let maximumCannonRotationAngle = CGFloat(1.2)
     static let minScoreForFreeBall = 2_000
+    static let bonusScoreForBallAfterWin = 1_000
     static let spookyBlastMaxLength = Settings.defaultPegDiameter * 3
     static let bucketWidthIncreaseScaleForPowerUp = CGFloat(1.5)
 

@@ -14,7 +14,7 @@ import UIKit
 */
 enum SampleLevel {
     static func getSampleLevel(view: UIView) -> GameLevel {
-        let level = GameLevel()
+        let level = GameLevel(size: view.frame.size)
         let widthInterval = view.bounds.width / 11
         let heightInterval = view.bounds.height / 11
 
@@ -45,7 +45,7 @@ enum SampleLevel {
     }
 
     static func getSampleLevelTwo(view: UIView) -> GameLevel {
-        let level = GameLevel()
+        let level = GameLevel(size: view.frame.size)
         let widthInterval = view.bounds.width / 12
         let heightInterval = view.bounds.height / 12
 

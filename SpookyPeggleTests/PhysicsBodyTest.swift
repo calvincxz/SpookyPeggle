@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SpookyPeggle
+@testable import PhysicsEngine
 
 class PhysicsBodyTest: XCTestCase {
     let origin = CGPoint(x: 0, y: 0)
@@ -32,13 +32,8 @@ class PhysicsBodyTest: XCTestCase {
                                      length: CGFloat(100), rotation: CGFloat.zero)
         let circle = PhysicsBody(radius: CGFloat(25), circleWithCentre: CGPoint(x: 90, y: 123))
         let circle1 = PhysicsBody(radius: CGFloat(25), circleWithCentre: CGPoint(x: 25, y: 120))
-        XCTAssertTrue(circle.collidedWith(triangularObject: sampleBody))
-        XCTAssertTrue(circle1.collidedWith(triangularObject: sampleBody))
-    }
-
-    func testIsShape() {
-        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
-        XCTAssertTrue(sampleBody.isShape(.Circle), "Object should be circular")
+        XCTAssertTrue(circle.collidedWith(other: sampleBody))
+        XCTAssertTrue(circle1.collidedWith(other: sampleBody))
     }
 
     func testStop_nonMovingObject() {
@@ -56,7 +51,7 @@ class PhysicsBodyTest: XCTestCase {
     }
 
     func testMove_staticObject_constantVelocity() {
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
         sampleBody.isDynamic = false
         sampleBody.velocity = sampleVector
         sampleBody.move()
@@ -115,7 +110,7 @@ class PhysicsBodyTest: XCTestCase {
     }
 
     func testReflectVelocityInDirectionX_movingObject() {
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
         sampleBody.velocity = sampleVector
         sampleBody.reflectVelocityInDirectionX()
         XCTAssertEqual(sampleBody.velocity, CGVector(dx: -sampleVector.dx, dy:
@@ -138,8 +133,8 @@ class PhysicsBodyTest: XCTestCase {
 
     func testCollidedWith_success() {
         let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
-        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 1, y: 1))
-        XCTAssertTrue(sampleBody.collidedWith(circularObject: sampleBodyTwo), "Objects should collide")
+        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 1, y: 1))
+        XCTAssertTrue(sampleBody.collidedWith(other: sampleBodyTwo), "Objects should collide")
     }
 
     func testCollidedWith_failure() {
@@ -152,15 +147,14 @@ class PhysicsBodyTest: XCTestCase {
         let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
         sampleBody.velocity = CGVector(dx: 1, dy: 1)
         let sampleBodyTwo = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 1, y: 1))
-        XCTAssertTrue(sampleBody.willCollide(circularObject: sampleBodyTwo), "Objects will collide")
+        XCTAssertTrue(sampleBody.willCollide(other: sampleBodyTwo), "Objects will collide")
     }
 
     func testWillCollide_failure() {
         let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
         sampleBody.velocity = CGVector(dx: 1, dy: 1)
-        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 2, y: 1))
-        XCTAssertFalse(sampleBody.willCollide(circularObject: sampleBodyTwo,
-                                              tolerance: CGFloat.zero), "Objects will not collide")
+        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 3, y: 1))
+        XCTAssertFalse(sampleBody.willCollide(other: sampleBodyTwo), "Objects will not collide")
     }
 
 }

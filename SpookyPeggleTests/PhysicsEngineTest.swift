@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PS3
+@testable import PhysicsEngine
 
 class PhysicsEngineTest: XCTestCase {
     let testArea = CGSize(width: 10, height: 10)
@@ -28,7 +28,7 @@ class PhysicsEngineTest: XCTestCase {
 
     func testResetPhysicsEngine_nonEmptyEngine() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
         testEngine.resetPhysicsEngine()
@@ -37,7 +37,7 @@ class PhysicsEngineTest: XCTestCase {
 
     func testAddToPhysicsWorld_nonEmptyEngine() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
@@ -46,7 +46,7 @@ class PhysicsEngineTest: XCTestCase {
 
     func testRemoveFromPhysicsWorld_nonExistingBody_removeFailure() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
         let sampleBodyCopy = PhysicsBody(physicsBody: sampleBody)
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
@@ -57,7 +57,7 @@ class PhysicsEngineTest: XCTestCase {
 
     func testRemoveFromPhysicsWorld_existingBody_removeSuccess() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
 
         testEngine.removeFromPhysicsWorld(physicsBody: sampleBody)
 
@@ -66,7 +66,7 @@ class PhysicsEngineTest: XCTestCase {
 
     func testCheckTopCollision_success() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
@@ -75,43 +75,47 @@ class PhysicsEngineTest: XCTestCase {
 
     func testCheckTopCollision_failure() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 5, y: 5))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 5, y: 5))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
-        XCTAssertFalse(testEngine.checkTopCollision(object: sampleBody), "Physics body should not collide with top")
+        XCTAssertFalse(testEngine.checkTopCollision(object: sampleBody),
+                       "Physics body should not collide with top")
     }
 
     func testCheckLeftSideCollision_success() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: origin)
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: origin)
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
-        XCTAssertTrue(testEngine.checkSideCollision(object: sampleBody), "Physics body should collide with left side")
+        XCTAssertTrue(testEngine.checkSideCollision(circularObject: sampleBody),
+                      "Physics body should collide with left side")
     }
 
     func testCheckRightSideCollision_success() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 9, y: 5))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 9, y: 5))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
-        XCTAssertTrue(testEngine.checkSideCollision(object: sampleBody), "Physics body should collide with right side")
+        XCTAssertTrue(testEngine.checkSideCollision(circularObject: sampleBody),
+                      "Physics body should collide with right side")
     }
 
     func testCheckSideCollision_failure() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 5, y: 5))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 5, y: 5))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
-        XCTAssertFalse(testEngine.checkSideCollision(object: sampleBody), "Physics body should not collide with side")
+        XCTAssertFalse(testEngine.checkSideCollision(circularObject: sampleBody),
+                       "Physics body should not collide with side")
     }
 
     func testCheckBottomCollision_success() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 5, y: 9))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 5, y: 9))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
@@ -120,7 +124,7 @@ class PhysicsEngineTest: XCTestCase {
 
     func testCheckBottomCollision_failure() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 5, y: 5))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 5, y: 5))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
 
@@ -130,8 +134,8 @@ class PhysicsEngineTest: XCTestCase {
 
     func testCheckCollision_success() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 5, y: 5))
-        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 6, y: 5))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 5, y: 5))
+        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 6, y: 5))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
         testEngine.addToPhysicsWorld(physicsBody: sampleBodyTwo)
@@ -141,8 +145,8 @@ class PhysicsEngineTest: XCTestCase {
 
     func testCheckCollision_failure() {
         let testEngine = PhysicsEngine(area: testArea)
-        let sampleBody = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 5, y: 5))
-        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, centre: CGPoint(x: 7, y: 7))
+        let sampleBody = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 5, y: 5))
+        let sampleBodyTwo = PhysicsBody(radius: sampleFloat, circleWithCentre: CGPoint(x: 7, y: 7))
 
         testEngine.addToPhysicsWorld(physicsBody: sampleBody)
         testEngine.addToPhysicsWorld(physicsBody: sampleBodyTwo)
