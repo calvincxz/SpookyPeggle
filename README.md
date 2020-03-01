@@ -5,17 +5,17 @@
 **Matric No:** A0190624H
 
 ## Credits
-<a href="https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle">Code to determine point in triangle adapted from here</a>
-<a href="http://www.jeffreythompson.org/collision-detection/line-circle.php">Code to determine intersection of line with circle adapted from here</a>
-<a href="https://math.stackexchange.com/questions/13261/how-to-get-a-reflection-vector">Math formula for reflection vector</a>
-<a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
-<a href="https://soundcloud.com/zebestian/sets/halloween-music-pack-2019">Background Music created by Zebestian</a>
-<a href="https://www.deviantart.com/ry-spirit/art/Pikaboo-569364686">Pikachu image created by Ry-Spirit</a>
-<a href="https://www.pinterest.com/pin/548313323384389547/">Togepi image</a>
-<a href="https://www.gamedevmarket.net/asset/halloween-icons/">General halloween icons by Kandles</a>
-<a href="https://opengameart.org/content/won-orchestral-winning-jingle">Sound effect for win</a>
-<a href="https://freesound.org/people/pinkyfinger/sounds/">Peg hit sound effects by pinkyfinger</a>
-<a href="https://opengameart.org/">Other sound effects</a>
+1. <a href="https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle">Code to determine point in triangle adapted from here</a>
+2. <a href="http://www.jeffreythompson.org/collision-detection/line-circle.php">Code to determine intersection of line with circle adapted from here</a>
+3. <a href="https://math.stackexchange.com/questions/13261/how-to-get-a-reflection-vector">Math formula for reflection vector</a>
+4. <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
+5. <a href="https://soundcloud.com/zebestian/sets/halloween-music-pack-2019">Background Music created by Zebestian</a>
+6. <a href="https://www.deviantart.com/ry-spirit/art/Pikaboo-569364686">Pikachu image created by Ry-Spirit</a>
+7. <a href="https://www.pinterest.com/pin/548313323384389547/">Togepi image</a>
+8. <a href="https://www.gamedevmarket.net/asset/halloween-icons/">General halloween icons by Kandles</a>
+9. <a href="https://opengameart.org/content/won-orchestral-winning-jingle">Sound effect for win</a>
+10. <a href="https://freesound.org/people/pinkyfinger/sounds/">Peg hit sound effects by pinkyfinger</a>
+11. <a href="https://opengameart.org/">Other sound effects</a>
 
 ## Tips
 1. CS3217's docs is at https://cs3217.netlify.com. Do visit the docs often, as
@@ -31,10 +31,8 @@
 3. Do not burn out. Have fun!
 
 ## Dev Guide
-You may put your dev guide either in this section, or in a new file entirely.
-You are encouraged to include diagrams where appropriate in order to enhance
-your guide.
-[Test Plan](DeveloperGuide.md)
+
+[Developer Guide](DeveloperGuide.md)
 
 ## Rules of the Game
 Please write the rules of your game here. This section should include the
@@ -146,9 +144,6 @@ write this section in a new file entirely, if you wish.
 
 
 ## Tests
-If you decide to write how you are going to do your tests instead of writing
-actual tests, please write in this section. If you decide to write all of your
-tests in code, please delete this section.
 [Test Plan](TestPlan.md)
 
 ## Written Answers
