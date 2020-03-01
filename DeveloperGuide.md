@@ -56,11 +56,12 @@ The `LevelDesignerController` controls level design screen to allow users to des
 
 #### Activity Diagram for Adding Peg
 <p align="center">
-<img src=Images/AD2.png width=70% height=40%>
+<img src=Images/ActivityDiagram2.png width=70% height=40%>
 </p>
+
 #### Activity Diagram for Saving Level
 <p align="center">
-<img src=Images/AD1.png width=70% height=40%>
+<img src=Images/ActivityDiagram1.png width=70% height=40%>
 </p>
 
 
@@ -90,13 +91,12 @@ via a `ContactDelegate` protocol to provide an accurate simulation of movements/
 
 #### Activity Diagram for Cannon Rotation
 <p align="center">
-<img src=Images/AD3.png width=70% height=40%>
+<img src=Images/ActivityDiagram3.png width=70% height=40%>
 </p>
-
 
 #### Activity Diagram for Game Play
 <p align="center">
-<img src=Images/AD4.png width=70% height=40%>
+<img src=Images/ActivityDiagram4.png width=70% height=40%>
 </p>
 
 ### EndGameViewController
