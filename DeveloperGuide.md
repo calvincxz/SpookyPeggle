@@ -29,15 +29,13 @@ Each controller is in-charge of the game screen that the user sees. There are 5 
 
 ### HomeViewController
 The `HomeViewController` controls the main menu page for *SpookyPeggle* . It is the first view that the user sees.
-
-Activity Diagram    
+  
 <p align="center">
-<img src=Images/Home.PNG width=70% height=70%>
+<img src=Images/Home.PNG width=70% height=40%>
 </p>
 
 * Game master buttons
 	* Allows selections of game masters
-
 * `LevelDesign` button segues to: `LevelDesignerController`  
 * `Play` button segues to: `LevelSelectionViewController` 
 
@@ -45,23 +43,28 @@ Activity Diagram
 The `LevelDesignerController` controls level design screen to allow users to design their own
 *SpookyPeggle* level.
 
+<p align="center">
+<img src=Images/LevelDesign.png width=70% height=40%>
+</p>
+
 * Handles user gestures for peg modification in level designer
 * Buttons for palette peg selection
 * Buttons for transitions to other game screens
 	1. `LevelSelectionViewController` via load button
 	2. `GamePlayController` via start button
 	3. `HomeViewController` via menu button
+	
 
-Activity Diagram	
-<p align="center">
-<img src=Images/Home.png width=70% height=70%>
-</p>
 
 ### LevelSelectionViewController
 The `LevelSelectionViewController` controls level selection screen.
 Its behaviours depends on the previous screen of the user before arriving here. 
 If user came from `LevelDesignerController`, selecting a level will segue back to `LevelDesignerController`
 If user came from `HomeViewController`, selecting a level will segue to `GamePlayController` 
+
+<p align="center">
+<img src=Images/LevelSelect.png width=70% height=40%>
+</p>
 
 * Handles user gestures for selecting and deleting a game level
 * `Back` button to segue to previous controller
@@ -72,10 +75,9 @@ via a `ContactDelegate` protocol to provide an accurate simulation of movements/
 * `PeggleGameEngine` 
 * Buttons for transitions to other game screens
 	1. Go back to `LevelSelectionViewController` or `LevelDesignerController` via back button
-	
-Activity Diagram	
+
 <p align="center">
-<img src=ArchitectureDiagram.png width=70% height=70%>
+<img src=Images/GamePlay.png width=70% height=40%>
 </p>
 
 ### EndGameViewController
@@ -84,4 +86,6 @@ The `EndGameViewController` controls end game screen after player wins/loses the
 	1. `GamePlayController` via replay button
 	2. `HomeViewController` via home button
 
-## Unit Test
+<p align="center">
+<img src=Images/EndGame.png width=70% height=40%>
+</p>
