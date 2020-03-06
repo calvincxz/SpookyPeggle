@@ -1,8 +1,8 @@
-# CS3217 Problem Set 4
+# SpookyPeggle
 
-**Name:** Calvin Chen Xingzhu
-
-**Matric No:** A0190624H
+<p align="center">
+<img src=Images/Home.PNG width=70% height=40%>
+</p>
 
 ## Credits
 1. <a href="https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle">Code to determine point in triangle adapted from here</a>
@@ -15,19 +15,6 @@
 9. <a href="https://opengameart.org/content/won-orchestral-winning-jingle">Sound effect for win</a>
 10. <a href="https://freesound.org/people/pinkyfinger/sounds/">Peg hit sound effects by pinkyfinger</a>
 11. <a href="https://opengameart.org/">Other sound effects</a>
-
-## Tips
-1. CS3217's docs is at https://cs3217.netlify.com. Do visit the docs often, as
-   it contains all things relevant to CS3217.
-2. A Swiftlint configuration file is provided for you. It is recommended for you
-   to use Swiftlint and follow this configuration. We opted in all rules and
-   then slowly removed some rules we found unwieldy; as such, if you discover
-   any rule that you think should be added/removed, do notify the teaching staff
-   and we will consider changing it!
-
-   In addition, keep in mind that, ultimately, this tool is only a guideline;
-   some exceptions may be made as long as code quality is not compromised.
-3. Do not burn out. Have fun!
 
 ## Dev Guide
 [Developer Guide](DeveloperGuide.md)
